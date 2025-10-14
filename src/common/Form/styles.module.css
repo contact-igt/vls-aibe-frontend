@@ -1,0 +1,41 @@
+.formTopic {
+    background: linear-gradient(165deg, #b20a0a, #000);
+    padding: 15px;
+    text-align: start;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.inputgrp {
+    padding-top: 20px;
+}
+
+.inputgrp label {
+    color: #000;
+}
+
+.inputgrp input,
+.inputgrp input:active,
+.inputgrp input:focus {
+    border: 2px solid #b5b6b8;
+    padding: 15px;
+    box-shadow: none !important;
+}
+
+.inputgrp button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+@media (width < 1200px) {
+
+    .formTopic h4 {
+        font-size: 20px;
+    }
+
+    .formTopic p {
+        font-size: 14px;
+    }
+
+}
