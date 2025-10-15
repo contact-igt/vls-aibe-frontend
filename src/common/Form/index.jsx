@@ -92,7 +92,7 @@ const Form = () => {
         <p>
           Please complete the form, make the payment, and confirm your seat now!
         </p>
-        <h6>₹500 + GST (3.6%) = ₹518 total</h6>
+        <h6>₹500 + Tax (18%) = ₹590 total</h6>
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.inputgrp}>

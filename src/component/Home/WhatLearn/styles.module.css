@@ -1,0 +1,26 @@
+.learncard {
+    width: 100%;
+    background: linear-gradient(165deg, #b20a0a, #000);
+    color: #fff;
+    padding: 30px 20px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.iconsec {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.contentsec h4 {
+    font-size: 20px;
+}
+
+.contentsec p {
+
+    font-size: 18px
+}

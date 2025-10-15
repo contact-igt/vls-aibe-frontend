@@ -1,0 +1,45 @@
+.decodingSection {
+    background-color: #f9f2f2;
+}
+
+
+
+.numcard {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #b20a0a;
+    padding-top: 28px;
+
+}
+
+.numcard h5 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0px;
+}
+
+.stepCard {
+    width: 300px;
+    text-align: center;
+}
+
+.stepCard::after{
+    content: "";
+    width: 200px;
+    height: 100px;
+    border-top: 1px solid #000;
+}
+
+.stepCard h6 {
+    font-size: 22px;
+    margin: 15px 0px;
+    font-weight: 700;
+}
+
+.stepCard p {
+    font-size: 18px;
+}

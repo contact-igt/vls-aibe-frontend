@@ -6,12 +6,18 @@ import Form from "@/common/Form";
 const HeroBanner = ({ herobanner_constant }) => {
   return (
     <section className={styles.heroBannerSection}>
-      <div className="container">
+
+      <div className={styles.overlay}>
+
+      </div>
+
+      <div className={styles.herobannerContent}>
+         <div className="container">
         <div className="row">
           <div className="col-lg-7 py-3 ">
             <div className={styles.heroBannerContent}>
               <h1 className={styles.heroBannerTitle}>
-                Clear <span> AIBE </span> by Decoding the <span> BARE </span>{" "}
+                Clear <span> AIBE </span> By Decoding The <span> BARE </span>{" "}
                 Act
               </h1>
               <p className={styles.heroBannerDescription}>
@@ -35,13 +41,23 @@ const HeroBanner = ({ herobanner_constant }) => {
               </div>
 
               <div className={`${styles.heroBannerCta} d-flex gap-4 pt-3`}>
-                {herobanner_constant?.ctaBtn?.map((data, i) => (
-                  <Button
-                    name={data?.name}
-                    bg_color={i == "0" ? "#b20a0a" : "#ffff"}
-                    name_color={i == "0" ? "#ffff" : "#000"}
-                  />
-                ))}
+                <Button
+                  name={"Book with ₹590"}
+                  bg_color={"#b20a0a"}
+                  name_color={"#ffff"}
+                  icon={"notepad-text"}
+                  btn_type={"button"}
+                  icon_color={"#fff"}
+                />
+
+                <Button
+                  name={"Chat on WhatsApp"}
+                  bg_color={"#ffff"}
+                  name_color={"#000"}
+                  btn_type={"link"}
+                  href={"http://wa.me/+919500025216"}
+                  img={"/assets/whatsapp-icon.png"}
+                />
               </div>
             </div>
           </div>
@@ -52,6 +68,8 @@ const HeroBanner = ({ herobanner_constant }) => {
           </div>
         </div>
       </div>
+      </div>
+     
     </section>
   );
 };
