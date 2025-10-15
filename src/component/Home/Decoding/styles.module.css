@@ -27,12 +27,6 @@
     text-align: center;
 }
 
-.stepCard::after{
-    content: "";
-    width: 200px;
-    height: 100px;
-    border-top: 1px solid #000;
-}
 
 .stepCard h6 {
     font-size: 22px;

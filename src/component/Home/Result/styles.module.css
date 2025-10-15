@@ -1,0 +1,64 @@
+.resultSection {
+    background-color: #000;
+    color: #fff;
+}
+
+.resultCard {
+    width: 280px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    color: #000;
+}
+
+
+
+.cardIcon svg {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 100px;
+    color: #b20a0a;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+}
+
+.resultCard:hover .cardIcon svg {
+    background-color: #b20a0a;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.05);
+}
+
+.resultCard h6 {
+    font-size: 28px;
+    margin: 25px 0px;
+    font-weight: 700;
+}
+
+.resultCard p {
+    text-transform: uppercase;
+
+}
+
+.bulletpoint p {
+    font-size: 18px;
+}
+
+.Proven {
+    padding: 30px 50px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 15px;
+    margin-top: 6rem;
+    box-shadow: rgb(160 9 9) 0px 2px 4px 0px, rgb(255 0 0) 0px 2px 16px 0px;
+
+}
+
+.Result {
+    margin-top: 6rem;
+}
