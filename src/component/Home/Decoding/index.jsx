@@ -13,7 +13,7 @@ const Decoding = ({ decoding_constant }) => {
       />
 
       <div className="container">
-        <div className="d-flex justify-content-center gap-5">
+        <div className="d-flex flex-wrap align-items-center justify-content-center gap-5">
           {decoding_constant?.map((data, i) => (
             <div className={styles.stepCard}>
               <div className="d-flex justify-content-center">

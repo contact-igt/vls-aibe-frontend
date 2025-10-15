@@ -2,8 +2,9 @@ import Button from "@/common/Button";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Form from "@/common/Form";
+import { forwardRef } from "react";
 
-const HeroBanner = ({ herobanner_constant }) => {
+const HeroBanner = forwardRef(({ herobanner_constant, scrollToContactForm }, ref) => {
   return (
     <section className={styles.heroBannerSection}>
       <div className={styles.overlay}></div>
@@ -25,7 +26,7 @@ const HeroBanner = ({ herobanner_constant }) => {
                   {herobanner_constant?.bullet_points?.map((data, i) => (
                     <div
                       key={i}
-                      className={`${styles.bulletpoint} d-flex align-items-center gap-3 mb-4`}
+                      className={`${styles.bulletpoint} d-flex align-items-center gap-1 gap-3 mb-4`}
                     >
                       <DynamicIcon
                         name="circle-check"
@@ -39,6 +40,7 @@ const HeroBanner = ({ herobanner_constant }) => {
 
                 <div className={`${styles.heroBannerCta} d-flex gap-4 pt-3`}>
                   <Button
+                    onClick={scrollToContactForm}
                     name={"Book with ₹500"}
                     bg_color={"#b20a0a"}
                     name_color={"#ffff"}
@@ -58,8 +60,8 @@ const HeroBanner = ({ herobanner_constant }) => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-5">
-              <div className={styles.bannerForm}>
+            <div  className="col-lg-5">
+              <div ref={ref} className={styles.bannerForm}>
                 <Form />
               </div>
             </div>
@@ -68,6 +70,6 @@ const HeroBanner = ({ herobanner_constant }) => {
       </div>
     </section>
   );
-};
+});
 
 export default HeroBanner;

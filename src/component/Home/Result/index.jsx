@@ -8,7 +8,7 @@ const Result = ({ result_constant }) => {
       <Title title={"Proven"} highlight={"Results"} />
 
       <div className="container">
-        <div className={`${styles.Result} d-flex justify-content-center gap-5`}>
+        <div className={`${styles.Result} d-flex flex-wrap justify-content-center gap-5`}>
           {result_constant?.result?.map((data, i) => (
             <div className={styles.resultCard}>
               <div className={styles.cardIcon}>

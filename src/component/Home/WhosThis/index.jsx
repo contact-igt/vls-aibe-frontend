@@ -16,18 +16,18 @@ const WhosThis = ({ whosthis_constant }) => {
         <div>
           {whosthis_constant?.map((data, i) => (
             <div
-              className={`d-flex align-items-center justify-content-center gap-5 ${
-                data?.id % 2 == "0" ? "flex-row-reverse" : ""
-              } `}
+              key={i}
+              className={`${styles.whosthisItem} ${
+                data?.id % 2 == "0" ? styles.reverse : ""
+              }`}
             >
               <div className={styles.content}>
-                <DynamicIcon name="graduation-cap" />
+                <DynamicIcon name={data?.icon} size={50} color="#b20a0a" />
                 <h4>{data?.title}</h4>
                 <p>{data?.description}</p>
               </div>
-              <div className={`${styles.Number} d-flex justify-content-center`}>
+              <div className={styles.Number}>
                 <h4>{data?.id}</h4>
-                <div className={styles.double_circle}></div>
               </div>
             </div>
           ))}

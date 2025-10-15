@@ -11,6 +11,7 @@ const Button = ({
   bg_color,
   btn_type,
   href,
+  onClick
 }) => {
   return (
     <>
@@ -20,6 +21,7 @@ const Button = ({
           className={`${styles.commnbtn} btn d-flex align-items-center gap-2 justify-content-center `}
           type="submit"
           style={{ backgroundColor: bg_color, color: name_color }}
+          onClick={onClick}
         >
           {img ? (
             <Image
@@ -57,6 +59,7 @@ const Button = ({
         </a>
       ) : (
         <button
+          onClick={onClick}
           className={`${styles.commnbtn} btn d-flex align-items-center gap-2 justify-content-center `}
           type="button"
           style={{ backgroundColor: bg_color, color: name_color }}

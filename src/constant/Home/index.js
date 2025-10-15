@@ -89,6 +89,7 @@ export const HomePageConstant = {
       title: "LL.B. Graduates",
       description:
         "Fresh graduates preparing for AIBE who need structured guidance and a clear roadmap to certification.",
+      icon: "graduation-cap",
     },
 
     {
@@ -97,6 +98,7 @@ export const HomePageConstant = {
       title: "Non-Bare Act Learners",
       description:
         "Those who didn't study using the Bare Act in college and need to build that foundational approach.",
+      icon: "book-open-text",
     },
 
     {
@@ -105,6 +107,7 @@ export const HomePageConstant = {
       title: "Repeat Takers",
       description:
         "Candidates who need a proven method and strategic framework, not just more study notes.",
+      icon: "refresh-cw",
     },
 
     {
@@ -113,6 +116,7 @@ export const HomePageConstant = {
       title: "Working Professionals",
       description:
         "Busy professionals seeking a time-boxed, efficient plan that fits into their demanding schedules.",
+      icon: "briefcase",
     },
   ],
 
@@ -211,4 +215,93 @@ export const HomePageConstant = {
         "Advance is non-refundable. The remaining amount is refundable before November 1 on request.",
     },
   ],
+  schedule: {
+    title: "Complete Schedule",
+    scheduleData: [
+      {
+        id: 1,
+        icon: "calendar",
+        title: "Dates",
+        description: "Nov 1 (Fri), Nov 2 (Sat), Nov 3 (Sun)",
+      },
+      {
+        id: 2,
+        icon: "clock",
+        title: "Time",
+        description: "5:00–9:00 pm IST (4 hrs/day)",
+      },
+      {
+        id: 3,
+        icon: "target",
+        title: "Format",
+        description: "2 hrs theory + 2 hrs drills",
+      },
+      {
+        id: 4,
+        icon: "users",
+        title: "Access",
+        description: "Live Zoom + practice sets + doubt-clearing",
+      },
+    ],
+  },
+  included: {
+    title: "Everything Included in 25 Hours",
+    includedData: [
+      {
+        id: 1,
+        title: "Live Classes",
+        description: "Interactive sessions with expert instructors",
+      },
+      {
+        id: 1,
+        title: "Bare Act Decoding Drills",
+        description: "Timed practice with real question patterns",
+      },
+      {
+        id: 1,
+        title: "Practice Tests",
+        description: "Full-length mock exams with detailed feedback",
+      },
+      {
+        id: 1,
+        title: "Doubt-Clearing Support",
+        description: "Direct access to mentors for questions",
+      },
+      {
+        id: 1,
+        title: "Revision Framework",
+        description: "Structured plan for last-minute revision",
+      },
+    ],
+    tagData: ["Beginner-friendly", "Section-first pedagogy", "Exam-oriented"],
+  },
+  whatWeCover: {
+    title: "What We Cover",
+    WhatWeCoverList: [
+      {
+        title: "Module 1: BARE Act mindset",
+        description:
+          "Shift from cover-to-cover reading to strategic section mapping",
+      },
+      {
+        title: "Module 2: Pattern recognition",
+        description:
+          "Learn how AIBE questions are structured and what they test",
+      },
+      {
+        title: "Module 3: Section mapping",
+        description:
+          "Build instant recall for high-yield sections across all Acts",
+      },
+      {
+        title: "Module 4: Timed decoding drills",
+        description:
+          "Practice under exam conditions with real question formats",
+      },
+      {
+        title: "Module 5: Exam day playbook",
+        description: "Complete strategy for time management and stress control",
+      },
+    ],
+  },
 };

@@ -12,7 +12,7 @@ const WhatLearn = ({ whatlearn_constant }) => {
           <div className="row">
             {whatlearn_constant?.map((data, i) => (
               <div className="col-lg-6 d-flex justify-content-center">
-                <div key={i} className={`${styles.learncard} d-flex align-items-center gap-4`}>
+                <div key={i} className={`${styles.learncard} d-flex align-items-center align-items-md-start gap-4`}>
                   <div className={styles.iconsec}>
                     <DynamicIcon name={data?.icon} color="#fff" size={40} />
                   </div>
