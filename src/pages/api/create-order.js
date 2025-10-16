@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid amount" });
     }
 
-    const key_id = process.env.REACT_APP_RAZORPAY_TEST_KEY_ID;
+    const key_id = process.env.REACT_APP_RAZORPAY_KEY_ID;
     const secret = process.env.REACT_APP_RAZORPAY_KEY_SECRET;
     const auth =
       "Basic " + Buffer.from(`${key_id}:${secret}`).toString("base64");

@@ -39,7 +39,6 @@ export default async function handler(req, res) {
         to: phone,
         type: "template",
         template: {
-          // 👇 update to your new template name in AskEva
           name: "aibe_registration_message",
           language: {
             policy: "deterministic",
