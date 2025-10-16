@@ -22,21 +22,19 @@ const AttemptFails = ({ attempt_constant, handleScrollToCover }) => {
               </li>
             ))}
           </ul>
-          <div
+
+          <Button
+            name="See the Method"
+            bg_color={"#b20a0a"}
+            name_color={"#fff"}
+            className={styles.see_method_btn}
+            btn_type={"button"}
+            icon={"circle-chevron-down"}
             onClick={() => {
               handleScrollToCover();
             }}
-          >
-            <Button
-              name="See the Method"
-              bg_color={"#b20a0a"}
-              name_color={"#fff"}
-              className={styles.see_method_btn}
-              btn_type={"button"}
-              icon={"circle-chevron-down"}
-              icon_color={"#fff"}
-            />
-          </div>
+            icon_color={"#fff"}
+          />
         </div>
         <div className={styles.attempt_fails_right}>
           {/* You can add an image here */}

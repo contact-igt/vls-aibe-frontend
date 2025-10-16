@@ -341,12 +341,11 @@
     height: 250px;
     border-radius: 10px;
   }
-  
   .attempt_fails_left button {
     margin-top: 20px;
     margin-left: 0;
     font-size: 0.9rem;
-    padding: 15px 20px;
-    width: 80%;
+    padding: 18px 20px;
+    width: 100%;
   }
 }

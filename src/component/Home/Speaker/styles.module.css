@@ -10,6 +10,7 @@
   margin-bottom: 40px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-top: 20px;
 }
 
 .speakercard:hover {
@@ -25,7 +26,7 @@
 
 .speakerinfo {
   padding: 50px;
-  margin-top: 60px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -67,9 +68,11 @@
 
   .speakerinfo {
     padding: 45px;
-    margin-top: 50px;
+    margin-top: 30px;
   }
-
+  .speakercard{
+    padding-top: 0;
+  }
   .speakerinfo h3 {
     font-size: 30px;
   }
@@ -81,6 +84,9 @@
   .speakerinfo p {
     font-size: 15px;
   }
+  /* .firstImage{
+    margin-top: 80px !important;
+  } */
 }
 
 @media (max-width: 1200px) {

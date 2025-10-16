@@ -19,7 +19,7 @@ const Form = () => {
 
     validationSchema: Yup.object({
       name: Yup.string().matches(/^[A-Za-z\s']+$/, "Enter valid name"),
-      email: Yup.string().required("Eamil is required"),
+      email: Yup.string().required("Email is required"),
       mobile: Yup.string()
         .matches(/^[0-9]{10}$/, "Mobile must be 10 digits")
         .required("Mobile is required"),
