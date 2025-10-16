@@ -38,7 +38,7 @@ const Button = ({
         </button>
 
       ) : btn_type === "link" ? (
-        <a href={href} target="_blank">
+        <a href={href} >
           <button
             className={`${styles.commnbtn} btn d-flex align-items-center gap-2 justify-content-center`}
             style={{ backgroundColor: bg_color, color: name_color }}

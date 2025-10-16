@@ -2,18 +2,21 @@ import { useFormik } from "formik";
 import Button from "../Button";
 import styles from "./styles.module.css";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { Popup } from "../Popup";
+import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
 
 const Form = () => {
   const router = useRouter();
-  const [loading, setisLoading] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       mobile: "",
     },
+
     validationSchema: Yup.object({
       name: Yup.string().matches(/^[A-Za-z\s']+$/, "Enter valid name"),
       email: Yup.string().required("Eamil is required"),
@@ -21,69 +24,143 @@ const Form = () => {
         .matches(/^[0-9]{10}$/, "Mobile must be 10 digits")
         .required("Mobile is required"),
     }),
-    onSubmit: async (value, Formik) => {
-      // try {
-      //   setisLoading(true);
 
-      //   const ipResponse = await fetch("https://api.ipify.org?format=json");
-      //   const ipData = await ipResponse.json();
+    onSubmit: async (values, { resetForm }) => {
+      // const resp = await fetch("/api/create-order", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({ amount: 590 }), // rupees
+      // });
 
-      //   const payload = {
-      //     name: value.name,
-      //     mobile: value.mobile,
-      //     page_name: "cataract",
-      //     ip_address: ipData.ip,
-      //     utm_source: localStorage.getItem("utm_source"),
-      //   };
+      // const order = await resp.json();
 
-      //   useNetralyaQuery(payload)
-      //     .then((data) => {
-      //       console.log("Netralaya API Response:", data);
-      //     })
-      //     .catch((error) => {
-      //       console.error("Error calling Netralaya API:", error);
-      //     });
+      // console.log("Order response:", order);
 
-      //   const Formdata = {
-      //     Name: value.name,
-      //     MobileNumber: value.mobile,
-      //     IP_Address: ipData.ip,
-      //     utm_source: localStorage.getItem("utm_source"),
-      //   };
-
-      //   const params = new URLSearchParams();
-      //   Object.keys(Formdata).forEach((key) => {
-      //     params.append(key, Formdata[key]);
-      //   });
-
-      //   const res = await fetch(
-      //     "https://script.google.com/macros/s/AKfycby0V7V8j32RnoU3ymvynxDNaH1bwdZEx14WqBN2R26EcNrKEyB3qXAm8qwDAnWWJQxc/exec",
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         "Content-Type": "application/x-www-form-urlencoded",
-      //       },
-      //       body: params.toString(),
-      //     }
-      //   );
-
-      //   if (!res.ok) throw new Error("Submission failed");
-
-      //   const data = await res.json();
-
-      //   Formik.resetForm();
-      //   handleTogglecontactForm(false);
-      //   router.push("/thank-you");
-      // } catch (err) {
-      //   console.error("Error:", err);
-      //   handleTogglecontactForm(false);
-      // } finally {
+      // if (!resp.ok) {
+      //   console.error("Create order failed", order);
       //   setisLoading(false);
+      //   router.replace("/error");
+      //   return;
+      // } else {
+
       // }
 
-      console.log("Values", value);
+      const options = {
+        key: "rzp_test_RFnGsVwVIs0EOi",
+        amount: 590 * 100,
+        currency: "INR",
+        name: values?.name,
+        // order_id: order.id,
+        description: "₹500 + ₹90 GST",
+
+        handler: async (response) => {
+          if (response?.razorpay_payment_id) {
+            setisLoading(true);
+
+            const ipResponse = await fetch("https://api.ipify.org?format=json");
+            const ipData = await ipResponse.json();
+
+            const formData = {
+              Name: values?.name,
+              Email: values?.email,
+              Mobile: `91${values?.mobile}`,
+              Amount: 590,
+              Razorpay_Transaction_Id: response?.razorpay_payment_id,
+              Payment_Status: "Paid",
+              ip_address: ipData.ip,
+              utm_source: localStorage.getItem("utm_source"),
+            };
+
+            const apiPayload = {
+              name: values?.name ? values?.name : "",
+              email: values?.email,
+              mobile: `91${values?.mobile}`,
+              amount: 590,
+              programm_start_date: "2025-10-25",
+              programm_end_date: "2025-11-02",
+              razorpay_order_id: response.razorpay_order_id
+                ? response.razorpay_order_id
+                : "",
+              razorpay_payment_id: response.razorpay_payment_id
+                ? response.razorpay_payment_id
+                : "",
+              razorpay_signature: response.razorpay_signature
+                ? response.razorpay_signature
+                : "",
+              payment_status: "paid",
+              captured: response.captured ? response.captured : "",
+              ip_address: ipData.ip,
+              utm_source: localStorage.getItem("utm_source"),
+            };
+
+            const whatsappPayload = {
+              phone: `91${values?.mobile}`,
+              name: values?.name,
+              amount: 590,
+              event_dates: "Oct 31, Nov 1 & 2",
+              event_date_time:
+                "Oct 31 → 5.00 PM – 9.00 PM IST  ,  Nov 1 & 2 → 9:30 AM – 1:00 PM IST",
+              platform: "Google Meet",
+              link_date: "Thursday Oct, 30",
+            };
+
+            useVlsAibeQuery(apiPayload)
+              .then((res) => {
+                resetForm();
+                handleWhatsappMessage(whatsappPayload);
+                afterRegisterSuccessufull(formData);
+              })
+              .catch((err) => {
+                setisLoading(false);
+                resetForm();
+                router.replace("/error");
+              });
+              
+          } else {
+            router.replace("/error");
+            setisLoading(false);
+          }
+        },
+        prefill: {
+          name: values?.name,
+          email: values?.email,
+          contact: values?.mobile,
+        },
+        theme: { color: "#b20a0a" },
+      };
+
+      const razor = new window.Razorpay(options);
+
+      razor.on("payment.failed", function () {
+        router.replace("/error");
+        setisLoading(false);
+      });
+
+      razor.open();
     },
   });
+
+  const handleWhatsappMessage = async (apiPayload) => {
+    try {
+      const res = await fetch("/api/sendWhatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(apiPayload),
+      });
+      console.log("response", res);
+    } catch (err) {
+      console.error("Fetch error:", err);
+      console.log("Server error. Please try again later.");
+    }
+  };
+
+  const afterRegisterSuccessufull = (formData) => {
+    setTimeout(() => {
+      router.replace("/thank-you");
+      localStorage.setItem("PaymentDeatls", JSON.stringify(formData));
+      setisLoading(false);
+    }, 5000);
+  };
 
   return (
     <div>
@@ -151,6 +228,22 @@ const Form = () => {
           />
         </div>
       </form>
+
+      <Popup
+        open={isLoading}
+        onClose={() => {
+          handleTogglecontactForm();
+        }}
+      >
+        <div className={styles.loadingPopup}>
+          <h4>⚠️ Do Not Close or Refresh</h4>
+          <p>
+            Your payment has been received. We are completing your registration.
+            Please stay on this page until the process is complete.
+          </p>
+          <h6>⏳ Processing... Please wait.</h6>
+        </div>
+      </Popup>
     </div>
   );
 };

@@ -30,6 +30,8 @@ export default function Document() {
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7zZzJzJ"
         crossorigin="anonymous"
       ></script>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     </Html>
   );
 }
