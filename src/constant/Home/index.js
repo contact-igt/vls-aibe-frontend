@@ -245,7 +245,7 @@ export const HomePageConstant = {
     ],
   },
   included: {
-    title: "Everything Included in 25 Hours",
+    // title: "Everything Included in 25 Hours",
     includedData: [
       {
         id: 1,

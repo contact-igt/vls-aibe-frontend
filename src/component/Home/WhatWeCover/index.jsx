@@ -3,10 +3,10 @@ import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Button from "@/common/Button";
 
-const WhatWeCover = ({ whatwecover_constant }) => {
+const WhatWeCover = ({ whatwecover_constant  }) => {
 
   return (
-        <section className={styles.coverSection}>
+        <section className={styles.coverSection} id="coversection">
       <div className="container">
         <Title title={"What We"} highlight={"Cover"} />
 
@@ -31,10 +31,10 @@ const WhatWeCover = ({ whatwecover_constant }) => {
             </div>
           ))}
         </div>
-        <div className={styles.buttonContainer}>
+        {/* <div className={styles.buttonContainer}>
             <p>Plus: Full-length practice sets</p>
             <Button name="Download Syllabus (PDF)" icon="download" name_color="#fff" bg_color={"#b20a0a"}  />
-        </div>
+        </div> */}
       </div>
     </section>
   );

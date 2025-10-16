@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import Button from "../Button";
 import styles from "./styles.module.css";
 import * as Yup from "yup";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { Popup } from "../Popup";
 import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
@@ -29,7 +29,7 @@ const Form = () => {
       const resp = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 1 }),
+        body: JSON.stringify({ amount: 590 }),
       });
 
       const order = await resp.json();

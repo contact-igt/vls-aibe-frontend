@@ -7,7 +7,7 @@ const Included = ({ included_constant }) => {
   return (
     <section className={styles.includedSection}>
       <div className="container">
-        <Title title={included_constant?.title} highlight="" subTitle="" />
+        <Title title={"Everything Included in"} highlight={"25 Hours"} subTitle="" />
 
         <div className={styles.grid}>          
           {included_constant?.includedData?.map((item) => (
