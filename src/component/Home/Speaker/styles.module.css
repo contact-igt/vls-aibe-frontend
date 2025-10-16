@@ -155,13 +155,31 @@
     padding: 0 !important;
     order: 2;
     display: flex;
-    justify-content: end !important;
+    align-items: flex-end;
   }
+  
   .speakerimg img {
     height: 400px;
+    object-fit: cover;
   }
+  
+  .firstImage {
+    justify-content: flex-end !important;
+  }
+  
   .firstImage img {
-    margin-right: 50px;
+    margin-right: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 0;
+  }
+  
+  .secondImage {
+    justify-content: flex-start !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+  .firstImage{
+    margin-right: 20px;
   }
 }
 
@@ -204,12 +222,36 @@
   }
 
   .speakerimg {
-    padding: 12px;
+    padding: 0;
     order: 2;
+    display: flex;
+    align-items: flex-end;
   }
 
   .speakerimg img {
     border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .firstImage {
+    justify-content: flex-end !important;
+    padding-right: 12px;
+  }
+  
+  .firstImage img {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 0;
+    margin-right: 27px;
+  }
+  
+  .secondImage {
+    justify-content: flex-start !important;
+    padding-left: 12px;
+  }
+  
+  .secondImage img {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 0;
   }
 }
 
@@ -253,26 +295,63 @@
   }
 
   .speakerimg {
-    padding: 10px;
+    padding: 0;
     order: 2;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
   }
-  .speakerimg {
-    height: 350px;
-  }
+  
   .speakerimg img {
-    height: 400px;
+    height: 330px;
     border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .firstImage {
+    justify-content: flex-end !important;
+    padding-right: 10px;
+  }
+  
+  .firstImage img {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 0;
+    margin-right: 40px;
+  }
+  
+  .secondImage {
+    justify-content: flex-start !important;
+    padding-left: 10px;
+  }
+  
+  .secondImage img  {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 0;
   }
 }
 
 @media (max-width: 400px) {
   .speakerimg {
-    height: 395px;
+    height: 245px;
   }
+  .speakerimg img {
+    height: 280px;
+  }
+  .firstImage {
+    padding-right: 5px;
+  }
+  
   .firstImage img {
-    margin-right: 0;
+    margin-right: 15px;
   }
+  
   .secondImage {
-    padding-top: 60px;
+    padding-left: 5px;
+  }
+}
+
+@media (max-width: 350px){
+     .firstImage img {
+    margin-right: 0px;
   }
 }

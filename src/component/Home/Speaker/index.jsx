@@ -12,7 +12,7 @@ const Speaker = ({ speaker_constant }) => {
           <div className="row">
             <div className="col-lg-6 order-2 order-lg-1 pt-lg-4">
               <div
-                className={`${styles.speakerimg} d-flex justify-content-center ${styles.firstImage}`}
+                className={`${styles.speakerimg} d-flex justify-content-end justify-content-lg-center ${styles.firstImage}`}
               >
                 <img src={speaker_constant[0]?.image} className="img-fluid" />
               </div>
@@ -40,7 +40,7 @@ const Speaker = ({ speaker_constant }) => {
               </div>
             </div>
             <div className="col-lg-6 pt-lg-4">
-              <div className={`${styles.speakerimg} d-flex justify-content-center`}>
+              <div className={`${styles.speakerimg} d-flex justify-content-end justify-content-lg-center`}>
                 <img src={speaker_constant[1]?.image} className={`${styles.secondImage} img-fluid`} />
               </div>
             </div>

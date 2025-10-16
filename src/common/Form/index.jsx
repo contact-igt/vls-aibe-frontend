@@ -105,7 +105,22 @@ const Form = () => {
             };
 
             useVlsAibeQuery(apiPayload)
-              .then((res) => {
+              .then(async (res) => {
+                const params = new URLSearchParams();
+                Object.keys(formData).forEach((key) => {
+                  params.append(key, formData[key]);
+                });
+
+                const sheetRes = await fetch(
+                  "https://script.google.com/macros/s/AKfycbyJg_xp9Duhv6AbPk4tcnIjHAqDJyxsGSmujNl7QnU_oMN29wr80g4ogIBG80nlPHY/exec",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: params.toString(),
+                  }
+                );
                 resetForm();
                 handleWhatsappMessage(whatsappPayload);
                 afterRegisterSuccessufull(formData);
@@ -113,9 +128,8 @@ const Form = () => {
               .catch((err) => {
                 setisLoading(false);
                 resetForm();
-                router.replace("/error");
               });
-              
+
           } else {
             router.replace("/error");
             setisLoading(false);
@@ -185,6 +199,11 @@ const Form = () => {
                   : "2px solid #b5b6b8",
             }}
           />
+          {formik.touched.name && formik.errors.name ? (
+            <small className="text-danger">{formik.errors.name}</small>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className={styles.inputgrp}>
@@ -201,6 +220,11 @@ const Form = () => {
                   : "2px solid #b5b6b8",
             }}
           />
+          {formik.touched.email && formik.errors.email ? (
+            <small className="text-danger">{formik.errors.email}</small>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className={styles.inputgrp}>
@@ -217,6 +241,11 @@ const Form = () => {
                   : "2px solid #b5b6b8",
             }}
           />
+          {formik.touched.mobile && formik.errors.mobile ? (
+            <small className="text-danger">{formik.errors.mobile}</small>
+          ) : (
+            ""
+          )}
         </div>
 
         <div className={styles.inputgrp}>

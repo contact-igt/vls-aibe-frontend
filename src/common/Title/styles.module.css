@@ -15,7 +15,6 @@
     margin-bottom: 1rem;
 }
 
-
 .titleAccent {
     color: #dc2626;
 }
@@ -26,4 +25,106 @@
     background: linear-gradient(to right, transparent, #dc2626, transparent);
     margin: 0 auto;
     border-radius: 9999px;
+}
+
+@media (max-width: 1400px) {
+    .header {
+        margin-bottom: 4.5rem;
+    }
+    
+    .title {
+        font-size: 3.25rem;
+    }
+    
+    .header p {
+        font-size: 19px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .header {
+        margin-bottom: 4rem;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+    
+    .header p {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    
+    .divider {
+        width: 5.5rem;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .header {
+        margin-bottom: 3.5rem;
+    }
+    
+    .title {
+        font-size: 2.75rem;
+    }
+    
+    .header p {
+        font-size: 17px;
+        margin-top: 18px;
+    }
+    
+    .divider {
+        width: 5rem;
+        height: 0.3rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .header p {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+    
+    .divider {
+        width: 4.5rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .header {
+        margin-bottom: 2.5rem;
+        padding: 0 0.75rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+    }
+    
+    .header p {
+        font-size: 14px;
+        margin-top: 12px;
+        line-height: 1.4;
+    }
+    
+    .divider {
+        width: 4rem;
+        height: 0.25rem;
+    }
 }
