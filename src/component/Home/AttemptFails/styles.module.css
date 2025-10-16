@@ -1,0 +1,352 @@
+/* Base styles for AttemptFails component */
+.attemptSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 50px;
+  background-color: #ffe9e9;
+  overflow: hidden;
+}
+
+.attemptContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: start;
+}
+
+.attempt_fails_left {
+  flex: 1;
+  max-width: 55%;
+}
+
+.attempt_fails_left button {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.attempt_fails_left ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fail_item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(178, 10, 10, 0.1);
+}
+
+.fail_item:last-child {
+  border-bottom: none;
+}
+
+.fail_icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  color: #d9534f;
+  margin-right: 15px;
+  margin-top: 3px;
+}
+
+.fail_item div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.fail_item strong {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.fail_item p {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.attempt_fails_right {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attempt_fails_right img {
+  width: 100%;
+  max-width: 500px;
+  height: 470px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.attempt_fails_right img:hover {
+  transform: scale(1.02);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width:1400px) {
+  .attemptSection {
+    padding: 80px 50px;
+  }
+  
+  .attemptContainer {
+    gap: 50px;
+  }
+  
+  .fail_item {
+    padding: 11px 0;
+    margin-bottom: 10px;
+  }
+  
+  .fail_item strong {
+    font-size: 1.3rem;
+    margin-bottom: 9px;
+  }
+  
+  .fail_item p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  
+  .fail_icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 18px;
+  }
+  
+  .attempt_fails_right img {
+    max-width: 520px;
+    height: 490px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 1200px){
+  .attemptSection {
+    padding: 80px 40px;
+  }
+  
+  .attemptContainer {
+    gap: 40px;
+  }
+  
+  .attempt_fails_left {
+    max-width: 58%;
+  }
+  
+  .attempt_fails_right {
+    max-width: 42%;
+  }
+  
+  .fail_item {
+    padding: 11px 0;
+  }
+  
+  .fail_item strong {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .fail_item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .fail_icon {
+    width: 26px;
+    height: 26px;
+    margin-right: 15px;
+  }
+  
+  .attempt_fails_right img {
+    max-width: 440px;
+    height: 470px;
+    border-radius: 15px;
+  }
+  
+  .attempt_fails_left button {
+    margin-top: 25px;
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .attemptSection {
+    padding: 70px 30px;
+  }
+  
+  .attemptContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .attempt_fails_left,
+  .attempt_fails_right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .attempt_fails_left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  
+  .attempt_fails_left ul {
+    max-width: 90% !important;
+    width: 90%;
+  }
+
+  .fail_item {
+    width: 100%;
+    text-align: left;
+    padding: 15px 0;
+    margin-bottom: 20px;
+  }
+  
+  .fail_item strong {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+  
+  .fail_item p {
+    font-size: 0.95rem;
+  }
+  
+  .fail_icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+  }
+
+  .attempt_fails_right img {
+    max-width: 550px;
+    height: 350px;
+    border-radius: 15px;
+  }
+  
+  .attempt_fails_left button {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px){
+  .attemptSection {
+    padding: 60px 25px;
+  }
+  
+  .attemptContainer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .fail_item {
+    padding: 12px 0;
+    margin-bottom: 18px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .fail_item strong {
+    font-size: 1.1rem;
+  }
+  
+  .fail_item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .fail_icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+    margin-top: 2px;
+  }
+
+  .attempt_fails_right img {
+    max-width: 100%;
+    height: 300px;
+    border-radius: 12px;
+  }
+  
+  .attempt_fails_left button {
+    margin-top: 25px;
+    margin-left: 0;
+  }
+}
+@media (max-width: 576px) {
+  .attemptSection {
+    padding: 50px 20px;
+  }
+    
+  .attempt_fails_left ul {
+    max-width: 95% !important;
+    width: 95%;
+  }
+  .attemptContainer {
+    flex-direction: column;
+    gap: 35px;
+  }
+  
+
+  .fail_item {
+    padding: 10px 0;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .fail_item strong {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+  
+  .fail_item p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .fail_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-top: 2px;
+  }
+
+  .attempt_fails_right img {
+    max-width: 100%;
+    height: 250px;
+    border-radius: 10px;
+  }
+  
+  .attempt_fails_left button {
+    margin-top: 20px;
+    margin-left: 0;
+    font-size: 0.9rem;
+    padding: 15px 20px;
+    width: 80%;
+  }
+}

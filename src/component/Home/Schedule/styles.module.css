@@ -1,0 +1,356 @@
+.scheduleSection {
+  padding: 80px 0;
+  background: #fff;
+  position: relative;
+  font-family: "Inter", sans-serif;
+  --accent: #b20a0a;
+  --card: #ffffff;
+  --soft: #f3f7fb;
+  --heading: #0f172a;
+  --muted: #6b7682;
+}
+
+.batchBanner {
+  width: 780px;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--accent), #8d0808);
+  color: #fff;
+  text-align: center;
+  padding: 20px 20px 35px;
+  border-radius: 12px 12px 0 0;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.12);
+}
+
+.cardWrapper {
+  max-width: 780px;
+  margin: -22px auto 0;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 34px 36px 36px;
+  box-shadow: 0 12px 36px rgba(2, 6, 23, 0.08);
+  border: 1px solid rgba(2, 6, 23, 0.06);
+  text-align: center;
+}
+
+.cardInner {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
+}
+.title {
+  font-size: 30.5px;
+  margin-bottom: 25px;
+}
+
+.item {
+  background: #f9f2f2;
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border: 1.5px solid var(--accent);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.item:hover {
+  background: #f9f2f2;
+}
+
+.iconWrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.06);
+}
+
+.iconWrap svg {
+  width: 24px;
+  height: 24px;
+}
+.textWrap {
+  text-align: left;
+  flex: 1;
+}
+
+.itemLabel {
+  margin: 0 0 4px 0;
+  font-size: 17px;
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.itemValue {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+@media (max-width: 1400px) {
+  .scheduleSection {
+    padding: 70px 0;
+  }
+  
+  .batchBanner {
+    width: 720px;
+    font-size: 19px;
+    padding: 18px 20px 32px;
+  }
+  
+  .cardWrapper {
+    max-width: 720px;
+    padding: 32px 34px 34px;
+  }
+  
+  .title {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+  
+  .item {
+    padding: 18px 20px;
+    gap: 16px;
+  }
+  
+  .iconWrap {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+  }
+  
+  .itemLabel {
+    font-size: 16px;
+  }
+  
+  .itemValue {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .scheduleSection {
+    padding: 60px 0;
+  }
+  
+  .batchBanner {
+    width: 680px;
+    font-size: 18px;
+    padding: 16px 18px 30px;
+  }
+  
+  .cardWrapper {
+    max-width: 680px;
+    padding: 30px 32px 32px;
+  }
+  
+  .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .cardInner {
+    gap: 16px;
+  }
+  
+  .item {
+    padding: 16px 18px;
+    gap: 15px;
+  }
+  
+  .iconWrap {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+  }
+  
+  .iconWrap svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .itemLabel {
+    font-size: 15px;
+  }
+  
+  .itemValue {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 992px) {
+  .scheduleSection {
+    padding: 50px 0;
+  }
+  
+  .batchBanner {
+    width: 620px;
+    font-size: 17px;
+    padding: 15px 16px 28px;
+  }
+  
+  .cardWrapper {
+    max-width: 90%;
+    padding: 28px 30px 30px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  
+  .cardInner {
+    gap: 15px;
+  }
+  
+  .item {
+    padding: 15px 16px;
+    gap: 14px;
+  }
+  
+  .iconWrap {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+  }
+  
+  .iconWrap svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .itemLabel {
+    font-size: 14px;
+  }
+  
+  .itemValue {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .scheduleSection {
+    padding: 40px 0;
+  }
+  
+  .batchBanner {
+    width: 490px;
+    font-size: 16px;
+    padding: 14px 15px 26px;
+  }
+  
+  .cardWrapper {
+    max-width: 95%;
+    padding: 26px 28px 28px;
+    margin-top: -18px;
+  }
+  
+  .title {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  
+  .cardInner {
+    gap: 14px;
+  }
+  
+  .item {
+    padding: 14px 15px;
+    gap: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .iconWrap {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+  
+  .iconWrap svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .textWrap {
+    text-align: center;
+  }
+  
+  .itemLabel {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  
+  .itemValue {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .scheduleSection {
+    padding: 30px 0;
+  }
+  
+  .batchBanner {
+    width: calc(100% - 50px);
+    font-size: 15px;
+    padding: 12px 14px 24px;
+  }
+  
+  .cardWrapper {
+    width: calc(100% - 20px);
+    padding: 24px 20px 26px;
+    margin-top: -15px;
+  }
+  
+  .title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  
+  .cardInner {
+    gap: 12px;
+  }
+  
+  .item {
+    padding: 12px 14px;
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .iconWrap {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+  
+  .iconWrap svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .textWrap {
+    text-align: center;
+  }
+  
+  .itemLabel {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  
+  .itemValue {
+    font-size: 11px;
+  }
+}

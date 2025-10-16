@@ -1,0 +1,315 @@
+/* Base styles for WhatLearn component */
+.whatlearnSection {
+  position: relative;
+  background: url("/assets/img2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 850px;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.overlay {
+  background-color: #000000ba;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.WhatLearnContent {
+  position: absolute;
+  top: 3%;
+  left: 0px;
+  width: 100%;
+  color: #fff;
+  z-index: 2;
+  padding: 60px 0;
+}
+
+.learncard {
+  width: 100%;
+  color: #000;
+  padding: 45px 25px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.learncard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.iconsec {
+  width: fit-content;
+  height: fit-content;
+  padding: 18px;
+  color: #fff;
+  border-radius: 12px;
+  background: linear-gradient(165deg, #b20a0a, #000);
+  box-shadow: rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;
+  flex-shrink: 0;
+}
+
+.contentsec {
+  flex: 1;
+  max-width: 100%;
+}
+
+.contentsec h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.contentsec p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* Large Desktop - 1400px and above */
+@media (min-width: 1400px) {
+  .whatlearnSection {
+    height: 950px;
+    min-height: 100vh;
+  }
+  
+  .WhatLearnContent {
+    padding: 80px 0;
+  }
+  
+  .learncard {
+    padding: 55px 35px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    gap: 30px;
+  }
+  
+  .iconsec {
+    padding: 22px;
+    border-radius: 15px;
+  }
+  
+  .contentsec h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .contentsec p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+/* Desktop - 1200px to 1399px */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .whatlearnSection {
+    height: 900px;
+  }
+  
+  .WhatLearnContent {
+    padding: 70px 0;
+  }
+  
+  .learncard {
+    padding: 50px 30px;
+    margin-bottom: 45px;
+    border-radius: 18px;
+    gap: 25px;
+  }
+  
+  .iconsec {
+    padding: 20px;
+    border-radius: 14px;
+  }
+  
+  .contentsec h4 {
+    font-size: 1.375rem;
+    margin-bottom: 14px;
+  }
+  
+  .contentsec p {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+}
+
+/* Tablet Landscape - 992px to 1199px */
+@media (max-width: 1199px) and (min-width: 992px) {
+  .whatlearnSection {
+    height: 800px;
+  }
+  
+  .WhatLearnContent {
+    top: 8%;
+    padding: 60px 0;
+  }
+  
+  .learncard {
+    padding: 40px 25px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    gap: 20px;
+  }
+  
+  .iconsec {
+    padding: 16px;
+    border-radius: 12px;
+  }
+  
+  .contentsec h4 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .contentsec p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Tablet Portrait - 768px to 991px */
+@media (max-width: 991px) and (min-width: 768px) {
+  .whatlearnSection {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0;
+  }
+  
+  .WhatLearnContent {
+    position: relative;
+    top: auto;
+    padding: 60px 0;
+  }
+  
+  .learncard {
+    padding: 35px 20px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    gap: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
+  
+  .iconsec {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  
+  .contentsec h4 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+  
+  .contentsec p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* Mobile - 576px to 767px */
+@media (max-width: 767px) and (min-width: 576px) {
+  .whatlearnSection {
+    height: auto;
+    min-height: 100vh;
+    padding: 60px 0;
+  }
+  
+  .WhatLearnContent {
+    position: relative;
+    top: auto;
+    padding: 40px 0;
+  }
+  
+  .learncard {
+    padding: 25px 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    gap: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .iconsec {
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 0;
+  }
+  
+  .contentsec {
+    text-align: center;
+  }
+  
+  .contentsec h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .contentsec p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+}
+
+/* Small Mobile - below 576px */
+@media (max-width: 575px) {
+  .whatlearnSection {
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 0;
+  }
+  
+  .WhatLearnContent {
+    position: relative;
+    top: auto;
+    padding: 30px 0;
+  }
+  
+  .learncard {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    gap: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .iconsec {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+  
+  .contentsec {
+    text-align: center;
+  }
+  
+  .contentsec h4 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  
+  .contentsec p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}

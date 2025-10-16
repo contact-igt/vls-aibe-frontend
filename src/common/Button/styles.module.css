@@ -1,6 +1,14 @@
 .commnbtn {
     font-size: 18px;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 100px;
     font-weight: 600;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.commnbtn:hover{
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
 }

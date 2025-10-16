@@ -1,0 +1,173 @@
+.decodingSection {
+    background-color: #f9f2f2;
+    padding: 80px 0;
+}
+
+.numcard {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #b20a0a;
+    padding-top: 28px;
+}
+
+.numcard h5 {
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0px;
+}
+
+.stepCard {
+    width: 300px;
+    text-align: center;
+}
+
+.stepCard h6 {
+    font-size: 22px;
+    margin: 15px 0px;
+    font-weight: 700;
+}
+
+.stepCard p {
+    font-size: 18px;
+}
+
+@media (max-width: 1400px) {
+    .decodingSection {
+        padding: 70px 0;
+    }
+    
+    .stepCard {
+        width: 280px;
+    }
+    
+    .stepCard h6 {
+        font-size: 20px;
+    }
+    
+    .stepCard p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .decodingSection {
+        padding: 60px 0;
+    }
+    
+    .stepCard {
+        width: 260px;
+    }
+    
+    .numcard {
+        width: 90px;
+        height: 90px;
+        padding-top: 25px;
+    }
+    
+    .numcard h5 {
+        font-size: 32px;
+    }
+    
+    .stepCard h6 {
+        font-size: 19px;
+    }
+    
+    .stepCard p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .decodingSection {
+        padding: 50px 0;
+    }
+    
+    .stepCard {
+        width: 240px;
+        margin-bottom: 30px;
+    }
+    
+    .numcard {
+        width: 80px;
+        height: 80px;
+        padding-top: 22px;
+    }
+    
+    .numcard h5 {
+        font-size: 30px;
+    }
+    
+    .stepCard h6 {
+        font-size: 19px;
+        margin: 12px 0px;
+    }
+    
+    .stepCard p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .decodingSection {
+        padding: 40px 0;
+    }
+    
+    .stepCard {
+        width: 250px;
+        margin-bottom: 25px;
+    }
+    
+    .numcard {
+        width: 70px;
+        height: 70px;
+        padding-top: 18px;
+    }
+    
+    .numcard h5 {
+        font-size: 30px;
+    }
+    
+    .stepCard h6 {
+        font-size: 19px;
+        margin: 10px 0px;
+    }
+    
+    .stepCard p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .decodingSection {
+        padding: 30px 0;
+    }
+    
+    .stepCard {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+    
+    .numcard {
+        width: 60px;
+        height: 60px;
+        padding-top: 15px;
+    }
+    
+    .numcard h5 {
+        width: 90%;
+        font-size: 25px;
+    }
+    
+    .stepCard h6 {
+        font-size: 20px;
+        margin: 8px 0px;
+    }
+    
+    .stepCard p {
+        font-size: 17px;
+    }
+}

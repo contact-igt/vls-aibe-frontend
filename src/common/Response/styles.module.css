@@ -1,0 +1,263 @@
+.responseSection {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.responseIcon {
+    margin-bottom: 20px;
+}
+
+.responseIcon img {
+    max-width: 120px;
+    height: auto;
+}
+
+.responseInfo {
+    margin-bottom: 30px;
+}
+
+.responseInfo h5 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.successText {
+    color: #28a745;
+}
+
+.errorText {
+    color: #dc3545;
+}
+
+.responseInfo p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.summaryBox {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 400px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.summaryBox p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.responseCta a {
+    text-decoration: none;
+}
+
+@media (max-width: 1400px) {
+    .responseSection {
+        min-height: 65vh;
+    }
+    
+    .responseInfo h5 {
+        font-size: 1.55rem;
+    }
+    
+    .responseInfo p {
+        font-size: 0.95rem;
+    }
+    
+    .summaryBox {
+        max-width: 380px;
+        padding: 14px;
+    }
+    
+    .summaryBox p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .responseSection {
+        min-height: 60vh;
+    }
+    
+    .responseIcon {
+        margin-bottom: 18px;
+    }
+    
+    .responseInfo h5 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .responseInfo p {
+        font-size: 0.9rem;
+    }
+    
+    .summaryBox {
+        max-width: 360px;
+        padding: 13px;
+        margin: 18px auto;
+    }
+    
+    .summaryBox p {
+        font-size: 0.85rem;
+        margin: 7px 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .responseSection {
+        min-height: 55vh;
+        padding: 20px 0;
+    }
+    
+    .responseIcon {
+        margin-bottom: 16px;
+    }
+    
+    .responseIcon img {
+        max-width: 100px;
+    }
+    
+    .responseInfo {
+        margin-bottom: 25px;
+    }
+    
+    .responseInfo h5 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .responseInfo p {
+        font-size: 0.85rem;
+        padding: 0 15px;
+    }
+    
+    .summaryBox {
+        max-width: 340px;
+        padding: 12px;
+        margin: 16px auto;
+    }
+    
+    .summaryBox p {
+        font-size: 0.8rem;
+        margin: 6px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .responseSection {
+        min-height: 50vh;
+        padding: 15px 0;
+    }
+    
+    .responseIcon {
+        margin-bottom: 15px;
+    }
+    
+    .responseIcon img {
+        max-width: 80px;
+    }
+    
+    .responseInfo {
+        margin-bottom: 20px;
+    }
+    
+    .responseInfo h5 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+    }
+    
+    .responseInfo p {
+        font-size: 0.8rem;
+        padding: 0 20px;
+    }
+    
+    .summaryBox {
+        max-width: 320px;
+        padding: 10px;
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+    
+    .summaryBox p {
+        font-size: 0.75rem;
+        margin: 5px 0;
+    }
+    .responseCta{
+        display: flex;
+        width: 100%;
+    }
+    .responseCta a button {
+        margin: 13px 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .responseSection {
+        min-height: 45vh;
+        padding: 10px 0;
+    }
+    
+    .responseIcon {
+        margin-bottom: 12px;
+    }
+    
+    .responseIcon img {
+        max-width: 70px;
+    }
+    
+    .responseInfo {
+        margin-bottom: 18px;
+    }
+    
+    .responseInfo h5 {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+    
+    .responseInfo p {
+        font-size: 0.75rem;
+        padding: 0 25px;
+        line-height: 1.5;
+    }
+    .responseCta{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 3px !important;
+    }
+    .responseCta a{
+        width: 90%;
+    }
+    .summaryBox {
+        max-width: 300px;
+        padding: 8px;
+        margin: 12px auto;
+        border-radius: 6px;
+    }
+    
+    .summaryBox p {
+        font-size: 0.7rem;
+        margin: 4px 0;
+    }
+    
+    .responseCta {
+        padding: 0 15px;
+    }
+    
+    .responseCta a button {
+        margin: 6px 0;
+        width: 100%;
+        font-size: 0.85rem;
+    }
+}

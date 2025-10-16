@@ -2,12 +2,12 @@ import styles from "./styles.module.css";
 
 const Title = ({ title, subTitle, highlight }) => {
   return (
-    <div className={styles.commnTitle}>
-      <h2>
-        {title}
-        <span style={{ color: "#B20A0A" }}> {highlight}</span>
+    <div className={styles.header}>
+      <h2 className={styles.title}>
+        {title} <span className={styles.titleAccent}>{highlight}</span>
       </h2>
-      {subTitle && <p>{subTitle}</p>}
+      <div className={styles.divider}></div>
+      <p>{subTitle}</p>
     </div>
   );
 };
