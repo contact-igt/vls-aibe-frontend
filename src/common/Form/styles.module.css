@@ -58,3 +58,19 @@
     }
 
 }
+
+
+@media (width < 768px) {
+
+    .loadingPopup{
+        width: 100%;
+    }
+
+    .loadingPopup h4{
+        font-size: 22px;
+    }
+
+    .loadingPopup p{
+        font-size: 15px;
+    }
+}
