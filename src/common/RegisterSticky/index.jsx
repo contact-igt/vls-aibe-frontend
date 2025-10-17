@@ -27,9 +27,8 @@ const RegisterSticky = ({ scrollToContactForm }) => {
                 <h4>Ready to Clear AIBE with Confidence?</h4>
                 <h6>
                   Offer Will Expire in -{" "}
-                  <span>{`${minutes}:${
-                    seconds < 10 ? `0${seconds}` : seconds
-                  }`}</span>
+                  <span>{`${minutes}:${seconds < 10 ? `0${seconds}` : seconds
+                    }`}</span>
                 </h6>
               </div>
             </div>
@@ -37,9 +36,9 @@ const RegisterSticky = ({ scrollToContactForm }) => {
               <div className="pricing d-flex justify-content-lg-end justify-content-between align-items-center gap-3 py-md-1 py-2">
                 <div>
                   <p className={styles.pricing}>
-                    INR ₹500
+                    Pay Advance ₹500
                     <br />
-                    <span>INR ₹2,500 </span>{" "}
+                    <small style={{ fontSize: '14px', color: '#ccc' }}>Total ₹2,500</small>
                   </p>
                   <p className={styles.mbinfo}>
                     (Offer end in{" "}
@@ -50,10 +49,13 @@ const RegisterSticky = ({ scrollToContactForm }) => {
                   <button
                     onClick={scrollToContactForm}
                     className="btn text-light"
-                    style={{ cursor: "pointer", borderRadius: "20px" }}
+                    style={{ cursor: "pointer", borderRadius: "20px", fontWeight:"600" }}
                   >
                     Book with ₹500
                   </button>
+                  <div className={styles.confirmationText}>
+                    <span>✓ Secure your seat</span>
+                  </div>
                 </div>
               </div>
             </div>
