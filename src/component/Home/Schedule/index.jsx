@@ -21,6 +21,7 @@ const Schedule = ({ schedule_constant }) => {
                 <div className={styles.textWrap}>
                   <h6 className={styles.itemLabel}>{item.title}</h6>
                   <p className={styles.itemValue}>{item.description}</p>
+                  {item.description2 && <p className={styles.itemValue}>{item.description2}</p>}
                 </div>
               </div>
             ))}

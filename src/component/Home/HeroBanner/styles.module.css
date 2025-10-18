@@ -7,7 +7,7 @@
   background-size: cover;
   background-position: center center;
   width: 100%;
-  height: 900px;
+  height: 930px;
   position: relative;
   display: flex;
   align-items: center;
@@ -18,8 +18,13 @@
   position: absolute;
   top: 10%;
   left: 0px;
+  right: 0px;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   z-index: 2;
+  box-sizing: border-box;
 }
 
 .overlay {
@@ -33,17 +38,17 @@
 }
 
 .heroBannerTitle {
-  font-size: 60px;
+  font-size: 48px;
   font-weight: 700 !important;
   line-height: 1.2;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .heroBannerDescription {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .heroBannerTitle span {
@@ -51,7 +56,7 @@
 }
 
 .bullet {
-  margin: 40px 0;
+  margin: 24px 0;
 }
 
 .bulletpoint {
@@ -59,7 +64,7 @@
 }
 
 .bulletpoint p {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0;
   line-height: 1.5;
 }
@@ -79,65 +84,146 @@
   margin-top: 20px;
 }
 
-/* Large Desktop - 1400px and above */
+.scheduleBanner {
+  width: 100%;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: white;
+  padding: 16px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+.bannerScheduleContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin: 18px 0;
+  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clockIcon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 4px;
+}
+
+.clockIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.bannerText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bannerText h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.courseDetails {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.totalHours {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breakdown {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.dateDetails {
+  display: flex;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.dateItem {
+  padding: 4px 10px;
+  background: transparent;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.amountDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding: 16px 20px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.amountDetails span:first-child {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.amountDetails button {
+  font-weight: 700;
+  color: #ffffff;
+  padding: 12px 16px !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.amountDetails button h6 {
+  font-size: 15px !important;
+}
+
 @media (min-width: 1400px) {
   .heroBannerSection {
-    height: 860px;
+    height: 950px;
     min-height: 100vh;
   }
 
-  .heroBannerTitle {
-    font-size: 65px;
-    margin-bottom: 32px;
-  }
-
-  .heroBannerDescription {
-    font-size: 26px;
-    margin-bottom: 40px;
-  }
-
-  .bulletpoint p {
-    font-size: 20px;
-  }
-
-  .bannerForm {
-    padding: 50px 30px;
-    margin-top: 0;
-  }
-}
-
-/* Desktop - 1200px to 1399px */
-@media (max-width: 1399px) and (min-width: 1200px) {
-  .heroBannerSection {
-    height: 930px;
-  }
-
-  .heroBannerTitle {
-    font-size: 64px;
-    margin-bottom: 28px;
-  }
-
-  .heroBannerDescription {
-    font-size: 24px;
-    margin-bottom: 36px;
-  }
-
-  .bulletpoint p {
-    font-size: 21px;
-  }
-
-  .bannerForm {
-    padding: 45px 25px;
-  }
-}
-
-@media (max-width: 1199px) and (min-width: 992px) {
-  .heroBannerSection {
-    height: 800px;
-  }
-
   .herobannerContent {
-    top: 8%;
+    padding: 0 30px;
+    max-width: 1400px;
   }
 
   .heroBannerTitle {
@@ -147,11 +233,171 @@
 
   .heroBannerDescription {
     font-size: 20px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .bulletpoint p {
     font-size: 18px;
+  }
+
+  .bannerText h2 {
+    font-size: 18px;
+  }
+
+  .courseDetails {
+    font-size: 15px;
+  }
+
+  .dateDetails {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .amountDetails {
+    padding: 12px 18px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .amountDetails button {
+    padding: 12px 14px;
+  }
+
+  .amountDetails button h6 {
+    font-size: 15px !important;
+  }
+
+  .bannerForm {
+    padding: 50px 30px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1400px) {
+  .heroBannerSection {
+    height: 950px;
+  }
+
+  .herobannerContent {
+    padding: 0 25px;
+    max-width: 1300px;
+  }
+
+  .heroBannerTitle {
+    font-size: 50px;
+    margin-bottom: 22px;
+  }
+
+  .heroBannerDescription {
+    font-size: 19px;
+    margin-bottom: 22px;
+  }
+
+  .bulletpoint p {
+    font-size: 17px;
+  }
+
+  .bannerText h2 {
+    font-size: 17px;
+  }
+
+  .courseDetails {
+    font-size: 14px;
+  }
+
+  .dateDetails {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .amountDetails {
+    padding: 12px 16px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+
+  .amountDetails button {
+    font-size: 10px !important;
+    padding: 10px 12px;
+  }
+
+  .amountDetails button h6 {
+    font-size: 13px !important;
+  }
+
+  .bannerForm {
+    padding: 45px 25px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroBannerSection {
+    height: 930px;
+  }
+
+  .herobannerContent {
+    top: 8%;
+    padding: 0 20px;
+    max-width: 1200px;
+  }
+
+  .heroBannerTitle {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+
+  .heroBannerDescription {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .bulletpoint p {
+    font-size: 16px;
+  }
+
+  .bannerText h2 {
+    font-size: 15px;
+  }
+
+  .courseDetails {
+    font-size: 13px;
+  }
+
+  .dateDetails {
+    font-size: 12px;
+    gap: 8px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .amountDetails {
+    padding: 10px 14px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 15.5px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .amountDetails button {
+    padding: 8px 10px;
+  }
+
+  .amountDetails button h6 {
+    font-size: 13px !important;
   }
 
   .bannerForm {
@@ -170,8 +416,7 @@
   }
 }
 
-/* Tablet Portrait - 768px to 991px */
-@media (max-width: 991px) and (min-width: 768px) {
+@media (max-width: 992px) {
   .heroBannerSection {
     height: auto;
     min-height: 100vh;
@@ -181,19 +426,20 @@
   .herobannerContent {
     position: relative;
     top: auto;
-    padding: 60px 0;
+    padding: 60px 15px;
     text-align: start;
+    max-width: 100%;
   }
 
   .heroBannerTitle {
-    font-size: 50px;
-    margin-bottom: 20px;
+    font-size: 38px;
+    margin-bottom: 18px;
     text-align: start;
   }
 
   .heroBannerDescription {
-    font-size: 18px;
-    margin-bottom: 28px;
+    font-size: 16px;
+    margin-bottom: 18px;
     text-align: flex-start;
   }
 
@@ -208,7 +454,7 @@
   }
 
   .bulletpoint p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .heroBannerCta {
@@ -225,10 +471,58 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .scheduleBanner {
+    padding: 12px 0;
+  }
+
+  .bannerScheduleContent {
+    gap: 8px;
+  }
+
+  .clockIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .clockIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .bannerText h2 {
+    font-size: 18px;
+  }
+
+  .courseDetails {
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .dateDetails {
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .amountDetails {
+    padding: 8px 13px;
+    margin-top: 8px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .amountDetails button {
+    font-size: 12px !important;
+    padding: 6px 8px;
+  }
 }
 
-/* Mobile - 576px to 767px */
-@media (max-width: 767px) and (min-width: 576px) {
+@media (max-width: 768px) {
   .heroBannerSection {
     height: auto;
     min-height: 100vh;
@@ -238,19 +532,20 @@
   .herobannerContent {
     position: relative;
     top: auto;
-    padding: 40px 0;
+    padding: 40px 15px;
+    max-width: 100%;
   }
 
   .heroBannerTitle {
-    font-size: 36px;
-    margin-bottom: 16px;
+    font-size: 32px;
+    margin-bottom: 14px;
     text-align: start;
     line-height: 1.3;
   }
 
   .heroBannerDescription {
-    font-size: 16px;
-    margin-bottom: 24px;
+    font-size: 15px;
+    margin-bottom: 16px;
     text-align: start;
   }
 
@@ -265,7 +560,7 @@
   }
 
   .bulletpoint p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .heroBannerCta {
@@ -280,10 +575,13 @@
     margin-top: 30px;
     border-radius: 15px;
   }
+
+  .amountDetails span:first-child {
+    font-size: 15px;
+  }
 }
 
-/* Small Mobile - below 576px */
-@media (max-width: 575px) {
+@media (max-width: 576px) {
   .heroBannerSection {
     height: auto;
     min-height: 100vh;
@@ -293,19 +591,24 @@
   .herobannerContent {
     position: relative;
     top: auto;
-    padding: 30px 0;
+    padding: 10px 12px;
+    max-width: 100%;
+  }
+
+  .heroBannerContent {
+    padding-top: 0px;
   }
 
   .heroBannerTitle {
-    font-size: 30px;
-    margin-bottom: 12px;
+    font-size: 26px;
+    margin-bottom: 10px;
     text-align: start;
     line-height: 1.4;
   }
 
   .heroBannerDescription {
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    margin-bottom: 14px;
     text-align: start;
     line-height: 1.5;
   }
@@ -316,7 +619,7 @@
 
   .bulletpoint {
     display: flex;
-    align-items: flex-start; 
+    align-items: flex-start;
     gap: 10px !important;
     margin-bottom: 12px;
   }
@@ -327,6 +630,7 @@
     margin: 0;
     flex: 1;
   }
+
   .heroBannerCta {
     display: flex;
     justify-content: center;
@@ -334,16 +638,111 @@
     gap: 10px;
     margin-top: 20px;
   }
-  .heroBannerCta button, .heroBannerCta a {
-    width: 80% !important;
-  }
-   .heroBannerCta a button{
+
+  .heroBannerCta button,
+  .heroBannerCta a {
     width: 100% !important;
-   }
+  }
+
+  .heroBannerCta a button {
+    width: 100% !important;
+  }
 
   .bannerForm {
     padding: 20px 12px;
-    margin-top: 25px;
+    margin-top: 0px;
     border-radius: 12px;
+  }
+
+  .scheduleBanner {
+    padding: 10px 0;
+  }
+
+  .bannerScheduleContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .clockIcon {
+    align-self: flex-start;
+  }
+
+  .bannerText h2 {
+    font-size: 16px;
+  }
+
+  .courseDetails {
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+
+  .dateDetails {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .dateItem {
+    padding: 4px 9px;
+  }
+
+  .bannerText {
+    width: 100%;
+  }
+
+  .amountDetails {
+    padding: 6px 10px;
+    margin-top: 6px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 13px;
+    font-weight: 700;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .amountDetails button {
+    font-size: 11px !important;
+    padding: 5px 7px;
+  }
+}
+
+@media (max-width: 420px) {
+  .bannerText h2 {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .courseDetails {
+    font-size: 12px;
+  }
+
+  .dateItem {
+    padding: 3px 7px;
+  }
+
+  .dateDetails {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .amountDetails {
+    padding: 8px 12px;
+    margin-top: 8px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .amountDetails button {
+    font-size: 10px !important;
+    padding: 4px 6px;
   }
 }

@@ -1,7 +1,7 @@
 /* Base styles for WhatLearn component */
 .whatlearnSection {
   position: relative;
-  background: url("/assets/img2.png");
+  background: url("/assets/img2.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
