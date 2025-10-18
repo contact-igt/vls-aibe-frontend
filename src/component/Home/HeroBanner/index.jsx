@@ -21,12 +21,31 @@ const HeroBanner = forwardRef(({ herobanner_constant, scrollToContactForm }, ref
                 <p className={styles.heroBannerDescription}>
                   {herobanner_constant?.description}
                 </p>
-
-                <div className={`${styles.bullet} my-5 `}>
+                <div className={styles.bannerScheduleContent}>
+                  <DynamicIcon name="clock" size={25} className="d-none d-md-block" />
+                  <div className={styles.bannerText}>
+                    <h2>Friday, Oct 31, 2025 - Sunday, Nov 2, 2025</h2>
+                    <div className={styles.courseDetails}>
+                      <span className={styles.totalHours}>Total 25hr</span>
+                      <span className={styles.separator}>-</span>
+                      <span className={styles.breakdown}>12hr Theory + 13hr Test + Practice</span>
+                    </div>
+                    <div className={styles.dateDetails}>
+                      <span className={styles.dateItem}>Oct 31 (Fri)</span>
+                      <span className={styles.dateItem}>Nov 1 (Sat)</span>
+                      <span className={styles.dateItem}>Nov 2 (Sun)</span>
+                    </div>
+                    <div className={styles.amountDetails}>
+                      <span>Total ₹2,500</span>
+                      <Button  onClick={scrollToContactForm}  name="Pay Advance ₹500" name_color="#000" bg_color="#fff" />
+                    </div>
+                  </div>
+                </div>
+                <div className={`${styles.bullet} my-5`}>
                   {herobanner_constant?.bullet_points?.map((data, i) => (
                     <div
                       key={i}
-                      className={`${styles.bulletpoint} d-flex align-items-center gap-1 gap-3 mb-4`}
+                      className={`${styles.bulletpoint} d-flex align-items-center gap-1 gap-3 mb-3`}
                     >
                       <DynamicIcon
                         name="circle-check"
@@ -38,7 +57,7 @@ const HeroBanner = forwardRef(({ herobanner_constant, scrollToContactForm }, ref
                   ))}
                 </div>
 
-                <div className={`${styles.heroBannerCta} d-flex gap-4 pt-3`}>
+                <div className={`${styles.heroBannerCta} d-flex gap-4 pt-1`}>
                   <Button
                     onClick={scrollToContactForm}
                     name={"Book with ₹500"}
@@ -60,7 +79,7 @@ const HeroBanner = forwardRef(({ herobanner_constant, scrollToContactForm }, ref
                 </div>
               </div>
             </div>
-            <div  className="col-lg-5">
+            <div className="col-lg-5">
               <div ref={ref} className={styles.bannerForm}>
                 <Form />
               </div>
