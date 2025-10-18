@@ -37,7 +37,8 @@ const Form = () => {
       if (!resp.ok) {
         console.error("Create order failed", order);
         setisLoading(false);
-        router.replace("/error");
+        // router.replace("/error");
+        window.location.href = "/error";
         return;
       } else {
         const options = {
@@ -103,21 +104,11 @@ const Form = () => {
 
               useVlsAibeQuery(apiPayload)
                 .then((res) => {
-                  // const params = new URLSearchParams();
-                  // Object.keys(formData).forEach((key) => {
-                  //   params.append(key, formData[key]);
-                  // });
-
-                  // const sheetRes = await fetch(
-                  //   "https://script.google.com/macros/s/AKfycbyJg_xp9Duhv6AbPk4tcnIjHAqDJyxsGSmujNl7QnU_oMN29wr80g4ogIBG80nlPHY/exec",
-                  //   {
-                  //     method: "POST",
-                  //     headers: {
-                  //       "Content-Type": "application/x-www-form-urlencoded",
-                  //     },
-                  //     body: params.toString(),
-                  //   }
-                  // );
+                  const params = new URLSearchParams();
+                  Object.keys(formData).forEach((key) => {
+                    params.append(key, formData[key]);
+                  });
+                  handleGoogleSheetForm(params);
                   resetForm();
                   handleWhatsappMessage(whatsappPayload);
                   afterRegisterSuccessufull(formData);
@@ -125,10 +116,12 @@ const Form = () => {
                 .catch((err) => {
                   setisLoading(false);
                   resetForm();
-                  router.push("/error");
+                  // router.push("/error");
+                    window.location.href = "/error";
                 });
             } else {
-              router.push("/error");
+              // router.push("/error");
+                window.location.href = "/error";
               setisLoading(false);
             }
           },
@@ -143,7 +136,8 @@ const Form = () => {
         const razor = new window.Razorpay(options);
 
         razor.on("payment.failed", function () {
-          router.push("/error");
+          // router.push("/error");
+            window.location.href = "/error";
           setisLoading(false);
         });
 
@@ -165,7 +159,24 @@ const Form = () => {
       console.log("Server error. Please try again later.");
     }
   };
-
+    const handleGoogleSheetForm = async (formData) => {
+    try {
+      const sheetRes = await fetch(
+        "https://script.google.com/macros/s/AKfycbyJg_xp9Duhv6AbPk4tcnIjHAqDJyxsGSmujNl7QnU_oMN29wr80g4ogIBG80nlPHY/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formData.toString(),
+        }
+      );
+      console.log("response", sheetRes);
+    } catch (err) {
+      console.error("Fetch error:", err);
+      console.log("Server error. Please try again later.");
+    }
+  };
   const afterRegisterSuccessufull = (formData) => {
     setTimeout(() => {
       // router.push("/thank-you");
