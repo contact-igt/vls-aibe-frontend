@@ -272,7 +272,8 @@ const Form = () => {
 
   const afterRegisterSuccessufull = (formData) => {
     setTimeout(() => {
-      router.replace("/thank-you");
+      // router.replace("/thank-you");
+      window.location.href = "/thank-you";
       localStorage.setItem("PaymentDeatls", JSON.stringify(formData));
       setisLoading(false);
     }, 5000);
