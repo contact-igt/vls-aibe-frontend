@@ -83,6 +83,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
 }
+
 .scheduleBanner {
   width: 100%;
   background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
@@ -106,6 +107,7 @@
   box-shadow: 0 3px 12px rgba(220, 38, 38, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .clockIcon {
   flex-shrink: 0;
   width: 32px;
@@ -266,6 +268,7 @@
   .amountDetails button {
     padding: 12px 14px;
   }
+
   .amountDetails button h6 {
     font-size: 15px !important;
   }
@@ -329,9 +332,11 @@
     font-size: 10px !important;
     padding: 10px 12px;
   }
+
   .amountDetails button h6 {
     font-size: 13px !important;
   }
+
   .bannerForm {
     padding: 45px 25px;
   }
@@ -390,6 +395,7 @@
   .amountDetails button {
     padding: 8px 10px;
   }
+
   .amountDetails button h6 {
     font-size: 13px !important;
   }
@@ -410,7 +416,7 @@
   }
 }
 
-@media (max-width: 992px){
+@media (max-width: 992px) {
   .heroBannerSection {
     height: auto;
     min-height: 100vh;
@@ -465,6 +471,7 @@
     margin-left: auto;
     margin-right: auto;
   }
+
   .scheduleBanner {
     padding: 12px 0;
   }
@@ -504,7 +511,7 @@
     margin-top: 8px;
   }
 
-  .amountDetails span:first-child{
+  .amountDetails span:first-child {
     font-size: 15px;
     font-weight: 700;
   }
@@ -568,8 +575,9 @@
     margin-top: 30px;
     border-radius: 15px;
   }
-  .amountDetails span:first-child{
-    font-size: 15px; 
+
+  .amountDetails span:first-child {
+    font-size: 15px;
   }
 }
 
@@ -583,8 +591,12 @@
   .herobannerContent {
     position: relative;
     top: auto;
-    padding: 30px 12px;
+    padding: 10px 12px;
     max-width: 100%;
+  }
+
+  .heroBannerContent {
+    padding-top: 0px;
   }
 
   .heroBannerTitle {
@@ -618,6 +630,7 @@
     margin: 0;
     flex: 1;
   }
+
   .heroBannerCta {
     display: flex;
     justify-content: center;
@@ -625,19 +638,22 @@
     gap: 10px;
     margin-top: 20px;
   }
+
   .heroBannerCta button,
   .heroBannerCta a {
-    width: 80% !important;
+    width: 100% !important;
   }
+
   .heroBannerCta a button {
     width: 100% !important;
   }
 
   .bannerForm {
     padding: 20px 12px;
-    margin-top: 25px;
+    margin-top: 0px;
     border-radius: 12px;
   }
+
   .scheduleBanner {
     padding: 10px 0;
   }
@@ -672,9 +688,11 @@
   .dateItem {
     padding: 4px 9px;
   }
-  .bannerText{
+
+  .bannerText {
     width: 100%;
   }
+
   .amountDetails {
     padding: 6px 10px;
     margin-top: 6px;
@@ -701,9 +719,11 @@
   .courseDetails {
     font-size: 12px;
   }
+
   .dateItem {
     padding: 3px 7px;
   }
+
   .dateDetails {
     font-size: 11px;
     font-weight: 700;

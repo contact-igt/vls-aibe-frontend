@@ -3,12 +3,12 @@ import Button from "../Button";
 import styles from "./styles.module.css";
 import * as Yup from "yup";
 import { useState } from "react";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { Popup } from "../Popup";
 import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
 
 const Form = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const [isLoading, setisLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -177,6 +177,8 @@ const Form = () => {
       console.log("Server error. Please try again later.");
     }
   };
+
+
   const afterRegisterSuccessufull = (formData) => {
     setTimeout(() => {
       // router.push("/thank-you");
