@@ -199,7 +199,7 @@ export const HomePageConstant = {
     {
       question: "Seat Booking Amount?",
       answer:
-        "Yes, ₹500 locks your seat. Pay the remaining balance before November 1.",
+        "Yes, ₹199 locks your seat. Pay the remaining balance before November 1.",
     },
     {
       question: "Course Language Details?",

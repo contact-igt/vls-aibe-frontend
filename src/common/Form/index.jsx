@@ -29,7 +29,7 @@ const Form = () => {
       const resp = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 590 }),
+        body: JSON.stringify({ amount: 235 }),
       });
 
       const order = await resp.json();
@@ -47,7 +47,7 @@ const Form = () => {
           currency: "INR",
           name: values?.name,
           order_id: order.id,
-          description: "₹500 + 18% Tax",
+          description: "₹199 + 18% Tax",
 
           handler: async (response) => {
             if (response?.razorpay_payment_id) {

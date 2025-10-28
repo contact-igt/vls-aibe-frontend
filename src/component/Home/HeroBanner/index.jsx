@@ -37,7 +37,7 @@ const HeroBanner = forwardRef(({ herobanner_constant, scrollToContactForm }, ref
                     </div>
                     <div className={styles.amountDetails}>
                       <span>Total ₹2,500</span>
-                      <Button  onClick={scrollToContactForm}  name="Pay Advance ₹500" name_color="#000" bg_color="#fff" />
+                      <Button  onClick={scrollToContactForm}  name="Pay Advance ₹199" name_color="#000" bg_color="#fff" />
                     </div>
                   </div>
                 </div>
@@ -60,7 +60,7 @@ const HeroBanner = forwardRef(({ herobanner_constant, scrollToContactForm }, ref
                 <div className={`${styles.heroBannerCta} d-flex gap-4 pt-1`}>
                   <Button
                     onClick={scrollToContactForm}
-                    name={"Book with ₹500"}
+                    name={"Book with ₹199"}
                     bg_color={"#b20a0a"}
                     name_color={"#ffff"}
                     icon={"notepad-text"}

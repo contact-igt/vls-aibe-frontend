@@ -36,7 +36,7 @@ const RegisterSticky = ({ scrollToContactForm }) => {
               <div className="pricing d-flex justify-content-lg-end justify-content-between align-items-center gap-3 py-md-1 py-2">
                 <div>
                   <p className={styles.pricing}>
-                    Pay Advance ₹500
+                    Pay Advance ₹199
                     <br />
                     <small style={{ fontSize: '14px', color: '#ccc' }}>Total ₹2,500</small>
                   </p>
@@ -51,7 +51,7 @@ const RegisterSticky = ({ scrollToContactForm }) => {
                     className="btn text-light"
                     style={{ cursor: "pointer", borderRadius: "20px", fontWeight:"600" }}
                   >
-                    Book with ₹500
+                    Book with ₹199
                   </button>
                   <div className={styles.confirmationText}>
                     <span>✓ Secure your seat</span>
