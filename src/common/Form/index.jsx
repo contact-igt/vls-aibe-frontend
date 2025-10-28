@@ -67,6 +67,10 @@ const Form = () => {
                 Payment_Status: "Paid",
                 ip_address: ipData.ip,
                 utm_source: localStorage.getItem("utm_source"),
+                utm_medium: localStorage.getItem("utm_medium"),
+                utm_campaign: localStorage.getItem("utm_campaign"),
+                utm_term: localStorage.getItem("utm_term"),
+                utm_content: localStorage.getItem("utm_content"),
               };
 
               const apiPayload = {
@@ -89,6 +93,10 @@ const Form = () => {
                 captured: response.captured ? response.captured : "",
                 ip_address: ipData.ip,
                 utm_source: localStorage.getItem("utm_source"),
+                utm_medium: localStorage.getItem("utm_medium"),
+                utm_campaign: localStorage.getItem("utm_campaign"),
+                utm_term: localStorage.getItem("utm_term"),
+                utm_content: localStorage.getItem("utm_content"),
               };
 
               const whatsappPayload = {
@@ -104,12 +112,12 @@ const Form = () => {
 
               useVlsAibeQuery(apiPayload)
                 .then((res) => {
+                  console.log("response", res);
                   const params = new URLSearchParams();
                   Object.keys(formData).forEach((key) => {
                     params.append(key, formData[key]);
                   });
-                  handleGoogleSheetForm(params);
-                  resetForm();
+                  handleGoogleSheetForm(params); resetForm();
                   handleWhatsappMessage(whatsappPayload);
                   afterRegisterSuccessufull(formData);
                 })
@@ -117,11 +125,11 @@ const Form = () => {
                   setisLoading(false);
                   resetForm();
                   // router.push("/error");
-                    window.location.href = "/error";
+                  window.location.href = "/error";
                 });
             } else {
               // router.push("/error");
-                window.location.href = "/error";
+              window.location.href = "/error";
               setisLoading(false);
             }
           },
@@ -132,12 +140,11 @@ const Form = () => {
           },
           theme: { color: "#b20a0a" },
         };
-
         const razor = new window.Razorpay(options);
 
         razor.on("payment.failed", function () {
           // router.push("/error");
-            window.location.href = "/error";
+          window.location.href = "/error";
           setisLoading(false);
         });
 
@@ -159,10 +166,10 @@ const Form = () => {
       console.log("Server error. Please try again later.");
     }
   };
-    const handleGoogleSheetForm = async (formData) => {
+  const handleGoogleSheetForm = async (formData) => {
     try {
       const sheetRes = await fetch(
-        "https://script.google.com/macros/s/AKfycbyJg_xp9Duhv6AbPk4tcnIjHAqDJyxsGSmujNl7QnU_oMN29wr80g4ogIBG80nlPHY/exec",
+        "https://script.google.com/macros/s/AKfycbxIyM62qbYBnExLbJkN-b41b47R3T4gVvpucUpGfLBF2oyl3OCW5Zb_LOl90KKCtB97/exec",
         {
           method: "POST",
           headers: {
@@ -272,9 +279,9 @@ const Form = () => {
 
       <Popup
         open={isLoading}
-        onClose={() => {
-          handleTogglecontactForm();
-        }}
+      // onClose={() => {
+      //   handleTogglecontactForm();
+      // }}
       >
         <div className={styles.loadingPopup}>
           <h4>⚠️ Do Not Close or Refresh</h4>
