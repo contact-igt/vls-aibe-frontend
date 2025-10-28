@@ -3,12 +3,11 @@ import Button from "../Button";
 import styles from "./styles.module.css";
 import * as Yup from "yup";
 import { useState } from "react";
-// import { useRouter } from "next/router";
 import { Popup } from "../Popup";
 import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
+import axios from "axios";
 
 const Form = () => {
-  // const router = useRouter();
   const [isLoading, setisLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -37,7 +36,6 @@ const Form = () => {
       if (!resp.ok) {
         console.error("Create order failed", order);
         setisLoading(false);
-        // router.replace("/error");
         window.location.href = "/error";
         return;
       } else {
@@ -112,23 +110,21 @@ const Form = () => {
 
               useVlsAibeQuery(apiPayload)
                 .then((res) => {
-                  console.log("response", res);
                   const params = new URLSearchParams();
                   Object.keys(formData).forEach((key) => {
                     params.append(key, formData[key]);
                   });
-                  handleGoogleSheetForm(params); resetForm();
-                  handleWhatsappMessage(whatsappPayload);
+                  resetForm();
                   afterRegisterSuccessufull(formData);
+                  handleGoogleSheetForm(params);
+                  handleWhatsappMessage(whatsappPayload);
                 })
                 .catch((err) => {
                   setisLoading(false);
                   resetForm();
-                  // router.push("/error");
                   window.location.href = "/error";
                 });
             } else {
-              // router.push("/error");
               window.location.href = "/error";
               setisLoading(false);
             }
@@ -143,7 +139,6 @@ const Form = () => {
         const razor = new window.Razorpay(options);
 
         razor.on("payment.failed", function () {
-          // router.push("/error");
           window.location.href = "/error";
           setisLoading(false);
         });
@@ -178,6 +173,7 @@ const Form = () => {
           body: formData.toString(),
         }
       );
+
       console.log("response", sheetRes);
     } catch (err) {
       console.error("Fetch error:", err);
@@ -185,10 +181,8 @@ const Form = () => {
     }
   };
 
-
   const afterRegisterSuccessufull = (formData) => {
     setTimeout(() => {
-      // router.push("/thank-you");
       window.location.href = "/thank-you";
       localStorage.setItem("PaymentDeatls", JSON.stringify(formData));
       setisLoading(false);
@@ -279,9 +273,9 @@ const Form = () => {
 
       <Popup
         open={isLoading}
-      // onClose={() => {
-      //   handleTogglecontactForm();
-      // }}
+        // onClose={() => {
+        //   handleTogglecontactForm();
+        // }}
       >
         <div className={styles.loadingPopup}>
           <h4>⚠️ Do Not Close or Refresh</h4>
