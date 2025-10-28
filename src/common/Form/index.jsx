@@ -3,12 +3,11 @@ import Button from "../Button";
 import styles from "./styles.module.css";
 import * as Yup from "yup";
 import { useState } from "react";
-// import { useRouter } from "next/router";
 import { Popup } from "../Popup";
 import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
+import axios from "axios";
 
 const Form = () => {
-  // const router = useRouter();
   const [isLoading, setisLoading] = useState(false);
   const formik = useFormik({
     initialValues: {
@@ -37,7 +36,6 @@ const Form = () => {
       if (!resp.ok) {
         console.error("Create order failed", order);
         setisLoading(false);
-        // router.replace("/error");
         window.location.href = "/error";
         return;
       } else {
@@ -67,6 +65,10 @@ const Form = () => {
                 Payment_Status: "Paid",
                 ip_address: ipData.ip,
                 utm_source: localStorage.getItem("utm_source"),
+                utm_medium: localStorage.getItem("utm_medium"),
+                utm_campaign: localStorage.getItem("utm_campaign"),
+                utm_term: localStorage.getItem("utm_term"),
+                utm_content: localStorage.getItem("utm_content"),
               };
 
               const apiPayload = {
@@ -89,6 +91,10 @@ const Form = () => {
                 captured: response.captured ? response.captured : "",
                 ip_address: ipData.ip,
                 utm_source: localStorage.getItem("utm_source"),
+                utm_medium: localStorage.getItem("utm_medium"),
+                utm_campaign: localStorage.getItem("utm_campaign"),
+                utm_term: localStorage.getItem("utm_term"),
+                utm_content: localStorage.getItem("utm_content"),
               };
 
               const whatsappPayload = {
@@ -108,20 +114,18 @@ const Form = () => {
                   Object.keys(formData).forEach((key) => {
                     params.append(key, formData[key]);
                   });
-                  handleGoogleSheetForm(params);
                   resetForm();
-                  handleWhatsappMessage(whatsappPayload);
                   afterRegisterSuccessufull(formData);
+                  handleGoogleSheetForm(params);
+                  handleWhatsappMessage(whatsappPayload);
                 })
                 .catch((err) => {
                   setisLoading(false);
                   resetForm();
-                  // router.push("/error");
-                    window.location.href = "/error";
+                  window.location.href = "/error";
                 });
             } else {
-              // router.push("/error");
-                window.location.href = "/error";
+              window.location.href = "/error";
               setisLoading(false);
             }
           },
@@ -132,12 +136,10 @@ const Form = () => {
           },
           theme: { color: "#b20a0a" },
         };
-
         const razor = new window.Razorpay(options);
 
         razor.on("payment.failed", function () {
-          // router.push("/error");
-            window.location.href = "/error";
+          window.location.href = "/error";
           setisLoading(false);
         });
 
@@ -159,10 +161,10 @@ const Form = () => {
       console.log("Server error. Please try again later.");
     }
   };
-    const handleGoogleSheetForm = async (formData) => {
+  const handleGoogleSheetForm = async (formData) => {
     try {
       const sheetRes = await fetch(
-        "https://script.google.com/macros/s/AKfycbyJg_xp9Duhv6AbPk4tcnIjHAqDJyxsGSmujNl7QnU_oMN29wr80g4ogIBG80nlPHY/exec",
+        "https://script.google.com/macros/s/AKfycbxIyM62qbYBnExLbJkN-b41b47R3T4gVvpucUpGfLBF2oyl3OCW5Zb_LOl90KKCtB97/exec",
         {
           method: "POST",
           headers: {
@@ -171,6 +173,7 @@ const Form = () => {
           body: formData.toString(),
         }
       );
+
       console.log("response", sheetRes);
     } catch (err) {
       console.error("Fetch error:", err);
@@ -178,10 +181,8 @@ const Form = () => {
     }
   };
 
-
   const afterRegisterSuccessufull = (formData) => {
     setTimeout(() => {
-      // router.push("/thank-you");
       window.location.href = "/thank-you";
       localStorage.setItem("PaymentDeatls", JSON.stringify(formData));
       setisLoading(false);
@@ -272,9 +273,9 @@ const Form = () => {
 
       <Popup
         open={isLoading}
-        onClose={() => {
-          handleTogglecontactForm();
-        }}
+        // onClose={() => {
+        //   handleTogglecontactForm();
+        // }}
       >
         <div className={styles.loadingPopup}>
           <h4>⚠️ Do Not Close or Refresh</h4>
