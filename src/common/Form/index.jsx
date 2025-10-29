@@ -100,7 +100,7 @@ const Form = () => {
               const whatsappPayload = {
                 phone: `91${values?.mobile}`,
                 name: values?.name,
-                amount: order?.amount / 100,
+                amount: 199,
                 event_dates: "Oct 31, Nov 1 & 2",
                 event_date_time:
                   "Oct 31 → 5.00 PM – 9.00 PM IST  ,  Nov 1 & 2 → 9:30 AM – 1:00 PM IST",
