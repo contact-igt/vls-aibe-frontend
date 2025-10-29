@@ -116,8 +116,8 @@ const Form = () => {
                   });
                   resetForm();
                   afterRegisterSuccessufull(formData);
-                  handleGoogleSheetForm(params);
                   handleWhatsappMessage(whatsappPayload);
+                  handleGoogleSheetForm(params);
                 })
                 .catch((err) => {
                   setisLoading(false);
