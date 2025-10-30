@@ -39,7 +39,7 @@ const AttemptFails = ({ attempt_constant, handleScrollToCover }) => {
         <div className={styles.attempt_fails_right}>
           {/* You can add an image here */}
           <img
-            src="assets/abie-fail.avif"
+            src="assets/aibe-fail.jpeg"
             alt="AIBE Preparation"
             className={styles.image}
           />

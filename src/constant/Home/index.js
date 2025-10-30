@@ -54,7 +54,56 @@ export const HomePageConstant = {
       description: "Studying randomly without a clear plan or proven framework",
     },
   ],
-
+  trainingSession:{
+    data: [
+      {
+        id: 1,
+        img: "/assets/Slide 16_9 - 1.png",
+      },
+      {
+        id: 2,
+        img: "/assets/Slide 16_9 - 2.png",
+      },
+      {
+        id: 3,
+        img: "/assets/Slide 16_9 - 4.png",
+      },
+      {
+        id: 4,
+        img: "/assets/Slide 16_9 - 5.png",
+      },
+      {
+        id: 5,
+        img: "/assets/Slide 16_9 - 6.png",
+      },
+      {
+        id: 6,
+        img: "/assets/Slide 16_9 - 7.png",
+      }      
+    ],
+    data_2:[
+      {
+        id: 7,
+        img : "/assets/IMG_9235.jpg"
+      },
+      {
+        id: 8,
+        img : "/assets/IMG_9237.jpg"
+      },
+      {
+        id: 9,
+        img : "/assets/IMG_9240.jpg"
+      },
+      {
+        id: 10,
+        img : "/assets/IMG_9242.jpg"
+      },
+      {
+        id: 11,
+        img : "/assets/IMG_9238.jpg"
+      }
+    ]
+  },
   whatLearn: [
     {
       icon: "book-open",

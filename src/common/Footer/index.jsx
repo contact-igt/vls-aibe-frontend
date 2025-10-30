@@ -7,6 +7,13 @@ import Image from "next/image";
 import { HomePageConstant } from "@/constant/Home";
 
 const Footer = () => {
+  const handleClick = () => {
+    const message = "AIBE";
+    const encodedMsg = encodeURIComponent(message);
+    const url = `http://wa.me/+919500025216?text=${encodedMsg}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <>
       <section className={styles.info_section}>
@@ -49,10 +56,7 @@ const Footer = () => {
                       target="_blank"
                       className="sbflex"
                     >
-                      <img
-                        src="\assets\youtube.png"
-                        className="img-fluid yt"
-                      />
+                      <img src="\assets\youtube.png" className="img-fluid yt" />
                       <p>Youtube</p>
                     </a>
                     <a
@@ -112,10 +116,7 @@ const Footer = () => {
                       href="tel:+919500025216"
                       style={{ paddingTop: "15px" }}
                     >
-                      <img
-                        src="\assets\call.png"
-                        className="img-fluid face "
-                      />
+                      <img src="\assets\call.png" className="img-fluid face " />
                       <p>+91 9500025216</p>
                     </a>
                   </div>
@@ -155,14 +156,22 @@ const Footer = () => {
       </section>
 
       <div className={styles.whatsappicon}>
-        <a href="http://wa.me/+919500025216" target="blank">
+        {/* <a href="http://wa.me/+919500025216" target="blank">
           <Image
             src={"/assets/whatsapp.png"}
             width={60}
             height={60}
             alt="whtasapp-logo"
           />
-        </a>
+        </a> */}
+        <Image
+          src={"/assets/whatsapp.png"}
+          width={60}
+          height={60}
+          style={{ borderRadius: "100px" }}
+          alt="whtasapp-logo"
+          onClick={handleClick}
+        />
       </div>
     </>
   );
