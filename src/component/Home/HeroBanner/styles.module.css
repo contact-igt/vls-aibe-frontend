@@ -215,6 +215,32 @@
   font-size: 15px !important;
 }
 
+.strikePrice {
+  position: relative;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+.strikePrice::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  transform: rotate(-8deg);
+}
+
+.currentPrice {
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
 @media (min-width: 1400px) {
   .heroBannerSection {
     height: 950px;
@@ -391,7 +417,6 @@
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
-
   .amountDetails button {
     padding: 8px 10px;
   }
@@ -715,7 +740,9 @@
     font-size: 15px;
     line-height: 1.3;
   }
-
+  .currentPrice{
+    font-size: 19px;
+  }
   .courseDetails {
     font-size: 12px;
   }
@@ -733,6 +760,19 @@
   .amountDetails {
     padding: 8px 12px;
     margin-top: 8px;
+  }
+
+  .amountDetails span:first-child {
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .amountDetails button {
+    font-size: 10px !important;
+    padding: 4px 6px;
+    white-space: nowrap;
+
   }
 
   .amountDetails span:first-child {

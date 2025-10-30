@@ -58,27 +58,27 @@ export const HomePageConstant = {
     data: [
       {
         id: 1,
-        img: "/assets/Slide 16_9 - 1.png",
+        img: "/assets/Slide 16_9 - 1.jpg",
       },
       {
         id: 2,
-        img: "/assets/Slide 16_9 - 2.png",
+        img: "/assets/Slide 16_9 - 2.jpg",
       },
       {
         id: 3,
-        img: "/assets/Slide 16_9 - 4.png",
+        img: "/assets/Slide 16_9 - 4.jpg",
       },
       {
         id: 4,
-        img: "/assets/Slide 16_9 - 5.png",
+        img: "/assets/Slide 16_9 - 5.jpg",
       },
       {
         id: 5,
-        img: "/assets/Slide 16_9 - 6.png",
+        img: "/assets/Slide 16_9 - 6.jpg",
       },
       {
         id: 6,
-        img: "/assets/Slide 16_9 - 7.png",
+        img: "/assets/Slide 16_9 - 7.jpg",
       }      
     ],
     data_2:[
@@ -125,7 +125,7 @@ export const HomePageConstant = {
     },
     {
       icon: "award",
-      title: "Follow a repeatable plan for 65+/100",
+      title: "Follow a repeatable plan for 90+/100",
       description:
         "Get a clear, step-by-step framework to achieve the passing score consistently",
     },
@@ -192,13 +192,13 @@ export const HomePageConstant = {
     result: [
       {
         id: 1,
-        number: "65+/100",
+        number: "90+/100",
         type: "Target Score",
         icon: "trending-up",
       },
       {
         id: 2,
-        number: "100+",
+        number: "1000+",
         type: "Student Cleared",
         icon: "medal",
       },
@@ -219,8 +219,8 @@ export const HomePageConstant = {
     proven: [
       "Faster decoding with section-first recall techniques",
       "Improved section mapping accuracy under time pressure",
-      "Consistent 65+/100 scores with proven framework",
-      "Trusted by 100+ successful AIBE candidates",
+      "Consistent 90+/100 scores with proven framework",
+      "Trusted by 1000+ successful AIBE candidates",
     ],
   },
 
