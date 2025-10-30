@@ -1,0 +1,19 @@
+.trainingWrapper{
+    margin-top: 56px;
+    margin-bottom: 30px;
+}
+
+.trainingInner{
+    margin-top: 76px;
+}
+
+@media (max-width: 600px) {
+    .trainingWrapper{
+        margin-top: 36px;
+        margin-bottom: 20px;
+    }
+    
+    .trainingInner{
+        margin-top: 36px;
+    }
+}

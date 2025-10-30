@@ -111,9 +111,9 @@ textarea:focus {
   scrollbar-color: #444 #1a1a1a;
 }
 
-* {
+/* * {
   -ms-overflow-style: none;
-}
+} */
 
 * {
   scrollbar-width: none;
