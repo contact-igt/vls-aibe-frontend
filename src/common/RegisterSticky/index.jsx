@@ -38,7 +38,7 @@ const RegisterSticky = ({ scrollToContactForm }) => {
                   <p className={styles.pricing}>
                     Pay Advance ₹199
                     <br />
-                    <small style={{ fontSize: '14px', color: '#ccc' }}>Total ₹2,500</small>
+                    <small style={{ fontSize: '14px', color: '#ccc' }}>Total <span className={styles.strikePrice}>₹7,500 </span> <span className={styles.currentPrice}>₹2,500</span></small>
                   </p>
                   <p className={styles.mbinfo}>
                     (Offer end in{" "}
