@@ -11,12 +11,11 @@ const Button = ({
   bg_color,
   btn_type,
   href,
-  onClick
+  onClick,
 }) => {
   return (
     <>
       {btn_type === "submit" ? (
-
         <button
           className={`${styles.commnbtn} btn d-flex align-items-center gap-2 justify-content-center `}
           type="submit"
@@ -36,9 +35,8 @@ const Button = ({
           )}
           <h6 className="m-0"> {name}</h6>
         </button>
-
       ) : btn_type === "link" ? (
-        <a href={href} >
+        <a href={href}>
           <button
             className={`${styles.commnbtn} btn d-flex align-items-center gap-2 justify-content-center`}
             style={{ backgroundColor: bg_color, color: name_color }}
