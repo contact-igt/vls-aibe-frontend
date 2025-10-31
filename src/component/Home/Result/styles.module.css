@@ -1,6 +1,11 @@
 .resultSection {
-    background-color: #000;
+    /* background-color: #000; */
     color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/IMG_9240\ -\ Copy.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .resultCard {
@@ -67,30 +72,30 @@
     .resultSection {
         padding: 70px 0;
     }
-    
+
     .resultCard {
         width: 260px;
         padding: 18px;
     }
-    
+
     .cardIcon svg {
         padding: 18px;
     }
-    
+
     .resultCard h6 {
         font-size: 26px;
         margin: 22px 0px;
     }
-    
+
     .bulletpoint p {
         font-size: 17px;
     }
-    
+
     .Proven {
         padding: 28px 45px;
         margin-top: 5.5rem;
     }
-    
+
     .Result {
         margin-top: 5.5rem;
     }
@@ -100,30 +105,30 @@
     .resultSection {
         padding: 60px 0;
     }
-    
+
     .resultCard {
         width: 300px;
         padding: 16px;
     }
-    
+
     .cardIcon svg {
         padding: 16px;
     }
-    
+
     .resultCard h6 {
         font-size: 24px;
         margin: 20px 0px;
     }
-    
+
     .bulletpoint p {
         font-size: 16px;
     }
-    
+
     .Proven {
         padding: 26px 40px;
         margin-top: 5rem;
     }
-    
+
     .Result {
         margin-top: 5rem;
     }
@@ -133,31 +138,31 @@
     .resultSection {
         padding: 50px 0;
     }
-    
+
     .resultCard {
         width: 260px;
         padding: 15px;
         margin-bottom: 20px;
     }
-    
+
     .cardIcon svg {
         padding: 15px;
     }
-    
+
     .resultCard h6 {
         font-size: 22px;
         margin: 18px 0px;
     }
-    
+
     .bulletpoint p {
         font-size: 15px;
     }
-    
+
     .Proven {
         padding: 24px 35px;
         margin-top: 4.5rem;
     }
-    
+
     .Result {
         margin-top: 4.5rem;
         padding: 0 20px;
@@ -168,30 +173,30 @@
     .resultSection {
         padding: 40px 0;
     }
-    
+
     .resultCard {
         width: 200px;
         padding: 14px;
         margin-bottom: 18px;
     }
-    
+
     .cardIcon svg {
         padding: 14px;
     }
-    
+
     .resultCard h6 {
         font-size: 20px;
         margin: 16px 0px;
     }
-    
+
     .resultCard p {
         font-size: 14px;
     }
-    
+
     .bulletpoint p {
         font-size: 14px;
     }
-    
+
     .Proven {
         padding: 22px 30px;
         margin-top: 4rem;
@@ -199,7 +204,7 @@
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .Result {
         margin-top: 4rem;
         padding: 0 25px;
@@ -212,31 +217,31 @@
     .resultSection {
         padding: 30px 0;
     }
-    
+
     .resultCard {
         width: 240px;
         padding: 12px;
         margin-bottom: 15px;
     }
-    
+
     .cardIcon svg {
         padding: 12px;
     }
-    
+
     .resultCard h6 {
         font-size: 18px;
         margin: 14px 0px;
         font-weight: 600;
     }
-    
+
     .resultCard p {
         font-size: 13px;
     }
-    
+
     .bulletpoint p {
         font-size: 13px;
     }
-    
+
     .Proven {
         padding: 20px 25px;
         margin-top: 3.5rem;
@@ -244,7 +249,7 @@
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .Result {
         margin-top: 3.5rem;
         padding: 0 20px;

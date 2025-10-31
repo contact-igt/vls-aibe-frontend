@@ -54,7 +54,7 @@ export const HomePageConstant = {
       description: "Studying randomly without a clear plan or proven framework",
     },
   ],
-  trainingSession:{
+  trainingSession: {
     data: [
       {
         id: 1,
@@ -79,30 +79,30 @@ export const HomePageConstant = {
       {
         id: 6,
         img: "/assets/Slide 16_9 - 7.jpg",
-      }      
+      },
     ],
-    data_2:[
+    data_2: [
       {
         id: 7,
-        img : "/assets/IMG_9235.jpg"
+        img: "/assets/IMG_9235.jpg",
       },
       {
         id: 8,
-        img : "/assets/IMG_9237.jpg"
+        img: "/assets/IMG_9237.jpg",
       },
       {
         id: 9,
-        img : "/assets/IMG_9240.jpg"
+        img: "/assets/IMG_9240.jpg",
       },
       {
         id: 10,
-        img : "/assets/IMG_9242.jpg"
+        img: "/assets/IMG_9242.jpg",
       },
       {
         id: 11,
-        img : "/assets/IMG_9238.jpg"
-      }
-    ]
+        img: "/assets/IMG_9238.jpg",
+      },
+    ],
   },
   whatLearn: [
     {
@@ -248,7 +248,7 @@ export const HomePageConstant = {
     {
       question: "Seat Booking Amount?",
       answer:
-        "Yes, ₹199 locks your seat. Pay the remaining balance before November 1.",
+        "Yes, ₹199 locks your seat. Pay the remaining balance after join the class",
     },
     {
       question: "Course Language Details?",
@@ -261,7 +261,7 @@ export const HomePageConstant = {
     {
       question: "Refund Policy & Conditions?",
       answer:
-        "Advance is non-refundable. The remaining amount is refundable before November 1 on request.",
+        "Advance is non-refundable. The remaining amount is refundable before join class on request.",
     },
   ],
   schedule: {
@@ -271,14 +271,15 @@ export const HomePageConstant = {
         id: 1,
         icon: "calendar",
         title: "Dates",
-        description: "Oct 31 (Fri), Nov 1 (Sat), Nov 2 (Sun)",
+        description: "Nov 14 (Fri), Nov 15 (Sat), Nov 16 (Sun)",
       },
       {
         id: 2,
         icon: "clock",
         title: "Time",
-        description: "Oct 31 (Fri) : 05:00 PM – 09:00 PM IST (4 hrs/day)",
-        description2: "Nov 1–2 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
+        description: "Nov 14 (Fri) : 05:00 PM – 09:00 PM IST (4 hrs/day)",
+        description2:
+          "Nov 15–16 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
       },
       {
         id: 3,

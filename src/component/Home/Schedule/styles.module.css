@@ -1,6 +1,6 @@
 .scheduleSection {
   padding: 80px 0;
-  background: #fff;
+  background-color: #000;
   position: relative;
   font-family: "Inter", sans-serif;
   --accent: #b20a0a;
@@ -8,6 +8,7 @@
   --soft: #f3f7fb;
   --heading: #0f172a;
   --muted: #6b7682;
+  
 }
 
 .batchBanner {
