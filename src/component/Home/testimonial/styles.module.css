@@ -9,6 +9,10 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+.testimonalsec {
+  background-color: #f9f2f2;
+}
+
 .testimonal_thumbnail {
   position: relative;
   background: url("/assets/testimonialimg.png") center center / contain no-repeat;

@@ -76,8 +76,8 @@ const Form = () => {
                 email: values?.email,
                 mobile: `91${values?.mobile}`,
                 amount: order?.amount / 100,
-                programm_start_date: "2025-10-31",
-                programm_end_date: "2025-11-02",
+                programm_start_date: "2025-11-14",
+                programm_end_date: "2025-11-16",
                 razorpay_order_id: response.razorpay_order_id
                   ? response.razorpay_order_id
                   : "",
@@ -101,11 +101,11 @@ const Form = () => {
                 phone: `91${values?.mobile}`,
                 name: values?.name,
                 amount: 199,
-                event_dates: "Oct 31, Nov 1 & 2",
+                event_dates: "Nov 14, Nov 15 & 16",
                 event_date_time:
-                  "Oct 31 → 5.00 PM – 9.00 PM IST  ,  Nov 1 & 2 → 9:30 AM – 1:00 PM IST",
+                  "Nov 14 → 5.00 PM – 9.00 PM IST  ,  Nov 15 & 16 → 9:30 AM – 1:00 PM IST",
                 platform: "Google Meet",
-                link_date: "Thursday Oct, 30",
+                link_date: "Thursday Nov, 13",
               };
 
               useVlsAibeQuery(apiPayload)

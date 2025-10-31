@@ -42,12 +42,12 @@ const HomePageComponent = () => {
       />
       <AttemptFails attempt_constant={HomePageConstant?.attemptFails} handleScrollToCover={handleScrollToCover} />
       <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} />
-      <Testimonial />
+      <Testimonial scrollToContactForm={scrollToContactForm} />
       <TrainingSession trainingsession_constant={HomePageConstant?.trainingSession} />
       <WhosThis whosthis_constant={HomePageConstant?.whosThis} />
       <Decoding decoding_constant={HomePageConstant?.decode} />
       <Schedule schedule_constant={HomePageConstant?.schedule} />
-      <Included included_constant={HomePageConstant?.included} />
+      <Included included_constant={HomePageConstant?.included} scrollToContactForm={scrollToContactForm} />
       <WhatWeCover whatwecover_constant={HomePageConstant?.whatWeCover}  />
       <Result result_constant={HomePageConstant?.proven_result} />
       <Speaker speaker_constant={HomePageConstant?.speaker} />
