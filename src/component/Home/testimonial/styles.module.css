@@ -50,7 +50,20 @@
   background: #000;
   overflow: hidden;
 }
+.slideWrapperItem {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
+.slideWrapperItem > div {
+  width: 100% !important;
+  max-width: 500px;
+  margin: 0 auto;
+}
 .testimonal_video video {
   width: 100%;
   height: 100%;
@@ -58,7 +71,65 @@
   display: block;
   border-radius: 12px;
 }
+.closeButton {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: white;
+    color: #333;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    z-index: 100;
+}
+.closeButton:hover {
+    background-color: #ff4d4d;
+    color: white;
+    transform: scale(1.1) rotate(90deg);
+}
+/* Force single slide to center properly */
+.sliderWrapper .slick-list {
+  display: flex !important;
+  justify-content: center !important;
+}
 
+.sliderWrapper .slick-track {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.sliderWrapper .slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+  float: none !important;
+}
+
+.sliderWrapper .slick-slide > div {
+  display: flex !important;
+  justify-content: center !important;
+}
+.sliderWrapper.slick-initialized.slick-slider .slick-track {
+  justify-content: center !important;
+  transform: none !important;
+}
+.slick-track{
+  display: flex;
+  justify-content: center;
+}
+.sliderWrapper.slick-initialized.slick-slider .slick-track {
+  justify-content: center !important;
+  transform: none !important;
+}
 @media (width < 576px) {
   .playbtn {
     width: 70px;
