@@ -48,7 +48,7 @@ const HomePageComponent = () => {
       <Decoding decoding_constant={HomePageConstant?.decode} />
       <Schedule schedule_constant={HomePageConstant?.schedule} />
       <Included included_constant={HomePageConstant?.included} scrollToContactForm={scrollToContactForm} />
-      <WhatWeCover whatwecover_constant={HomePageConstant?.whatWeCover}  />
+      <WhatWeCover whatwecover_constant={HomePageConstant?.whatWeCover} scrollToContactForm={scrollToContactForm}  />
       <Result result_constant={HomePageConstant?.proven_result} />
       <Speaker speaker_constant={HomePageConstant?.speaker} />
       <FAQ faqs={HomePageConstant?.Faq} />
