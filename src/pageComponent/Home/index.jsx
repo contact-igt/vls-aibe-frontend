@@ -13,6 +13,7 @@ import WhatWeCover from "@/component/Home/WhatWeCover";
 import { HomePageConstant } from "@/constant/Home";
 import { useEffect, useRef } from "react";
 import { TrainingSession } from "@/component/Home/TrainingSession";
+import Testimonial from "@/component/Home/testimonial";
 
 const HomePageComponent = () => {
   const contactRef = useRef(null);
@@ -41,6 +42,7 @@ const HomePageComponent = () => {
       />
       <AttemptFails attempt_constant={HomePageConstant?.attemptFails} handleScrollToCover={handleScrollToCover} />
       <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} />
+      <Testimonial />
       <TrainingSession trainingsession_constant={HomePageConstant?.trainingSession} />
       <WhosThis whosthis_constant={HomePageConstant?.whosThis} />
       <Decoding decoding_constant={HomePageConstant?.decode} />

@@ -66,8 +66,6 @@ export const SessionImages = ({Training}) => {
       }
     
     ]
-      
-      
     };
 
   return (
@@ -101,7 +99,6 @@ export const SessionImages = ({Training}) => {
                 )
               })
             }
-      
           </Slider>
         </div>
       </div>
