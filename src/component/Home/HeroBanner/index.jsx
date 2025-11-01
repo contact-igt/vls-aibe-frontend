@@ -2,10 +2,17 @@ import Button from "@/common/Button";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Form from "@/common/Form";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
 
 const HeroBanner = forwardRef(
   ({ herobanner_constant, scrollToContactForm }, ref) => {
+    const [seatsLeft, setSeatsLeft] = useState(12);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
+  }, 20000);
+  return () => clearInterval(interval);
+}, []);
     return (
       <section className={styles.heroBannerSection}>
         <div className={styles.overlay}></div>
@@ -54,7 +61,7 @@ const HeroBanner = forwardRef(
                         <span className={styles.dateItem}>Nov 15 (Sat)</span>
                         <span className={styles.dateItem}>Nov 16 (Sun)</span>
                       </div>
-                      <div className={styles.amountDetails}>
+                      {/* <div className={styles.amountDetails}>
                         <span>
                           Total{" "}
                           <span className={styles.strikePrice}>
@@ -65,9 +72,30 @@ const HeroBanner = forwardRef(
                         </span>
                         <Button
                           onClick={scrollToContactForm}
-                          name="Pay Advance ₹199"
+                          name="Join the batch"
                           name_color="#dc2626"
                           bg_color="#fff"
+                        />
+                      </div> */}
+                      <div className={styles.amountDetails}>
+                        <div className={styles.limitedSeats}>
+                          <strong>Limited Seats Available</strong>
+                          <br />
+                          <small>
+                            Only <span className={styles.seatsLeft}>{seatsLeft}</span> / 100 seats left ·
+                            <br className="d-block d-md-none" />
+                            <span className={styles.timer}>
+                              {" "}⏰ Offer ends soon
+                            </span>
+                          </small>
+                        </div>
+                        <Button
+                          onClick={scrollToContactForm}
+                          name="Join the Batch"
+                          name_color="#ffffff"
+                          bg_color="#b20a0a"
+                          icon="notepad-text"
+                          icon_color="#ffffff"
                         />
                       </div>
                     </div>
@@ -91,7 +119,7 @@ const HeroBanner = forwardRef(
                   <div className={`${styles.heroBannerCta} d-flex gap-4 pt-1`}>
                     <Button
                       onClick={scrollToContactForm}
-                      name={"Book with ₹199"}
+                      name={"Book Your Slot"}
                       bg_color={"#b20a0a"}
                       name_color={"#ffff"}
                       icon={"notepad-text"}

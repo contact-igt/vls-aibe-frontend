@@ -12,6 +12,7 @@ const Button = ({
   btn_type,
   href,
   onClick,
+  disabled
 }) => {
   return (
     <>
@@ -21,6 +22,7 @@ const Button = ({
           type="submit"
           style={{ backgroundColor: bg_color, color: name_color }}
           onClick={onClick}
+          disabled={disabled}
         >
           {img ? (
             <Image
