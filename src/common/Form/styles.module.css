@@ -13,7 +13,13 @@
 .inputgrp label {
     color: #000;
 }
-
+.inputgrp button{
+    margin-top: 8px !important;
+}
+.errorMessage{
+    height: 2px;
+    color: red;
+}
 .inputgrp input,
 .inputgrp input:active,
 .inputgrp input:focus {

@@ -44,6 +44,37 @@
 .pricingContainer {
   text-align: center;
 }
+.offerInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.offerHeadline {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.offerSubtext {
+  color: #d1d1d1;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.seatsLeft {
+  color: #ff5757;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.timer {
+  margin-left: 6px;
+  color: #00a0e3;
+  font-weight: 600;
+}
 
 .interactivePricing {
   display: flex;
@@ -83,8 +114,8 @@
   font-weight: 800;
   color: #fff;
 }
-.currentPrice{
-    font-size: 15.5px;
+.currentPrice {
+  font-size: 15.5px;
 }
 .totalSection {
   display: flex;
@@ -189,9 +220,9 @@
   .pricebtn button:hover {
     padding: 10px 20px;
   }
-  .currentPrice{
+  .currentPrice {
     font-size: 15.5px;
-}
+  }
 }
 
 @media (width < 420px) {
