@@ -10,7 +10,7 @@ const HeroBanner = forwardRef(
 useEffect(() => {
   const interval = setInterval(() => {
     setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
-  }, 20000);
+  }, 30000);
   return () => clearInterval(interval);
 }, []);
     return (

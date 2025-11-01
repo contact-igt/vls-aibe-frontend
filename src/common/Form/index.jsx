@@ -240,8 +240,11 @@ const Form = () => {
     <div>
       <div className={styles.formTopic}>
         <h3>Join the Batch</h3>
-        <p>
+        {/* <p>
           Please complete the form, make the payment, and confirm your seat now!
+        </p> */}
+          <p>
+          Please complete the form, and confirm your seat now!
         </p>
       </div>
       <form onSubmit={formik.handleSubmit}>

@@ -36,7 +36,8 @@ const WhatWeCover = ({ whatwecover_constant, scrollToContactForm }) => {
         <div className="w-100 d-flex justify-content-center mt-5">
           <Button
             onClick={scrollToContactForm}
-            name="Enroll with ₹199"
+            // name="Enroll with ₹199"
+            name="Book Your Slot"
             icon={"circle-check"}
             icon_color={"#fff"}
             bg_color="rgb(178, 10, 10)"
