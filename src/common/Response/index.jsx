@@ -45,7 +45,7 @@ const Response = () => {
 
         <div className={`text-center ${styles.responseInfo}`}>
           <h5 className={issuccess ? styles.successText : styles.errorText}>
-            {issuccess ? "Payment Successful" : "Payment Failed"}
+            {issuccess ? "Thank You for Booking Your Slot!" : "Payment Failed"}
           </h5>
 
           {issuccess ? (
@@ -54,9 +54,9 @@ const Response = () => {
                 Thank you! Your payment has been received successfully. Below
                 are your transaction details:
               </p> */}
-               <p>
+               {/* <p>
                 Thank You for Booking Your Slot!
-              </p>
+              </p> */}
                <p className="mt-3">
                 Your slot has been successfully reserved for the upcoming
                 <strong> AIBE Batch.</strong>

@@ -245,11 +245,11 @@ export const HomePageConstant = {
   ],
 
   Faq: [
-    {
-      question: "Seat Booking Amount?",
-      answer:
-        "Yes, ₹199 locks your seat. Pay the remaining balance after join the class",
-    },
+    // {
+    //   question: "Seat Booking Amount?",
+    //   answer:
+    //     "Yes, ₹199 locks your seat. Pay the remaining balance after join the class",
+    // },
     {
       question: "Course Language Details?",
       answer: "Sessions will be in English and Tamil (as needed).",
