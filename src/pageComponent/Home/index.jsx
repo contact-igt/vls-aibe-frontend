@@ -22,7 +22,7 @@ const HomePageComponent = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-    const handleScrollToCover = () => {
+  const handleScrollToCover = () => {
     const addressSection = document.getElementById("coversection");
     if (addressSection) {
       addressSection.scrollIntoView({ behavior: "smooth" });
@@ -40,17 +40,17 @@ const HomePageComponent = () => {
         ref={contactRef}
         herobanner_constant={HomePageConstant?.homeBanner}
       />
+      <TrainingSession trainingsession_constant={HomePageConstant?.trainingSession} />
+      <WhatWeCover whatwecover_constant={HomePageConstant?.whatWeCover} scrollToContactForm={scrollToContactForm} />
+      <Speaker speaker_constant={HomePageConstant?.speaker} />
+      <Result result_constant={HomePageConstant?.proven_result} />
       <AttemptFails attempt_constant={HomePageConstant?.attemptFails} handleScrollToCover={handleScrollToCover} />
       <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} />
       <Testimonial scrollToContactForm={scrollToContactForm} />
-      <TrainingSession trainingsession_constant={HomePageConstant?.trainingSession} />
       <WhosThis whosthis_constant={HomePageConstant?.whosThis} />
       <Decoding decoding_constant={HomePageConstant?.decode} />
       <Schedule schedule_constant={HomePageConstant?.schedule} />
       <Included included_constant={HomePageConstant?.included} scrollToContactForm={scrollToContactForm} />
-      <WhatWeCover whatwecover_constant={HomePageConstant?.whatWeCover} scrollToContactForm={scrollToContactForm}  />
-      <Result result_constant={HomePageConstant?.proven_result} />
-      <Speaker speaker_constant={HomePageConstant?.speaker} />
       <FAQ faqs={HomePageConstant?.Faq} />
       <RegisterSticky scrollToContactForm={scrollToContactForm} />
     </>
