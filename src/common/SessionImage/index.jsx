@@ -86,7 +86,7 @@ export const SessionImages = ({Training}) => {
             }
           </Slider>
         </div>
-        <div className="sessions mt-md-2 mt-1">
+        <div className="sessions mt-md-4 mt-1">
           <Slider {...settings2}>
             {
               Training?.data_2?.map((data , i )=>{

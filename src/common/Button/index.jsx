@@ -12,7 +12,7 @@ const Button = ({
   btn_type,
   href,
   onClick,
-  disabled
+  disabled,
 }) => {
   return (
     <>

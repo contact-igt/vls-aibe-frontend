@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
 import Button from "@/common/Button";
 
-const WhatWeCover = ({ whatwecover_constant, scrollToContactForm }) => {
+const WhatWeCover = ({ whatwecover_constant, handleToggleToForm }) => {
   return (
     <section className={styles.coverSection} id="coversection">
       <div className="container">
@@ -35,7 +35,7 @@ const WhatWeCover = ({ whatwecover_constant, scrollToContactForm }) => {
 
         <div className="w-100 d-flex justify-content-center mt-5">
           <Button
-            onClick={scrollToContactForm}
+            onClick={handleToggleToForm}
             // name="Enroll with ₹199"
             name="Book Your Slot"
             icon={"circle-check"}

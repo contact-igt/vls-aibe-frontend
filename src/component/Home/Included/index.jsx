@@ -2,7 +2,7 @@ import Title from "@/common/Title";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
 
-const Included = ({ included_constant, scrollToContactForm }) => {
+const Included = ({ included_constant, handleToggleToForm }) => {
   return (
     <section className={styles.includedSection}>
       <div className="container">
@@ -35,7 +35,7 @@ const Included = ({ included_constant, scrollToContactForm }) => {
               <div
                 className={styles.tag}
                 key={index}
-                onClick={scrollToContactForm}
+                onClick={handleToggleToForm}
               >
                 <span className={styles.tagIcon}>
                   <DynamicIcon

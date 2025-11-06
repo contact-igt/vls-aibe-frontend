@@ -5,7 +5,6 @@ const ResponsePageComponent = ()=>{
     return(
         <Response/>
     )
-
 }
 
 export default ResponsePageComponent;

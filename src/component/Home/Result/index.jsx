@@ -22,7 +22,7 @@ const Result = ({ result_constant }) => {
           ))}
         </div>
 
-        <div className="d-flex justify-content-center">
+        {/* <div className="d-flex justify-content-center">
           <div className={styles.Proven}>
             {result_constant?.proven?.map((data, i) => (
               <div
@@ -34,7 +34,7 @@ const Result = ({ result_constant }) => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
