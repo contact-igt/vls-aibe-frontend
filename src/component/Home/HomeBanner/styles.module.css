@@ -1,0 +1,349 @@
+.homebanner_sec {
+    padding: 0px !important;
+    background-color: #ffe9e9;
+}
+
+
+.bannerview {
+    padding: 50px 0px;
+}
+
+.googleview {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 7px 10px;
+}
+
+
+.googleinfo p {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.googleinfo h6 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.line {
+    border-left: 3px solid #000;
+    height: 70px;
+
+}
+
+.mainview1 {
+    font-size: 60px;
+    width: 1200px;
+    font-weight: 700;
+}
+
+.mainview1 span {
+    color: #a30000;
+}
+
+.mainview2 {
+    font-size: 22px;
+    font-weight: 500;
+    width: 1000px;
+}
+
+.slogan {
+    width: 125px;
+    height: 125px;
+    background: linear-gradient(90deg, #000 , #b20a0a);
+    color: #ffff;
+    border-radius: 100px;
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    top: 82px;
+    right: 373px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-30px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+.tagbox h6 {
+    font-size: 18px;
+}
+
+.tagbox {
+    background-color: #a30000;
+    /* Initial background color */
+    color: white;
+    padding: 25px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: flash 1.5s infinite alternate;
+    /* Apply the animation */
+}
+
+@keyframes flash {
+    0% {
+        background-color: #a30000;
+        /* Start color */
+        box-shadow: 0 0 5px #a30000;
+        /* Optional: initial glow */
+    }
+
+    50% {
+        background-color: #000;
+        /* Flash color */
+        box-shadow: 0 0 20px #000;
+        /* Optional: stronger glow */
+    }
+
+    100% {
+        background-color: #a30000;
+        /* End color (back to start) */
+        box-shadow: 0 0 5px #a30000;
+        /* Optional: back to initial glow */
+    }
+}
+
+
+
+.imgbanner img {
+    width: 700px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+.imggardient {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background: linear-gradient(20deg, #000000, #fff2f221);
+    border-radius: 10px;
+}
+
+.imgtag {
+    bottom: 10px;
+    left: 20px;
+    color: #ffff;
+}
+
+.imgtag h4 {
+    font-size: 18px;
+    margin: 0px;
+}
+
+.imgtag h6 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tagpan p {
+    border: 2px solid #ffff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 190px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.speakerview {
+    margin-top: 80px;
+}
+
+
+.playButton {
+    background-color: #ffff;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    width: 68px;
+    height: 68px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+        background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(255, 120, 120, 0.35);
+}
+
+
+.ratedbox p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.ratedbox {
+    width: 350px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    color: #000;
+    border: 2px solid #b20a0a;
+    background-color: #f9f2f2;
+}
+
+.ratedinfo p {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+
+@media (width < 1400px) {
+
+    .slogan {
+        top: 85px;
+        right: 280px;
+    }
+}
+
+@media (width < 1200px) {
+
+    .mainview1 {
+        font-size: 50px;
+        width: 800px;
+    }
+
+    .slogan {
+        top: 65px;
+        right: 125px;
+    }
+
+    .mainview2 {
+        width: 900px;
+    }
+
+    .tagbox {
+        padding: 18px;
+    }
+
+    .tagbox h6 {
+        font-size: 16px;
+
+    }
+
+    .imgbanner img {
+        width: 650px;
+        height: 350px;
+    }
+
+}
+
+@media (width < 992px) {
+
+    .mainview1 {
+        width: 550px;
+        font-size: 45px;
+    }
+
+    .slogan {
+        width: 100px;
+        height: 100px;
+        background-color: #b20a0a;
+        color: #ffff;
+        border-radius: 100px;
+        padding: 25px 5px 5px 5px;
+        text-align: center;
+        font-size: 13px;
+        top: 112px;
+        right: 111px;
+    }
+
+    .mainview2 {
+        width: 700px;
+        font-size: 18px;
+    }
+
+    .tagbox h6 {
+        font-size: 12px;
+
+    }
+
+}
+
+
+@media (width < 768px) {
+
+    .tagbox {
+        width: 330px;
+        padding: 20px 20px;
+
+    }
+
+    .tagbox h6 {
+        font-size: 14px;
+
+    }
+
+
+    .mainview1 {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .mainview2 {
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .slogan {
+        top: -50px;
+        right: 11px;
+        width: 80px;
+        height: 80px;
+        font-size: 10px;
+    }
+
+
+
+    .tagpan p {
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 11px;
+        width: 150px;
+        margin-bottom: 0px;
+    }
+
+
+
+    .imgbanner img {
+        width: 350px;
+        height: 300px;
+    }
+
+    .playButton {
+        top: 35%;
+    }
+
+    .imgtag {
+        left: 7px;
+    }
+
+    .imgtag h4 {
+        font-size: 14px;
+    }
+
+    .imgtag h6 {
+        font-size: 13px;
+    }
+
+}

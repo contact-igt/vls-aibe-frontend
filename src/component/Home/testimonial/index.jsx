@@ -7,7 +7,7 @@ import { Popup } from "@/common/Popup";
 import Slider from "react-slick";
 import TestimonialCard from "@/common/TestimonialCard";
 
-const Testimonial = ({ scrollToContactForm }) => {
+const Testimonial = ({ handleToggleToForm }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -139,7 +139,7 @@ const Testimonial = ({ scrollToContactForm }) => {
 
         <div className="w-100 d-flex justify-content-center mt-5">
           <Button
-            onClick={scrollToContactForm}
+            onClick={handleToggleToForm}
             name="Reserve My Seat"
             icon={"calendar-check"}
             icon_color={"#fff"}

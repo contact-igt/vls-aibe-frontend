@@ -23,14 +23,38 @@ export const HomePageConstant = {
   ],
 
   homeBanner: {
-    description:
-      "A focused weekend batch to master section-first answering with timed drills.",
-    bullet_points: [
-      "Master the section-first approach for quick recall under exam pressure",
-      "Timed drills with real AIBE question patterns",
-      "Weekend batch designed for working professionals",
-      "Focus on high-yield sections from BARE Acts",
-    ],
+    marquee: {
+      title:
+        " 🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | Limited Seats – Enrol Now! 🚀",
+      offer: "Flat 70% Offer ",
+    },
+    main: {
+      description:
+        "Master Practical AIBE Strategies You Can Use Right Away To Decode Sections Faster, Smarter, and Better — Even If You’re New to the Bare Act ⚖️",
+      tags: [
+        {
+          id: 1,
+          icon: "calendar",
+          title: "Nov 14 - Nov 16, 2025",
+        },
+        {
+          id: 2,
+          icon: "clock",
+          title: "25hrs (12hrs Theory + 13hrs Tests)",
+        },
+        {
+          id: 3,
+          icon: "locate-fixed",
+          title: "Both Online / Offline",
+        },
+
+         {
+          id: 4,
+          icon: "armchair",
+          title: " / 100 seats left",
+        },
+      ],
+    },
   },
 
   attemptFails: [

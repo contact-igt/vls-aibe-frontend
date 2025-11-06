@@ -136,8 +136,26 @@
 
     }
 
-    .navbarToggler span{
+    .navbarToggler span {
         margin: 5px;
     }
 
+}
+
+
+@media (width < 768px) {
+
+    .navlogo a img {
+        width: 65px;
+        height: 65px;
+        object-fit: cover;
+    }
+
+    .navbarToggler{
+        width: 30px;
+    }
+
+    .navbarToggler.open span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 9px);
+}
 }

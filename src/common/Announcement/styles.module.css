@@ -1,0 +1,39 @@
+.marquee_box {
+    overflow: hidden;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #b20a0a, #000);
+    color: #fff;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    font-weight: 550;
+    position: relative;
+}
+
+.marquee_inner {
+    display: inline-flex;
+    animation: scrollLeftRight 14s linear infinite alternate;
+}
+
+.marquee_inner span {
+    padding-right: 3rem;
+    /* small gap between repeats */
+}
+
+/* Smooth bidirectional scroll with no gaps */
+@keyframes scrollLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee_box:hover .marquee_inner {
+    animation-play-state: paused;
+}
+
+.offer {
+    color: yellow;
+}

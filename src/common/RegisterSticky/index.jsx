@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
-const RegisterSticky = ({ scrollToContactForm }) => {
+const RegisterSticky = ({ handleToggleToForm }) => {
   const [time, setTime] = useState(15 * 60);
   const [seatsLeft, setSeatsLeft] = useState(12);
+
+  
 useEffect(() => {
   const interval = setInterval(() => {
     setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
   }, 30000);
   return () => clearInterval(interval);
 }, []);
+
+
+
   useEffect(() => {
     if (time <= 0) return;
 
@@ -63,7 +68,7 @@ useEffect(() => {
                 </div>
                 <div className={styles.pricebtn}>
                   <button
-                    onClick={scrollToContactForm}
+                    onClick={handleToggleToForm}
                     className="btn text-light"
                     style={{ cursor: "pointer", borderRadius: "20px", fontWeight: "600" }}
                   >

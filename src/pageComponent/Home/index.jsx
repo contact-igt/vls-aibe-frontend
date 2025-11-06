@@ -11,15 +11,20 @@ import Included from "@/component/Home/Included";
 import Schedule from "@/component/Home/Schedule";
 import WhatWeCover from "@/component/Home/WhatWeCover";
 import { HomePageConstant } from "@/constant/Home";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TrainingSession } from "@/component/Home/TrainingSession";
 import Testimonial from "@/component/Home/testimonial";
+import HomeBanner from "@/component/Home/HomeBanner";
+import { Popup } from "@/common/Popup";
+import Form from "@/common/Form";
 
 const HomePageComponent = () => {
-  const contactRef = useRef(null);
+  // const contactRef = useRef(null);
 
-  const scrollToContactForm = () => {
-    contactRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const [isopen, setisopen] = useState(false);
+
+  const handleToggleToForm = () => {
+    setisopen(!isopen);
   };
 
   const handleScrollToCover = () => {
@@ -35,24 +40,34 @@ const HomePageComponent = () => {
 
   return (
     <>
-      <HeroBanner
-        scrollToContactForm={scrollToContactForm}
-        ref={contactRef}
-        herobanner_constant={HomePageConstant?.homeBanner}
+      <HomeBanner banner={HomePageConstant?.homeBanner} handleToggleToForm={handleToggleToForm}/>
+      <TrainingSession
+        trainingsession_constant={HomePageConstant?.trainingSession}
       />
-      <TrainingSession trainingsession_constant={HomePageConstant?.trainingSession} />
-      <WhatWeCover whatwecover_constant={HomePageConstant?.whatWeCover} scrollToContactForm={scrollToContactForm} />
+      <WhatWeCover
+        whatwecover_constant={HomePageConstant?.whatWeCover}
+        handleToggleToForm={handleToggleToForm}
+      />
       <Speaker speaker_constant={HomePageConstant?.speaker} />
       <Result result_constant={HomePageConstant?.proven_result} />
-      <AttemptFails attempt_constant={HomePageConstant?.attemptFails} handleScrollToCover={handleScrollToCover} />
+      <AttemptFails
+        attempt_constant={HomePageConstant?.attemptFails}
+        handleScrollToCover={handleScrollToCover}
+      />
       <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} />
-      <Testimonial scrollToContactForm={scrollToContactForm} />
+      <Testimonial handleToggleToForm={handleToggleToForm} />
       <WhosThis whosthis_constant={HomePageConstant?.whosThis} />
       <Decoding decoding_constant={HomePageConstant?.decode} />
       <Schedule schedule_constant={HomePageConstant?.schedule} />
-      <Included included_constant={HomePageConstant?.included} scrollToContactForm={scrollToContactForm} />
+      <Included
+        included_constant={HomePageConstant?.included}
+        handleToggleToForm={handleToggleToForm}
+      />
       <FAQ faqs={HomePageConstant?.Faq} />
-      <RegisterSticky scrollToContactForm={scrollToContactForm} />
+      <RegisterSticky handleToggleToForm={handleToggleToForm} />
+      <Popup open={isopen} onClose={handleToggleToForm}>
+        <Form />
+      </Popup>
     </>
   );
 };

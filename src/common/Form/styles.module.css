@@ -1,6 +1,6 @@
 .formTopic {
     background: linear-gradient(165deg, #b20a0a, #000);
-    padding: 15px;
+    padding: 20px;
     text-align: start;
     color: #fff;
     border-radius: 10px;
@@ -78,5 +78,18 @@
 
     .loadingPopup p{
         font-size: 15px;
+    }
+
+    .inputgrp input{
+        padding: 10px;
+
+    }
+
+    .inputgrp{
+        padding: 10px 0px;
+    }
+
+    .inputgrp label , .inputgrp input::placeholder{
+        font-size: 14px;
     }
 }
