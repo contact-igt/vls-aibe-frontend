@@ -17,7 +17,9 @@ const TestimonialCard = ({
                     onClick={openModal}
                     className={styles.playButton}
                 >
-                     <DynamicIcon name="play" fill="#fff" color="#fff" size={40} />
+                     <DynamicIcon name="play" fill="#b20a0a"
+                  color="#b20a0a"
+                  size={32} />
                 </button>
                 {/* <div className={styles.nameContainer}>
                     <h5>{name}</h5>

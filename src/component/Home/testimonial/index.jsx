@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
-import { DynamicIcon } from "lucide-react/dynamic";
 import Title from "@/common/Title";
 import Button from "@/common/Button";
 import { Popup } from "@/common/Popup";
@@ -68,10 +67,10 @@ const Testimonial = ({ handleToggleToForm }) => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2.5,
           slidesToScroll: 1,
           initialSlide: 1,
-          centerMode: true,
+          centerMode: testimonialData.length === 1,
           centerPadding: "0px",
           infinite: false,
         },
@@ -80,21 +79,21 @@ const Testimonial = ({ handleToggleToForm }) => {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.7,
           slidesToScroll: 1,
           initialSlide: 1,
           infinite: false,
-          centerMode: true,
+           centerMode: testimonialData.length === 1,
           centerPadding: "0px",
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.2,
           slidesToScroll: 1,
           initialSlide: 1,
-          centerMode: true,
+           centerMode: testimonialData.length === 1,
           centerPadding: "0px",
           infinite: false,
         },
