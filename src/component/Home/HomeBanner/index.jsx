@@ -11,11 +11,6 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [seatsLeft, setSeatsLeft] = useState(12);
 
-  const [time, setTime] = useState(15 * 60);
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
-
   const openModal = (videoUrl) => {
     setSelectedVideo(videoUrl);
     setIsModalOpen(true);
@@ -31,16 +26,6 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
     }, 30000);
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    if (time <= 0) return;
-
-    const interval = setInterval(() => {
-      setTime((prevTime) => prevTime - 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [time]);
 
   return (
     <section className={styles.homebanner_sec}>
@@ -88,8 +73,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             className={`${styles.slogan} position-absolute `}
             onClick={handleToggleToForm}
           >
-            <p className="m-0">OFFER END</p>
-            <h6 className="m-0">{minutes}:{seconds}</h6>
+            <p>No Stress, Only Strategy</p>
           </div>
         </div>
 
@@ -174,6 +158,8 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             onClick={handleToggleToForm}
+            icon={"circle-check"}
+            icon_color={"#fff"}
           />
         </div>
 

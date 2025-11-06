@@ -1,8 +1,9 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
+import Button from "@/common/Button";
 
-const WhatLearn = ({ whatlearn_constant }) => {
+const WhatLearn = ({ whatlearn_constant, handleToggleToForm }) => {
   return (
     <section className={styles.whatlearnSection}>
       <div className={styles.overlay}></div>
@@ -26,6 +27,16 @@ const WhatLearn = ({ whatlearn_constant }) => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className=" mt-4 mt-md-0 d-flex justify-content-center">
+            <Button
+              name={"Book Your Batch"}
+              bg_color={"#b20a0a"}
+              name_color={"#fff"}
+              onClick={handleToggleToForm}
+              icon={"circle-check"}
+              icon_color={"#fff"}
+            />
           </div>
         </div>
       </div>

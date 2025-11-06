@@ -342,7 +342,7 @@
     border-radius: 10px;
   }
   .attempt_fails_left button {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: 0;
     font-size: 0.9rem;
     padding: 18px 20px;

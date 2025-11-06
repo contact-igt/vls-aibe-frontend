@@ -27,38 +27,38 @@ const HomePageComponent = () => {
     setisopen(!isopen);
   };
 
-  const handleScrollToCover = () => {
-    const addressSection = document.getElementById("coversection");
-    if (addressSection) {
-      addressSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
     localStorage.removeItem("PaymentDeatls");
   }, []);
 
   return (
     <>
-      <HomeBanner banner={HomePageConstant?.homeBanner} handleToggleToForm={handleToggleToForm}/>
+      <HomeBanner
+        banner={HomePageConstant?.homeBanner}
+        handleToggleToForm={handleToggleToForm}
+      />
       <TrainingSession
         trainingsession_constant={HomePageConstant?.trainingSession}
+        handleToggleToForm={handleToggleToForm}
       />
       <WhatWeCover
         whatwecover_constant={HomePageConstant?.whatWeCover}
         handleToggleToForm={handleToggleToForm}
       />
       <Speaker speaker_constant={HomePageConstant?.speaker} />
-      <Result result_constant={HomePageConstant?.proven_result} />
+      <Result
+        result_constant={HomePageConstant?.proven_result}
+        handleToggleToForm={handleToggleToForm}
+      />
       <AttemptFails
         attempt_constant={HomePageConstant?.attemptFails}
-        handleScrollToCover={handleScrollToCover}
+        handleToggleToForm={handleToggleToForm}
       />
-      <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} />
+      <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} handleToggleToForm={handleToggleToForm}/>
       <Testimonial handleToggleToForm={handleToggleToForm} />
       <WhosThis whosthis_constant={HomePageConstant?.whosThis} />
       <Decoding decoding_constant={HomePageConstant?.decode} />
-      <Schedule schedule_constant={HomePageConstant?.schedule} />
+      <Schedule schedule_constant={HomePageConstant?.schedule} handleToggleToForm={handleToggleToForm} />
       <Included
         included_constant={HomePageConstant?.included}
         handleToggleToForm={handleToggleToForm}
