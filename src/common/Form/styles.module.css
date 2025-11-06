@@ -89,7 +89,11 @@
         padding: 10px 0px;
     }
 
-    .inputgrp label , .inputgrp input::placeholder{
+    .inputgrp label , .inputgrp input::placeholder {
         font-size: 14px;
+    }
+
+    .formTopic{
+        margin-bottom: 10px;
     }
 }
