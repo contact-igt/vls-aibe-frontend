@@ -13,13 +13,16 @@
 .inputgrp label {
     color: #000;
 }
-.inputgrp button{
+
+.inputgrp button {
     margin-top: 8px !important;
 }
-.errorMessage{
+
+.errorMessage {
     height: 2px;
     color: red;
 }
+
 .inputgrp input,
 .inputgrp input:active,
 .inputgrp input:focus {
@@ -68,32 +71,33 @@
 
 @media (width < 768px) {
 
-    .loadingPopup{
+    .loadingPopup {
         width: 100%;
     }
 
-    .loadingPopup h4{
+    .loadingPopup h4 {
         font-size: 22px;
     }
 
-    .loadingPopup p{
+    .loadingPopup p {
         font-size: 15px;
     }
 
-    .inputgrp input{
+    .inputgrp input {
         padding: 10px;
 
     }
 
-    .inputgrp{
+    .inputgrp {
         padding: 10px 0px;
     }
 
-    .inputgrp label , .inputgrp input::placeholder {
+    .inputgrp label,
+    .inputgrp input::placeholder {
         font-size: 14px;
     }
 
-    .formTopic{
+    .formTopic {
         margin-bottom: 10px;
     }
 }

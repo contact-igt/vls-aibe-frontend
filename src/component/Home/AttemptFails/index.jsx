@@ -3,7 +3,11 @@ import styles from "./styles.module.css";
 import Button from "@/common/Button";
 import { XCircle } from "lucide-react";
 
-const AttemptFails = ({ attempt_constant, handleScrollToCover }) => {
+const AttemptFails = ({
+  attempt_constant,
+  handleScrollToCover,
+  handleToggleToForm,
+}) => {
   return (
     <section className={styles.attemptSection}>
       <Title title={"Why Most AIBE"} highlight={"Attempts Fail"} />
@@ -24,15 +28,13 @@ const AttemptFails = ({ attempt_constant, handleScrollToCover }) => {
           </ul>
 
           <Button
-            name="See the Method"
+            name="Learn More"
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             className={styles.see_method_btn}
             btn_type={"button"}
-            icon={"circle-chevron-down"}
-            onClick={() => {
-              handleScrollToCover();
-            }}
+             icon={"circle-check"}
+            onClick={handleToggleToForm}
             icon_color={"#fff"}
           />
         </div>

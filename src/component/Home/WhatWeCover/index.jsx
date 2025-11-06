@@ -33,7 +33,7 @@ const WhatWeCover = ({ whatwecover_constant, handleToggleToForm }) => {
           ))}
         </div>
 
-        <div className="w-100 d-flex justify-content-center mt-5">
+        <div className="w-100 d-flex justify-content-center mt-md-5 mt-3 ">
           <Button
             onClick={handleToggleToForm}
             // name="Enroll with ₹199"

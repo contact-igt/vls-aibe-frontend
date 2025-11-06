@@ -40,8 +40,8 @@ const Included = ({ included_constant, handleToggleToForm }) => {
                 <span className={styles.tagIcon}>
                   <DynamicIcon
                     name={"badge-check"}
-                    fill="#b20a0a"
-                    color="#fff"
+                    fill="#0000"
+                    color="#ffff"
                   />
                 </span>
                 <span>{item}</span>

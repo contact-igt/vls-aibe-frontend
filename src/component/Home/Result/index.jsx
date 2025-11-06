@@ -1,8 +1,9 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
+import Button from "@/common/Button";
 
-const Result = ({ result_constant }) => {
+const Result = ({ result_constant, handleToggleToForm }) => {
   return (
     <section className={styles.resultSection}>
       <Title title={"Proven"} highlight={"Results"} />
@@ -20,6 +21,17 @@ const Result = ({ result_constant }) => {
               <p>{data?.type}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-md-5 mt-4 d-flex justify-content-center">
+          <Button
+            name={"Enroll Your Seat Now"}
+            bg_color={"#b20a0a"}
+            name_color={"#fff"}
+            onClick={handleToggleToForm}
+            icon={"circle-check"}
+            icon_color={"#fff"}
+          />
         </div>
 
         {/* <div className="d-flex justify-content-center">
