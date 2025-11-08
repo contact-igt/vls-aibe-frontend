@@ -25,7 +25,7 @@ export const HomePageConstant = {
   homeBanner: {
     marquee: {
       title:
-        "🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | 🎯 Limited Seats – Enrol Now @ ₹99! 🚀",
+        "🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | 🎯 Limited Seats – Enroll Now @ ₹99! 🚀",
       offer: "🔥 Flat 70% OFF | Join Now & Boost Your AIBE ",
     },
     main: {
