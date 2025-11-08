@@ -15,13 +15,16 @@ const Response = () => {
     }
   }, [router.isReady, router.query.response]);
 
-  // useEffect(() => {
-  //   setuserDeatil(JSON.parse(localStorage.getItem("PaymentDeatls")));
-  // }, []);
+  useEffect(() => {
+    setuserDeatil(JSON.parse(localStorage.getItem("PaymentDeatls")));
+  }, []);
   if (issuccess === null) {
     return (
       <section className={`pt-5 mt-5 ${styles.responseSection}`}>
-        <div className="container d-flex flex-column align-items-center justify-content-center text-center" style={{ height: "60vh" }}>
+        <div
+          className="container d-flex flex-column align-items-center justify-content-center text-center"
+          style={{ height: "60vh" }}
+        >
           <div className={styles.loader}></div>
           <p className="mt-3 fw-semibold text-muted">Please wait...</p>
         </div>
@@ -50,25 +53,21 @@ const Response = () => {
 
           {issuccess ? (
             <>
-              {/* <p>
-                Thank you! Your payment has been received successfully. Below
-                are your transaction details:
-              </p> */}
-               {/* <p>
-                Thank You for Booking Your Slot!
-              </p> */}
-               <p className="mt-3">
-                Your slot has been successfully reserved for the upcoming
-                <strong> AIBE Batch.</strong>
+              <p className="mt-3">
+                Your payment has been received successfully. Your slot for the
+                upcoming
+                <strong> AIBE Weekend Batch </strong>
+                has been securely reserved .
               </p>
               <p className="text-muted mt-2">
-                Our team will reach out to confirm your booking and share the
-                next steps soon.
+                Our team will contact you shortly to confirm your booking and
+                provide the next steps for your enrollment.
               </p>
               <p className="fw-semibold mt-3 text-success">
-                You’re one step closer to clearing AIBE with confidence! 🎯
+                We appreciate your trust and look forward to seeing you in the
+                session! 🎯
               </p>
-              {/* {userDetail ? (
+              {userDetail ? (
                 <div className={styles.summaryBox}>
                   <p>
                     <strong>Name:</strong> {userDetail.Name || ""}
@@ -89,7 +88,7 @@ const Response = () => {
                 </div>
               ) : (
                 ""
-              )} */}
+              )}
             </>
           ) : (
             <p>
@@ -111,15 +110,15 @@ const Response = () => {
             icon_color={"#fff"}
             href={"/"}
           />
-           <Button
-              name={"Call To Support"}
-              bg_color={"#b20a0a"}
-              name_color={"#ffff"}
-              icon={"phone"}
-              btn_type={"link"}
-              icon_color={"#fff"}
-              href={"tel:+919500207811"}
-            />
+          <Button
+            name={"Call To Support"}
+            bg_color={"#b20a0a"}
+            name_color={"#ffff"}
+            icon={"phone"}
+            btn_type={"link"}
+            icon_color={"#fff"}
+            href={"tel:+919500207811"}
+          />
           {!issuccess && (
             <Button
               name={"Call To Support"}

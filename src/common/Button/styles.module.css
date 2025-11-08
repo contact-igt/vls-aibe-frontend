@@ -1,14 +1,59 @@
 .commnbtn {
-    font-size: 18px;
-    padding: 20px 40px;
-    border-radius: 100px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-
+  position: relative;
+  font-size: 18px;
+  padding: 20px 40px;
+  border-radius: 100px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  background: #b20a0a;
+  color: #fff;
+  border: none;
+  overflow: hidden;
+  /* required for shine */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
-.commnbtn:hover{
-    transform: scale(1.05);
-    transition: all 0.5s ease-in-out;
+/* Hover scaling */
+.commnbtn:hover {
+  /* transform: scale(1.05); */
+  background-color: #920808;
+}
+
+/* Flash animation (shine) */
+.commnbtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  animation: shine 2.5s infinite;
+}
+
+/* The shine keyframes */
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+
+  100% {
+    left: 125%;
+  }
+}
+
+@media (width < 576px) {
+  .commnbtn h6 {
+    font-size: 14px;
+  }
+
+  .commnbtn {
+    padding: 18px 30px;
+  }
+
+
 }

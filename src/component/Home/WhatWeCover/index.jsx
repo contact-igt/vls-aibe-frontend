@@ -36,8 +36,7 @@ const WhatWeCover = ({ whatwecover_constant, handleToggleToForm }) => {
         <div className="w-100 d-flex justify-content-center mt-md-5 mt-3 ">
           <Button
             onClick={handleToggleToForm}
-            // name="Enroll with ₹199"
-            name="Book Your Slot"
+            name="Start Learning for ₹99"
             icon={"circle-check"}
             icon_color={"#fff"}
             bg_color="rgb(178, 10, 10)"

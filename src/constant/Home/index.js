@@ -25,8 +25,8 @@ export const HomePageConstant = {
   homeBanner: {
     marquee: {
       title:
-        " 🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | Limited Seats – Enrol Now! 🚀",
-      offer: "Flat 70% Offer ",
+        "🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | 🎯 Limited Seats – Enrol Now @ ₹99! 🚀",
+      offer: "🔥 Flat 70% OFF | Join Now & Boost Your AIBE ",
     },
     main: {
       description:
@@ -48,7 +48,7 @@ export const HomePageConstant = {
           title: "Both Online / Offline",
         },
 
-         {
+        {
           id: 4,
           icon: "armchair",
           title: " / 100 seats left",
@@ -269,11 +269,11 @@ export const HomePageConstant = {
   ],
 
   Faq: [
-    // {
-    //   question: "Seat Booking Amount?",
-    //   answer:
-    //     "Yes, ₹199 locks your seat. Pay the remaining balance after join the class",
-    // },
+    {
+      question: "Seat Booking Amount?",
+      answer:
+        "Yes, ₹99 locks your seat. Pay the remaining balance after join the class",
+    },
     {
       question: "Course Language Details?",
       answer: "Sessions will be in English and Tamil (as needed).",

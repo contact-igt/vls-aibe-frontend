@@ -14,7 +14,7 @@ export const TrainingSession = ({trainingsession_constant , handleToggleToForm})
             </div>
         <div className="mt-md-5 mt-3 d-flex justify-content-center">
           <Button
-            name={"Join Our New Batch"}
+            name={"Enroll for ₹99 Only"}
             bg_color={"#b20a0a"}
                  icon={"circle-check"}
             icon_color={"#fff"}
