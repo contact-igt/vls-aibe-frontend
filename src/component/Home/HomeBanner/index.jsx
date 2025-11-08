@@ -73,13 +73,13 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             className={`${styles.slogan} position-absolute `}
             onClick={handleToggleToForm}
           >
-            <p>No Stress, Only Strategy</p>
+            <p>No Stress, Only Success</p>
           </div>
         </div>
 
         <div className=" mt-3 d-flex justify-content-center">
           <Button
-            name={"Get Started — Just ₹99"}
+            name={"Register For AIBE Course"}
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             onClick={handleToggleToForm}
@@ -162,8 +162,8 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             </div>
           ))}
         </div>
-{/* 
-        <div className="mt-5 d-flex justify-content-center">
+
+        {/* <div className="mt-5 d-flex justify-content-center">
           <Button
             name={"Register For AIBE Course"}
             bg_color={"#b20a0a"}

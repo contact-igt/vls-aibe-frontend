@@ -45,6 +45,8 @@ const HomePageComponent = () => {
         whatwecover_constant={HomePageConstant?.whatWeCover}
         handleToggleToForm={handleToggleToForm}
       />
+      <Testimonial handleToggleToForm={handleToggleToForm} />
+
       <Speaker speaker_constant={HomePageConstant?.speaker} />
       <Result
         result_constant={HomePageConstant?.proven_result}
@@ -55,8 +57,7 @@ const HomePageComponent = () => {
         handleToggleToForm={handleToggleToForm}
       />
       <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} handleToggleToForm={handleToggleToForm}/>
-      <Testimonial handleToggleToForm={handleToggleToForm} />
-      <WhosThis whosthis_constant={HomePageConstant?.whosThis} />
+      <WhosThis whosthis_constant={HomePageConstant?.whosThis}  handleToggleToForm={handleToggleToForm}/>
       <Decoding decoding_constant={HomePageConstant?.decode} />
       <Schedule schedule_constant={HomePageConstant?.schedule} handleToggleToForm={handleToggleToForm} />
       <Included

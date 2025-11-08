@@ -23,11 +23,17 @@ export const HomePageConstant = {
   ],
 
   homeBanner: {
-    marquee: {
-      title:
-        "🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | 🎯 Limited Seats – Enroll Now @ ₹99! 🚀",
-      offer: "🔥 Flat 70% OFF | Join Now & Boost Your AIBE ",
-    },
+    // marquee: {
+    //   title:
+    //     "🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | 🎯 Limited Seats – Enroll Now @ ₹99! 🚀",
+    //   offer: "🔥 Flat 70% OFF | Join Now & Boost Your AIBE ",
+    // },
+marquee: {
+  title:
+    "🚀 AIBE Weekend Batch (Nov 14–16) – Learn Smarter, Practice Better, Clear Faster! 🎯",
+  offer:
+    "🎟️ Pay Just ₹99 to Book Your Seat | Full Course ₹2,500 (Actual Value ₹7,500) – Offer Ending Soon 🔥",
+},
     main: {
       description:
         "Master Practical AIBE Strategies You Can Use Right Away To Decode Sections Faster, Smarter, and Better — Even If You’re New to the Bare Act ⚖️",

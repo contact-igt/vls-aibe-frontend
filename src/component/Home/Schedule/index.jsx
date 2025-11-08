@@ -31,7 +31,7 @@ const Schedule = ({ schedule_constant, handleToggleToForm }) => {
         </div>
       </div>
 
-      <div className="w-100 d-flex justify-content-center mt-md-5 mt-4">
+      <div className="w-100 d-flex justify-content-center mt-5">
         <Button
           onClick={handleToggleToForm}
           name="Pay ₹99 Advance"

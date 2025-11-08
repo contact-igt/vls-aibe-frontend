@@ -5,7 +5,7 @@
 
 
 .bannerview {
-    padding: 50px 0px;
+    padding: 50px 10px;
 }
 
 .googleview {
@@ -48,34 +48,60 @@
 }
 
 .slogan {
-    width: 125px;
-    height: 125px;
-    background: linear-gradient(90deg, #000, #b20a0a);
-    color: #ffff;
-    border-radius: 100px;
-    padding: 30px 20px 20px 20px;
+    width: 140px;
+    height: 140px;
+    background: linear-gradient(135deg, #8b0000, #b22222, #ff0000);
+    color: #fff7e6;
+    /* soft gold-white text */
+    border-radius: 50%;
+    padding: 40px 15px 15px 15px;
     text-align: center;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px rgba(255, 200, 150, 0.7);
+    box-shadow: 0 0 20px rgba(255, 50, 50, 0.5),
+        inset 0 0 10px rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 180, 180, 0.7);
     cursor: pointer;
-    top: 82px;
-    right: 300px;
-    animation: float 4s ease-in-out infinite;
+    position: absolute;
+    top: 70px;
+    right: 280px;
+    animation: float 4s ease-in-out infinite, redGlow 3s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.slogan:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 70, 70, 0.8);
+}
+
+/* Floating animation */
 @keyframes float {
-    0% {
-        transform: translatey(0px);
+
+    0%,
+    100% {
+        transform: translateY(0);
     }
 
     50% {
-        transform: translatey(-30px);
-    }
-
-    100% {
-        transform: translatey(0px);
+        transform: translateY(-15px);
     }
 }
+
+/* Red glowing animation */
+@keyframes redGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(255, 60, 60, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 80, 80, 0.8);
+    }
+}
+
 
 .tagbox h6 {
     font-size: 18px;
@@ -261,11 +287,12 @@
         background-color: #b20a0a;
         color: #ffff;
         border-radius: 100px;
-        padding: 25px 5px 5px 5px;
+        padding: 28px 5px 5px 5px;
         text-align: center;
-        font-size: 13px;
-        top: 112px;
-        right: 140px;
+        font-size: 11px;
+        top: 101px;
+        right: 152px;
+        z-index: 1;
     }
 
     .mainview2 {
@@ -301,16 +328,17 @@
     }
 
     .mainview2 {
-        font-size: 15px;
+        font-size: 14px;
         width: 100%;
     }
 
     .slogan {
-        top: -50px;
-        right: 11px;
-        width: 80px;
-        height: 80px;
+        top: -49px;
+        right: 5px;
+        width: 90px;
+        height: 90px;
         font-size: 10px;
+        padding: 25px 5px 5px 5px;
     }
 
 
