@@ -28,7 +28,7 @@ const AttemptFails = ({
           </ul>
 
           <Button
-            name="Learn More"
+            name="Learn More – ₹99 Offer"
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             className={styles.see_method_btn}

@@ -1,8 +1,9 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
 import { DynamicIcon } from "lucide-react/dynamic";
+import Button from "@/common/Button";
 
-const WhosThis = ({ whosthis_constant }) => {
+const WhosThis = ({ whosthis_constant , handleToggleToForm }) => {
   return (
     <section className={styles.whosthisSection}>
       <Title
@@ -31,6 +32,18 @@ const WhosThis = ({ whosthis_constant }) => {
               </div>
             </div>
           ))}
+        </div>
+
+        
+        <div className="w-100 d-flex justify-content-center mt-md-5 mt-3">
+          <Button
+            onClick={handleToggleToForm}
+            name="Join Today – Limited Offer ₹99"
+            icon={"circle-check"}
+            icon_color={"#fff"}
+            bg_color="rgb(178, 10, 10)"
+            name_color="#fff"
+          />
         </div>
       </div>
     </section>
