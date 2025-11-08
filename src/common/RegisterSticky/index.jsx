@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
+import Button from "../Button";
 
 const RegisterSticky = ({ handleToggleToForm }) => {
   const [time, setTime] = useState(15 * 60);
   const [seatsLeft, setSeatsLeft] = useState(12);
 
-  
-useEffect(() => {
-  const interval = setInterval(() => {
-    setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
-  }, 30000);
-  return () => clearInterval(interval);
-}, []);
-
-
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (time <= 0) return;
@@ -35,11 +33,17 @@ useEffect(() => {
           <div className="row py-lg-3 py-2">
             <div className="col-lg-6 d-lg-block d-none">
               <div className={styles.meuntitle}>
-                <h4>🎯 Ready to Clear AIBE with Confidence?</h4>
+                {/* <h4>🎯 Ready to Clear AIBE with Confidence?</h4> */}
+
+                <h4>
+                  🎯 Secure Your Slot with ₹99 ( Total ₹2,500{" "}
+                  <span className={styles.strikePrice}> ₹7,500 </span> )
+                </h4>
                 <h6>
                   ⏰ Limited Seats! Offer ends in -
-                  <span>{`${minutes}:${seconds < 10 ? `0${seconds}` : seconds
-                    }`}</span>
+                  <span>{`${minutes}:${
+                    seconds < 10 ? `0${seconds}` : seconds
+                  }`}</span>
                 </h6>
               </div>
             </div>
@@ -57,23 +61,42 @@ useEffect(() => {
                   </p>
                 </div> */}
                 <div className={styles.offerInfo}>
+                  <div className={`${styles.mbprice} d-block d-lg-none`}>
+                    <h4>
+                      Pay ₹99 ( Total ₹2,500{" "}
+                      <span className={styles.strikePrice}> ₹7,500 </span> )
+                    </h4>
+                  </div>
+
                   <div className={styles.seatDetails}>
-                    <p className={styles.offerHeadline}>
+                    <p className={`${styles.offerHeadline} d-none d-md-block`}>
                       Limited Seats Available
                     </p>
+
                     <p className={styles.offerSubtext}>
-                      <span className={styles.seatsLeft}>{seatsLeft}</span> / 100 seats left ·
+                      <span className={styles.seatsLeft}>{seatsLeft}</span> /
+                      100 seats left ·
                     </p>
                   </div>
                 </div>
                 <div className={styles.pricebtn}>
-                  <button
+                  {/* <button
                     onClick={handleToggleToForm}
                     className="btn text-light"
-                    style={{ cursor: "pointer", borderRadius: "20px", fontWeight: "600" }}
+                    style={{
+                      cursor: "pointer",
+                      borderRadius: "20px",
+                      fontWeight: "600",
+                    }}
                   >
-                    Book Your Slot
-                  </button>
+                    Book Your Slot ₹99
+                  </button> */}
+                  <Button
+                    onClick={handleToggleToForm}
+                    name={"Book Your Slot ₹99"}
+                    bg_color={"#b20a0a"}
+                    name_color={"#ffff"}
+                  />
                   <div className={styles.confirmationText}>
                     <span>✓ Secure your seat</span>
                   </div>

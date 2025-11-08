@@ -7,30 +7,32 @@
   z-index: 9997;
 }
 
-.pricebtn > button,
-.pricebtn > button:hover {
+.pricebtn>button,
+.pricebtn>button:hover {
   background-color: #b20a0a;
-  padding: 10px 30px;
+  padding: 15px 30px;
 }
+
 .pricebtn {
   font-weight: bold;
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
+
 .strikePrice {
   font-size: 0.75rem;
   /* text-decoration: line-through; */
-  color: rgba(
-    255,
-    255,
-    255,
-    0.6
-  ); /* Changed from #888 to semi-transparent white */
+  color: rgba(255,
+      255,
+      255,
+      0.6);
+  /* Changed from #888 to semi-transparent white */
   position: relative;
   display: inline-block;
   margin-bottom: 2px;
 }
+
 .strikePrice::after {
   content: "";
   position: absolute;
@@ -41,9 +43,11 @@
   background: rgba(255, 0, 0, 0.4);
   transform: rotate(-8deg);
 }
+
 .pricingContainer {
   text-align: center;
 }
+
 .offerInfo {
   display: flex;
   flex-direction: column;
@@ -114,9 +118,11 @@
   font-weight: 800;
   color: #fff;
 }
+
 .currentPrice {
   font-size: 15.5px;
 }
+
 .totalSection {
   display: flex;
   flex-direction: column;
@@ -154,6 +160,7 @@
   font-size: 18px;
   font-weight: 700;
 }
+
 .confirmationText {
   text-align: center;
 }
@@ -163,8 +170,9 @@
   color: #90ee90;
   display: block;
 }
+
 .meuntitle span {
-  font-size: 22px !important;
+  font-size: 16px !important;
 }
 
 .pricing {
@@ -178,7 +186,7 @@
   text-align: center !important;
 }
 
-.pricing > span {
+.pricing>span {
   font-weight: 600;
   font-size: 14px;
   color: #ffdd44;
@@ -213,13 +221,20 @@
   .totalSection {
     padding: 6px 10px;
   }
+
+  .mbprice h4 {
+    font-size: 15px;
+    margin-bottom: 0px;
+  }
 }
 
 @media (width < 576px) {
-  .pricebtn > button,
+
+  .pricebtn>button,
   .pricebtn button:hover {
     padding: 10px 20px;
   }
+
   .currentPrice {
     font-size: 15.5px;
   }
@@ -233,5 +248,10 @@
 
   .pricing small {
     font-size: 13px !important;
+  }
+
+  .mbprice h4 {
+    font-size: 13px;
+    margin-bottom: 5px;
   }
 }

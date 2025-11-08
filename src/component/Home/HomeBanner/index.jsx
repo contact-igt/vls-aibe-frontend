@@ -58,7 +58,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
           </div>
         </div>
 
-        <div className={`${styles.mainview} my-5 position-relative `}>
+        <div className={`${styles.mainview} mt-5 position-relative `}>
           <div className="d-flex justify-content-center text-center">
             <h4 className={styles.mainview1}>
               {" "}
@@ -66,7 +66,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
               <span> Master </span> The Bare Act
             </h4>
           </div>
-          <div className="d-flex justify-content-center text-center mt-lg-5 mt-3">
+          <div className="d-flex justify-content-center text-center mt-lg-4 mt-3">
             <p className={styles.mainview2}>{banner?.main.description}</p>
           </div>
           <div
@@ -77,23 +77,15 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
           </div>
         </div>
 
-        <div
-          className={`${styles.tagview} d-flex justify-content-center flex-wrap gap-4 `}
-        >
-          {banner?.main?.tags?.map((data, i) => (
-            <div
-              key={i}
-              className={`${styles.tagbox} d-flex align-items-center gap-2`}
-              onClick={handleToggleToForm}
-            >
-              <DynamicIcon name={data?.icon} size={18} />
-              <h6 className="m-0">
-                {data?.id == "4"
-                  ? `Only ${seatsLeft}${data?.title}`
-                  : data?.title}
-              </h6>
-            </div>
-          ))}
+        <div className=" mt-3 d-flex justify-content-center">
+          <Button
+            name={"Get Started — Just ₹99"}
+            bg_color={"#b20a0a"}
+            name_color={"#fff"}
+            onClick={handleToggleToForm}
+            icon={"circle-check"}
+            icon_color={"#fff"}
+          />
         </div>
 
         <div className={`${styles.speakerview} `}>
@@ -152,6 +144,25 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
           </Popup>
         </div>
 
+        <div
+          className={`${styles.tagview} d-flex justify-content-center flex-wrap gap-4 mt-5 `}
+        >
+          {banner?.main?.tags?.map((data, i) => (
+            <div
+              key={i}
+              className={`${styles.tagbox} d-flex align-items-center gap-2`}
+              onClick={handleToggleToForm}
+            >
+              <DynamicIcon name={data?.icon} size={18} />
+              <h6 className="m-0">
+                {data?.id == "4"
+                  ? `Only ${seatsLeft}${data?.title}`
+                  : data?.title}
+              </h6>
+            </div>
+          ))}
+        </div>
+{/* 
         <div className="mt-5 d-flex justify-content-center">
           <Button
             name={"Register For AIBE Course"}
@@ -161,7 +172,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             icon={"circle-check"}
             icon_color={"#fff"}
           />
-        </div>
+        </div> */}
 
         <div className="d-flex justify-content-center mt-5">
           <div

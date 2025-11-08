@@ -142,7 +142,7 @@ const Testimonial = ({ handleToggleToForm }) => {
         <div className="w-100 d-flex justify-content-center mt-5">
           <Button
             onClick={handleToggleToForm}
-            name="Reserve My Seat"
+            name="Join Now — Just ₹99 to Start!"
             icon={"circle-check"}
             icon_color={"#fff"}
             bg_color="rgb(178, 10, 10)"
