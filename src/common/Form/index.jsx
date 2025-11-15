@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import * as Yup from "yup";
 import { useState } from "react";
 import { Popup } from "../Popup";
-import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
+// import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
 
 const Form = () => {
   const [error, setError] = useState(null);
@@ -30,7 +30,7 @@ const Form = () => {
       const resp = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 99 }),
+        body: JSON.stringify({ amount: 1 }),
       });
 
       const order = await resp.json();
@@ -109,23 +109,30 @@ const Form = () => {
                 platform: "Google Meet",
                 link_date: "Thursday Nov, 13",
               };
-
-              useVlsAibeQuery(apiPayload)
-                .then((res) => {
-                  const params = new URLSearchParams();
-                  Object.keys(formData).forEach((key) => {
-                    params.append(key, formData[key]);
-                  });
-                  resetForm();
-                  afterRegisterSuccessufull(formData);
-                  handleWhatsappMessage(whatsappPayload);
-                  handleGoogleSheetForm(params);
-                })
-                .catch((err) => {
-                  setisLoading(false);
-                  resetForm();
-                  window.location.href = "/error";
-                });
+              const params = new URLSearchParams();
+              Object.keys(formData).forEach((key) => {
+                params.append(key, formData[key]);
+              });
+              resetForm();
+              afterRegisterSuccessufull(formData);
+              handleWhatsappMessage(whatsappPayload);
+              handleGoogleSheetForm(params);
+              // useVlsAibeQuery(apiPayload)
+              //   .then((res) => {
+              //     const params = new URLSearchParams();
+              //     Object.keys(formData).forEach((key) => {
+              //       params.append(key, formData[key]);
+              //     });
+              //     resetForm();
+              //     afterRegisterSuccessufull(formData);
+              //     handleWhatsappMessage(whatsappPayload);
+              //     handleGoogleSheetForm(params);
+              //   })
+              //   .catch((err) => {
+              //     setisLoading(false);
+              //     resetForm();
+              //     window.location.href = "/error";
+              //   });
             } else {
               window.location.href = "/error";
               setisLoading(false);
