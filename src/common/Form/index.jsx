@@ -30,7 +30,7 @@ const Form = () => {
       const resp = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 1 }),
+        body: JSON.stringify({ amount: 99 }),
       });
 
       const order = await resp.json();
