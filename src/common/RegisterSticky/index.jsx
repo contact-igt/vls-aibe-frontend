@@ -36,7 +36,7 @@ const RegisterSticky = ({ handleToggleToForm }) => {
                 {/* <h4>🎯 Ready to Clear AIBE with Confidence?</h4> */}
 
                 <h4>
-                  🎯 Secure Your Slot with ₹99 ( Total ₹2,500{" "}
+                  🎯 Secure Your Slot with ₹499 ( Total ₹3,000{" "}
                   <span className={styles.strikePrice}> ₹7,500 </span> )
                 </h4>
                 <h6>
@@ -49,21 +49,10 @@ const RegisterSticky = ({ handleToggleToForm }) => {
             </div>
             <div className="col-lg-6 col-md-12">
               <div className="pricing d-flex justify-content-lg-end justify-content-between align-items-center gap-3 py-md-1 py-2">
-                {/* <div>
-                  <p className={styles.pricing}>
-                    Pay Advance ₹199
-                    <br />
-                    <small style={{ fontSize: '14px', color: '#ccc' }}>Total <span className={styles.strikePrice}>₹7,500 </span> <span className={styles.currentPrice}>₹2,500</span></small>
-                  </p>
-                  <p className={styles.mbinfo}>
-                    (Offer end in{" "}
-                    {`${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`} )
-                  </p>
-                </div> */}
                 <div className={styles.offerInfo}>
                   <div className={`${styles.mbprice} d-block d-lg-none`}>
                     <h4>
-                      Pay ₹99 ( Total ₹2,500{" "}
+                      Pay ₹499 ( Total ₹3,000{" "}
                       <span className={styles.strikePrice}> ₹7,500 </span> )
                     </h4>
                   </div>
@@ -75,25 +64,15 @@ const RegisterSticky = ({ handleToggleToForm }) => {
 
                     <p className={styles.offerSubtext}>
                       <span className={styles.seatsLeft}>{seatsLeft}</span> /
-                      100 seats left ·
+                      50 seats left ·
                     </p>
                   </div>
                 </div>
                 <div className={styles.pricebtn}>
-                  {/* <button
-                    onClick={handleToggleToForm}
-                    className="btn text-light"
-                    style={{
-                      cursor: "pointer",
-                      borderRadius: "20px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Book Your Slot ₹99
-                  </button> */}
+      
                   <Button
                     onClick={handleToggleToForm}
-                    name={"Book Your Slot ₹99"}
+                    name={"Book Your Slot ₹499"}
                     bg_color={"#b20a0a"}
                     name_color={"#ffff"}
                   />

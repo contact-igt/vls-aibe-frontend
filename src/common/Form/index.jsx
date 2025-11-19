@@ -30,7 +30,7 @@ const Form = () => {
       const resp = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 99 }),
+        body: JSON.stringify({ amount: 499 }),
       });
 
       const order = await resp.json();
@@ -78,8 +78,8 @@ const Form = () => {
                 email: values?.email,
                 mobile: `91${values?.mobile}`,
                 amount: order?.amount / 100,
-                programm_start_date: "2025-11-14",
-                programm_end_date: "2025-11-16",
+                programm_start_date: "2025-11-26",
+                programm_end_date: "2025-11-26",
                 razorpay_order_id: response.razorpay_order_id
                   ? response.razorpay_order_id
                   : "",
@@ -102,12 +102,11 @@ const Form = () => {
               const whatsappPayload = {
                 phone: `91${values?.mobile}`,
                 name: values?.name,
-                amount: 99,
-                event_dates: "Nov 14, 15 & 16",
-                event_date_time:
-                  "Nov 14 → 5.00 PM – 9.00 PM IST  ,  Nov 15 & 16 → 9:30 AM – 1:00 PM IST",
+                amount: 499,
+                event_dates: "Nov 26",
+                event_date_time: "Nov 26 → Start from 10.00 AM IST",
                 platform: "Google Meet",
-                link_date: "Thursday Nov, 13",
+                link_date: "Tuesday Nov, 25",
               };
               const params = new URLSearchParams();
               Object.keys(formData).forEach((key) => {
@@ -246,7 +245,7 @@ const Form = () => {
     <div>
       <div className={styles.formTopic}>
         <h3>Join the Batch</h3>
-        <p>Fill out the form, pay ₹99, and confirm your seat today!</p>
+        <p>Fill out the form, pay ₹499, and confirm your seat today!</p>
         {/* <p>Please complete the form, and confirm your seat now!</p> */}
       </div>
       <form onSubmit={formik.handleSubmit}>
@@ -316,7 +315,7 @@ const Form = () => {
         <div className={styles.inputgrp}>
           <Button
             disabled={isLoading}
-            name={isLoading ? "Booking..." : "Start Your Journey for ₹99"}
+            name={isLoading ? "Booking..." : "Start Your Journey for ₹499"}
             bg_color={"#b20a0a"}
             name_color={"#ffff"}
             btn_type={"submit"}

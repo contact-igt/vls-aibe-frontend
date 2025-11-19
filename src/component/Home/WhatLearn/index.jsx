@@ -30,7 +30,7 @@ const WhatLearn = ({ whatlearn_constant, handleToggleToForm }) => {
           </div>
           <div className=" mt-4 mt-md-0 d-flex justify-content-center">
             <Button
-              name={"Book Your Batch @ ₹99"}
+              name={"Book Your Batch @ ₹499"}
               bg_color={"#b20a0a"}
               name_color={"#fff"}
               onClick={handleToggleToForm}

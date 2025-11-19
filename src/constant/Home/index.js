@@ -23,17 +23,12 @@ export const HomePageConstant = {
   ],
 
   homeBanner: {
-    // marquee: {
-    //   title:
-    //     "🚀 AIBE Weekend Batch (Nov 14–16) – 25 Hours of Expert Training | Master Key Strategies to Clear AIBE with Confidence | 🎯 Limited Seats – Enroll Now @ ₹99! 🚀",
-    //   offer: "🔥 Flat 70% OFF | Join Now & Boost Your AIBE ",
-    // },
-marquee: {
-  title:
-    "🚀 AIBE Weekend Batch (Nov 14–16) – Learn Smarter, Practice Better, Clear Faster! 🎯",
-  offer:
-    "🎟️ Pay Just ₹99 to Book Your Seat | Full Course ₹2,500 (Actual Value ₹7,500) – Offer Ending Soon 🔥",
-},
+    marquee: {
+      title:
+        "🚀 AIBE Weekend Batch – Starting Nov 26 (Wednesday, 10 AM) | Learn Smarter, Practice Better, Clear Faster! 🎯",
+      offer:
+        "🎟️ Pay Just ₹499 to Book Your Seat | Full Course ₹3,000 (Actual Value ₹7,500) – Offer Ending Soon 🔥",
+    },
     main: {
       description:
         "Master Practical AIBE Strategies You Can Use Right Away To Decode Sections Faster, Smarter, and Better — Even If You’re New to the Bare Act ⚖️",
@@ -41,12 +36,12 @@ marquee: {
         {
           id: 1,
           icon: "calendar",
-          title: "Nov 14 - Nov 16, 2025",
+          title: "Nov 26, 2025",
         },
         {
           id: 2,
           icon: "clock",
-          title: "25hrs (12hrs Theory + 13hrs Tests)",
+          title: "(Theory + Test + Practice)",
         },
         {
           id: 3,
@@ -57,7 +52,7 @@ marquee: {
         {
           id: 4,
           icon: "armchair",
-          title: " / 100 seats left",
+          title: " / 50 seats left",
         },
       ],
     },
@@ -278,7 +273,7 @@ marquee: {
     {
       question: "Seat Booking Amount?",
       answer:
-        "Yes, ₹99 locks your seat. Pay the remaining balance after join the class",
+        "Yes, ₹499 locks your seat. Pay the remaining balance after join the class",
     },
     {
       question: "Course Language Details?",
@@ -301,21 +296,21 @@ marquee: {
         id: 1,
         icon: "calendar",
         title: "Dates",
-        description: "Nov 14 (Fri), Nov 15 (Sat), Nov 16 (Sun)",
+        description: "Nov 26 (Wed)",
       },
       {
         id: 2,
         icon: "clock",
         title: "Time",
-        description: "Nov 14 (Fri) : 05:00 PM – 09:00 PM IST (4 hrs/day)",
-        description2:
-          "Nov 15–16 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
+        description: "Nov 26 (Wed) : Start From 10.00 AM",
+        // description2:
+        //   "Nov 15–16 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
       },
       {
         id: 3,
         icon: "target",
         title: "Format",
-        description: "12 hrs Theory + 13 hrs Test + Practice",
+        description: "Theory + Test + Practice",
       },
       {
         id: 4,
