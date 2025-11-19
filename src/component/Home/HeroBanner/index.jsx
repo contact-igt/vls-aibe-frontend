@@ -7,12 +7,12 @@ import { forwardRef, useEffect, useState } from "react";
 const HeroBanner = forwardRef(
   ({ herobanner_constant, scrollToContactForm }, ref) => {
     const [seatsLeft, setSeatsLeft] = useState(12);
-useEffect(() => {
-  const interval = setInterval(() => {
-    setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
-  }, 30000);
-  return () => clearInterval(interval);
-}, []);
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
+      }, 30000);
+      return () => clearInterval(interval);
+    }, []);
     return (
       <section className={styles.heroBannerSection}>
         <div className={styles.overlay}></div>
@@ -38,7 +38,7 @@ useEffect(() => {
                           className="d-none d-md-block"
                         />
 
-                        <h2>Friday, Nov 14, 2025 - Sunday, Nov 16, 2025</h2>
+                        <h2>Friday, Nov 25, 2025 - Wednesday</h2>
                       </div>
 
                       <div className="d-flex align-items-center gap-3 my-2">
@@ -57,35 +57,24 @@ useEffect(() => {
                       </div>
 
                       <div className={styles.dateDetails}>
-                        <span className={styles.dateItem}>Nov 14 (Fri)</span>
-                        <span className={styles.dateItem}>Nov 15 (Sat)</span>
-                        <span className={styles.dateItem}>Nov 16 (Sun)</span>
+                        <span className={styles.dateItem}>Nov 26 (Wed)</span>
+                        {/* <span className={styles.dateItem}>Nov 15 (Sat)</span>
+                        <span className={styles.dateItem}>Nov 16 (Sun)</span> */}
                       </div>
-                      {/* <div className={styles.amountDetails}>
-                        <span>
-                          Total{" "}
-                          <span className={styles.strikePrice}>
-                            {" "}
-                            ( ₹7,500 ){" "}
-                          </span>{" "}
-                          <span className={styles.currentPrice}> ₹2,500</span>
-                        </span>
-                        <Button
-                          onClick={scrollToContactForm}
-                          name="Join the batch"
-                          name_color="#dc2626"
-                          bg_color="#fff"
-                        />
-                      </div> */}
                       <div className={styles.amountDetails}>
                         <div className={styles.limitedSeats}>
                           <strong>Limited Seats Available</strong>
                           <br />
                           <small>
-                            Only <span className={styles.seatsLeft}>{seatsLeft}</span> / 100 seats left ·
+                            Only{" "}
+                            <span className={styles.seatsLeft}>
+                              {seatsLeft}
+                            </span>{" "}
+                            / 50 seats left ·
                             <br className="d-block d-md-none" />
                             <span className={styles.timer}>
-                              {" "}⏰ Offer ends soon
+                              {" "}
+                              ⏰ Offer ends soon
                             </span>
                           </small>
                         </div>

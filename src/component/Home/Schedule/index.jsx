@@ -34,7 +34,7 @@ const Schedule = ({ schedule_constant, handleToggleToForm }) => {
       <div className="w-100 d-flex justify-content-center mt-5">
         <Button
           onClick={handleToggleToForm}
-          name="Pay ₹99 Advance"
+          name="Pay ₹499 Advance"
           icon={"circle-check"}
           icon_color={"#fff"}
           bg_color="rgb(178, 10, 10)"
