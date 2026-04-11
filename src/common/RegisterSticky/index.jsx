@@ -33,18 +33,18 @@ const RegisterSticky = ({ handleToggleToForm }) => {
           <div className="row py-lg-3 py-2">
             <div className="col-lg-6 d-lg-block d-none">
               <div className={styles.meuntitle}>
-                {/* <h4>🎯 Ready to Clear AIBE with Confidence?</h4> */}
+            
 
                 <h4>
                   🎯 Secure Your Slot with ₹499 ( Total ₹3,000{" "}
                   <span className={styles.strikePrice}> ₹7,500 </span> )
                 </h4>
-                <h6>
+                {/* <h6>
                   ⏰ Limited Seats! Offer ends in -
                   <span>{`${minutes}:${
                     seconds < 10 ? `0${seconds}` : seconds
                   }`}</span>
-                </h6>
+                </h6> */}
               </div>
             </div>
             <div className="col-lg-6 col-md-12">

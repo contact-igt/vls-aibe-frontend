@@ -1,6 +1,13 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
 const Speaker = ({ speaker_constant }) => {
+  // Debug log for frontend Razorpay key
+  console.log(
+    "Frontend Key:",
+    process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+      process.env.REACT_APP_RAZORPAY_TEST_KEY_ID,
+  );
+
   return (
     <section className={styles.speakersec}>
       <div className={`container ${styles.container}`}>
@@ -22,7 +29,7 @@ const Speaker = ({ speaker_constant }) => {
               <div className={styles.speakerinfo}>
                 <h3>{speaker_constant[0]?.name}</h3>
                 <h4>{speaker_constant[0]?.Education}</h4>
-                 <h5>{speaker_constant[0]?.position}</h5>
+                <h5>{speaker_constant[0]?.position}</h5>
                 <p>{speaker_constant[0]?.about}</p>
               </div>
             </div>
@@ -35,13 +42,18 @@ const Speaker = ({ speaker_constant }) => {
               <div className={styles.speakerinfo}>
                 <h3>{speaker_constant[1]?.name}</h3>
                 <h4>{speaker_constant[1]?.Education}</h4>
-                 <h5>{speaker_constant[1]?.position}</h5>
+                <h5>{speaker_constant[1]?.position}</h5>
                 <p>{speaker_constant[1]?.about}</p>
               </div>
             </div>
             <div className="col-lg-6 d-flex flex-column justify-content-end">
-              <div className={`${styles.speakerimg} d-flex justify-content-end justify-content-lg-center`}>
-                <img src={speaker_constant[1]?.image} className={`${styles.secondImage} img-fluid`} />
+              <div
+                className={`${styles.speakerimg} d-flex justify-content-end justify-content-lg-center`}
+              >
+                <img
+                  src={speaker_constant[1]?.image}
+                  className={`${styles.secondImage} img-fluid`}
+                />
               </div>
             </div>
           </div>
