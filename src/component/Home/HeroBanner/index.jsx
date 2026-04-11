@@ -57,7 +57,7 @@ const HeroBanner = forwardRef(
                       </div>
 
                       <div className={styles.dateDetails}>
-                        <span className={styles.dateItem}>Nov 26 (Wed)</span>
+                        <span className={styles.dateItem}>May 01 (Fri)</span>
                         {/* <span className={styles.dateItem}>Nov 15 (Sat)</span>
                         <span className={styles.dateItem}>Nov 16 (Sun)</span> */}
                       </div>

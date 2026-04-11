@@ -25,7 +25,7 @@ export const HomePageConstant = {
   homeBanner: {
     marquee: {
       title:
-        "🚀 AIBE Weekend Batch – Starting Nov 26 (Wednesday, 10 AM) | Learn Smarter, Practice Better, Clear Faster! 🎯",
+        "🚀 AIBE Weekend Batch – Starting May 01 2026 (Friday) | Learn Smarter, Practice Better, Clear Faster! 🎯",
       offer:
         "🎟️ Pay Just ₹499 to Book Your Seat | Full Course ₹3,000 (Actual Value ₹7,500) – Offer Ending Soon 🔥",
     },
@@ -36,7 +36,7 @@ export const HomePageConstant = {
         {
           id: 1,
           icon: "calendar",
-          title: "Nov 26, 2025",
+          title: "May 01 - 03, 2026",
         },
         {
           id: 2,
@@ -223,7 +223,7 @@ export const HomePageConstant = {
       },
       {
         id: 2,
-        number: "1000+",
+        number: "1500+",
         type: "Student Cleared",
         icon: "medal",
       },
@@ -245,7 +245,7 @@ export const HomePageConstant = {
       "Faster decoding with section-first recall techniques",
       "Improved section mapping accuracy under time pressure",
       "Consistent 90+/100 scores with proven framework",
-      "Trusted by 1000+ successful AIBE candidates",
+      "Trusted by 1500+ successful AIBE candidates",
     ],
   },
 
@@ -296,16 +296,16 @@ export const HomePageConstant = {
         id: 1,
         icon: "calendar",
         title: "Dates",
-        description: "Nov 26 (Wed)",
+        description: "May 01 (Fri), May 02 (Sat), May 03 (Sun)",
       },
-      {
-        id: 2,
-        icon: "clock",
-        title: "Time",
-        description: "Nov 26 (Wed) : Start From 10.00 AM",
-        // description2:
-        //   "Nov 15–16 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
-      },
+      // {
+      //   id: 2,
+      //   icon: "clock",
+      //   title: "Time",
+      //   description: "May 01 (Fri) : Start From 10.00 AM",
+      //   // description2:
+      //   //   "Nov 15–16 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
+      // },
       {
         id: 3,
         icon: "target",

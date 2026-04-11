@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import * as Yup from "yup";
 import { useState } from "react";
 import { Popup } from "../Popup";
-// import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
+import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
 
 const Form = () => {
   const [error, setError] = useState(null);
@@ -42,115 +42,94 @@ const Form = () => {
         return;
       } else {
         const options = {
-          key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+          key:
+            process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+            process.env.REACT_APP_RAZORPAY_TEST_KEY_ID,
           amount: order?.amount * 100,
           currency: "INR",
           name: values?.name,
           order_id: order.id,
           description: "Advance amount of AIBE ",
-
-          handler: async (response) => {
-            if (response?.razorpay_payment_id) {
-              setisLoading(true);
-
-              const ipResponse = await fetch(
-                "https://api.ipify.org?format=json"
-              );
-              const ipData = await ipResponse.json();
-
-              const formData = {
-                Name: values?.name,
-                Email: values?.email,
-                Mobile: `91${values?.mobile}`,
-                Amount: order?.amount / 100,
-                Razorpay_Transaction_Id: response?.razorpay_payment_id,
-                Payment_Status: "Paid",
-                ip_address: ipData.ip,
-                utm_source: localStorage.getItem("utm_source"),
-                utm_medium: localStorage.getItem("utm_medium"),
-                utm_campaign: localStorage.getItem("utm_campaign"),
-                utm_term: localStorage.getItem("utm_term"),
-                utm_content: localStorage.getItem("utm_content"),
-              };
-
-              const apiPayload = {
-                name: values?.name ? values?.name : "",
-                email: values?.email,
-                mobile: `91${values?.mobile}`,
-                amount: order?.amount / 100,
-                programm_start_date: "2025-11-26",
-                programm_end_date: "2025-11-26",
-                razorpay_order_id: response.razorpay_order_id
-                  ? response.razorpay_order_id
-                  : "",
-                razorpay_payment_id: response.razorpay_payment_id
-                  ? response.razorpay_payment_id
-                  : "",
-                razorpay_signature: response.razorpay_signature
-                  ? response.razorpay_signature
-                  : "",
-                payment_status: "paid",
-                captured: response.captured ? response.captured : "",
-                ip_address: ipData.ip,
-                utm_source: localStorage.getItem("utm_source"),
-                utm_medium: localStorage.getItem("utm_medium"),
-                utm_campaign: localStorage.getItem("utm_campaign"),
-                utm_term: localStorage.getItem("utm_term"),
-                utm_content: localStorage.getItem("utm_content"),
-              };
-
-              const whatsappPayload = {
-                phone: `91${values?.mobile}`,
-                name: values?.name,
-                amount: 499,
-                event_dates: "Nov 26",
-                event_date_time: "Nov 26 → Start from 10.00 AM IST",
-                platform: "Google Meet",
-                link_date: "Tuesday Nov, 25",
-              };
-              const params = new URLSearchParams();
-              Object.keys(formData).forEach((key) => {
-                params.append(key, formData[key]);
-              });
-              resetForm();
-              afterRegisterSuccessufull(formData);
-              handleWhatsappMessage(whatsappPayload);
-              handleGoogleSheetForm(params);
-              // useVlsAibeQuery(apiPayload)
-              //   .then((res) => {
-              //     const params = new URLSearchParams();
-              //     Object.keys(formData).forEach((key) => {
-              //       params.append(key, formData[key]);
-              //     });
-              //     resetForm();
-              //     afterRegisterSuccessufull(formData);
-              //     handleWhatsappMessage(whatsappPayload);
-              //     handleGoogleSheetForm(params);
-              //   })
-              //   .catch((err) => {
-              //     setisLoading(false);
-              //     resetForm();
-              //     window.location.href = "/error";
-              //   });
-            } else {
-              window.location.href = "/error";
-              setisLoading(false);
-            }
-          },
           prefill: {
             name: values?.name,
             email: values?.email,
             contact: values?.mobile,
           },
           theme: { color: "#b20a0a" },
+          handler: async function (response) {
+            // Debug log for frontend key
+            console.log(
+              "Frontend Key:",
+              process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+                process.env.REACT_APP_RAZORPAY_TEST_KEY_ID,
+            );
+            // Post-payment logic
+            const ipResponse = await fetch("https://api.ipify.org?format=json");
+            const ipData = await ipResponse.json();
+            const formData = {
+              Name: values?.name,
+              Email: values?.email,
+              Mobile: `91${values?.mobile}`,
+              Amount: order?.amount / 100,
+              Razorpay_Transaction_Id: response?.razorpay_payment_id,
+              Payment_Status: "Paid",
+              ip_address: ipData.ip,
+              utm_source: localStorage.getItem("utm_source"),
+              utm_medium: localStorage.getItem("utm_medium"),
+              utm_campaign: localStorage.getItem("utm_campaign"),
+              utm_term: localStorage.getItem("utm_term"),
+              utm_content: localStorage.getItem("utm_content"),
+            };
+            const apiPayload = {
+              name: values?.name ? values?.name : "",
+              email: values?.email,
+              mobile: `91${values?.mobile}`,
+              amount: order?.amount / 100,
+              programm_start_date: "2025-05-01",
+              programm_end_date: "2025-05-03",
+              razorpay_order_id: response.razorpay_order_id
+                ? response.razorpay_order_id
+                : "",
+              razorpay_payment_id: response.razorpay_payment_id
+                ? response.razorpay_payment_id
+                : "",
+              razorpay_signature: response.razorpay_signature
+                ? response.razorpay_signature
+                : "",
+              payment_status: "paid",
+              captured: response.captured ? response.captured : "",
+              ip_address: ipData.ip,
+              utm_source: localStorage.getItem("utm_source"),
+              utm_medium: localStorage.getItem("utm_medium"),
+              utm_campaign: localStorage.getItem("utm_campaign"),
+              utm_term: localStorage.getItem("utm_term"),
+              utm_content: localStorage.getItem("utm_content"),
+            };
+            const whatsappPayload = {
+              phone: `91${values?.mobile}`,
+              name: values?.name,
+              amount: 499,
+              event_dates: "May 01, May 02, May 03",
+              event_date_time: "May 01 (Friday)",
+              platform: "Google Meet",
+              link_date: "Thursday Apr, 30",
+            };
+            const params = new URLSearchParams();
+            Object.keys(formData).forEach((key) => {
+              params.append(key, formData[key]);
+            });
+            resetForm();
+            afterRegisterSuccessufull(formData);
+            handleWhatsappMessage(whatsappPayload);
+            handleGoogleSheetForm(params);
+            useVlsAibeQuery(apiPayload);
+          },
         };
         const razor = new window.Razorpay(options);
-
         razor.on("payment.failed", function () {
           window.location.href = "/error";
           setisLoading(false);
         });
-
         razor.open();
       }
 
@@ -223,7 +202,7 @@ const Form = () => {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: formData.toString(),
-        }
+        },
       );
 
       console.log("response", sheetRes);
