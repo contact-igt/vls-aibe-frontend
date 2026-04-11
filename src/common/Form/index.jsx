@@ -26,7 +26,6 @@ const Form = () => {
 
     onSubmit: async (values, { resetForm }) => {
       setisLoading(true);
-      // setError(null);
       const resp = await fetch("/api/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
