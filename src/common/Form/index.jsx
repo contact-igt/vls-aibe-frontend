@@ -33,6 +33,7 @@ const Form = () => {
           body: JSON.stringify({ amount: 1 }),
         });
 
+        
         const order = await resp.json();
 
         if (!resp.ok) {
