@@ -9,14 +9,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid amount" });
     }
 
-    // Backend should use RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET
-    const key_id =
-      process.env.RAZORPAY_KEY_ID || process.env.REACT_APP_RAZORPAY_TEST_KEY_ID;
-    const secret =
-      process.env.RAZORPAY_KEY_SECRET ||
-      process.env.REACT_APP_RAZORPAY_TEST_KEY_SECRET;
-    console.log("Backend Key:", key_id);
-    console.log("Backend Secret:", secret);
+    const key_id = process.env.RAZORPAY_KEY_ID;
+    const secret = process.env.RAZORPAY_KEY_SECRET;
+
     const auth =
       "Basic " + Buffer.from(`${key_id}:${secret}`).toString("base64");
 

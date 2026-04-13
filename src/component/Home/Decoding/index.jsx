@@ -15,7 +15,7 @@ const Decoding = ({ decoding_constant }) => {
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center gap-5">
           {decoding_constant?.map((data, i) => (
-            <div className={styles.stepCard}>
+            <div key={`decoding-${data?.id || i}`} className={styles.stepCard}>
               <div className="d-flex justify-content-center">
                 <div className={styles.numcard}>
                   <h5>{data?.id}</h5>

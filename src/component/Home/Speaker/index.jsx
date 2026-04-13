@@ -1,13 +1,6 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
 const Speaker = ({ speaker_constant }) => {
-  // Debug log for frontend Razorpay key
-  console.log(
-    "Frontend Key:",
-    process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
-      process.env.REACT_APP_RAZORPAY_TEST_KEY_ID,
-  );
-
   return (
     <section className={styles.speakersec}>
       <div className={`container ${styles.container}`}>

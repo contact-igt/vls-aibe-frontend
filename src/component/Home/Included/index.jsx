@@ -1,6 +1,6 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
-import { DynamicIcon } from "lucide-react/dynamic";
+import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 
 const Included = ({ included_constant, handleToggleToForm }) => {
   return (

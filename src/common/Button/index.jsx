@@ -1,4 +1,4 @@
-import { DynamicIcon } from "lucide-react/dynamic";
+import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 import styles from "./styles.module.css";
 import Image from "next/image";
 

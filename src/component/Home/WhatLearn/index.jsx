@@ -1,6 +1,6 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
-import { DynamicIcon } from "lucide-react/dynamic";
+import { SafeDynamicIcon } from "@/common/SafeDynamicIcon";
 import Button from "@/common/Button";
 
 const WhatLearn = ({ whatlearn_constant, handleToggleToForm }) => {
@@ -12,13 +12,12 @@ const WhatLearn = ({ whatlearn_constant, handleToggleToForm }) => {
           <Title title={"What You'll"} highlight={"Learn"} />
           <div className="row mt-5">
             {whatlearn_constant?.map((data, i) => (
-              <div className="col-lg-6 d-flex justify-content-center">
+              <div key={`whatlearn-${data?.title?.replace(/\s+/g, '-') || i}`} className="col-lg-6 d-flex justify-content-center">
                 <div
-                  key={i}
                   className={`${styles.learncard} d-flex align-items-center align-items-md-start gap-4`}
                 >
                   <div className={styles.iconsec}>
-                    <DynamicIcon name={data?.icon} color="#fff" size={40} />
+                    <SafeDynamicIcon name={data?.icon} color="#fff" size={40} />
                   </div>
                   <div className={styles.contentsec}>
                     <h4>{data?.title}</h4>

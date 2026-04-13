@@ -61,15 +61,22 @@ export default async function handler(req, res) {
       }),
     });
 
-    const data = await response.json();
+    const text = await response.text();
+    let data;
+    try {
+      data = text ? JSON.parse(text) : {};
+    } catch(e) {
+      data = text;
+    }
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: data });
+      console.error("sendWhatsapp failed. Status:", response.status, "Data:", data);
+      return res.status(response.status).json({ success: false, error: data });
     }
 
     return res.status(200).json({ success: true, result: data });
   } catch (err) {
     console.error("Error sending WhatsApp:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ success: false, error: "Internal Server Error", details: err.message });
   }
 }

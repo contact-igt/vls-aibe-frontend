@@ -1,7 +1,7 @@
 import { BadgePercent } from "lucide-react";
 import styles from "./styles.module.css";
 import Image from "next/image";
-import { DynamicIcon } from "lucide-react/dynamic";
+import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 import { Popup } from "@/common/Popup";
 import { useEffect, useState } from "react";
 import Button from "@/common/Button";
