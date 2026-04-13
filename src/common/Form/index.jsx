@@ -26,154 +26,138 @@ const Form = () => {
 
     onSubmit: async (values, { resetForm }) => {
       setisLoading(true);
-      const resp = await fetch("/api/create-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: 499 }),
-      });
-
-      const order = await resp.json();
-
-      if (!resp.ok) {
-        console.error("Create order failed", order);
-        setisLoading(false);
-        window.location.href = "/error";
-        return;
-      } else {
-        const options = {
-          key:
-            process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
-            process.env.REACT_APP_RAZORPAY_TEST_KEY_ID,
-          amount: order?.amount * 100,
-          currency: "INR",
-          name: values?.name,
-          order_id: order.id,
-          description: "Advance amount of AIBE ",
-          prefill: {
-            name: values?.name,
-            email: values?.email,
-            contact: values?.mobile,
-          },
-          theme: { color: "#b20a0a" },
-          handler: async function (response) {
-            // Debug log for frontend key
-            console.log(
-              "Frontend Key:",
-              process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
-                process.env.REACT_APP_RAZORPAY_TEST_KEY_ID,
-            );
-            // Post-payment logic
-            const ipResponse = await fetch("https://api.ipify.org?format=json");
-            const ipData = await ipResponse.json();
-            const formData = {
-              Name: values?.name,
-              Email: values?.email,
-              Mobile: `91${values?.mobile}`,
-              Amount: order?.amount / 100,
-              Razorpay_Transaction_Id: response?.razorpay_payment_id,
-              Payment_Status: "Paid",
-              ip_address: ipData.ip,
-              utm_source: localStorage.getItem("utm_source"),
-              utm_medium: localStorage.getItem("utm_medium"),
-              utm_campaign: localStorage.getItem("utm_campaign"),
-              utm_term: localStorage.getItem("utm_term"),
-              utm_content: localStorage.getItem("utm_content"),
-            };
-            const apiPayload = {
-              name: values?.name ? values?.name : "",
-              email: values?.email,
-              mobile: `91${values?.mobile}`,
-              amount: order?.amount / 100,
-              programm_start_date: "2025-05-01",
-              programm_end_date: "2025-05-03",
-              razorpay_order_id: response.razorpay_order_id
-                ? response.razorpay_order_id
-                : "",
-              razorpay_payment_id: response.razorpay_payment_id
-                ? response.razorpay_payment_id
-                : "",
-              razorpay_signature: response.razorpay_signature
-                ? response.razorpay_signature
-                : "",
-              payment_status: "paid",
-              captured: response.captured ? response.captured : "",
-              ip_address: ipData.ip,
-              utm_source: localStorage.getItem("utm_source"),
-              utm_medium: localStorage.getItem("utm_medium"),
-              utm_campaign: localStorage.getItem("utm_campaign"),
-              utm_term: localStorage.getItem("utm_term"),
-              utm_content: localStorage.getItem("utm_content"),
-            };
-            const whatsappPayload = {
-              phone: `91${values?.mobile}`,
-              name: values?.name,
-              amount: 499,
-              event_dates: "May 01, May 02, May 03",
-              event_date_time: "May 01 (Friday)",
-              platform: "Google Meet",
-              link_date: "Thursday Apr, 30",
-            };
-            const params = new URLSearchParams();
-            Object.keys(formData).forEach((key) => {
-              params.append(key, formData[key]);
-            });
-            resetForm();
-            afterRegisterSuccessufull(formData);
-            handleWhatsappMessage(whatsappPayload);
-            handleGoogleSheetForm(params);
-            useVlsAibeQuery(apiPayload);
-          },
-        };
-        const razor = new window.Razorpay(options);
-        razor.on("payment.failed", function () {
-          window.location.href = "/error";
-          setisLoading(false);
+      try {
+        const resp = await fetch("/api/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount: 499 }),
         });
-        razor.open();
+
+        const order = await resp.json();
+
+        if (!resp.ok) {
+          console.error("Create order failed", order);
+          setisLoading(false);
+          window.location.href = "/error";
+          return;
+        } else {
+          const options = {
+            key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+            amount: order?.amount * 100,
+            currency: "INR",
+            name: values?.name,
+            order_id: order.id,
+            description: "Advance amount of AIBE ",
+            prefill: {
+              name: values?.name,
+              email: values?.email,
+              contact: values?.mobile,
+            },
+            theme: { color: "#b20a0a" },
+            handler: async function (response) {
+              let userIpAddress = "Unknown";
+              try {
+                const ipResponse = await fetch("https://api.ipify.org?format=json");
+                if (ipResponse.ok) {
+                  const ipData = await ipResponse.json();
+                  userIpAddress = ipData.ip || "Unknown";
+                }
+              } catch (ipErr) {
+                console.warn("IP fetch failed, continuing without IP:", ipErr);
+              }
+              const formData = {
+                Name: values?.name,
+                Email: values?.email,
+                Mobile: `91${values?.mobile}`,
+                Amount: order?.amount / 100,
+                Razorpay_Transaction_Id: response?.razorpay_payment_id,
+                Payment_Status: "Paid",
+                ip_address: userIpAddress,
+                utm_source: localStorage.getItem("utm_source"),
+                utm_medium: localStorage.getItem("utm_medium"),
+                utm_campaign: localStorage.getItem("utm_campaign"),
+                utm_term: localStorage.getItem("utm_term"),
+                utm_content: localStorage.getItem("utm_content"),
+              };
+              const apiPayload = {
+                name: values?.name ? values?.name : "",
+                email: values?.email,
+                mobile: `91${values?.mobile}`,
+                amount: order?.amount / 100,
+                programm_start_date: "2025-05-01",
+                programm_end_date: "2025-05-03",
+                razorpay_order_id: response.razorpay_order_id
+                  ? response.razorpay_order_id
+                  : "",
+                razorpay_payment_id: response.razorpay_payment_id
+                  ? response.razorpay_payment_id
+                  : "",
+                razorpay_signature: response.razorpay_signature
+                  ? response.razorpay_signature
+                  : "",
+                payment_status: "paid",
+                captured: response.captured ? response.captured : "",
+                ip_address: userIpAddress,
+                utm_source: localStorage.getItem("utm_source"),
+                utm_medium: localStorage.getItem("utm_medium"),
+                utm_campaign: localStorage.getItem("utm_campaign"),
+                utm_term: localStorage.getItem("utm_term"),
+                utm_content: localStorage.getItem("utm_content"),
+              };
+              const whatsappPayload = {
+                phone: `91${values?.mobile}`,
+                name: values?.name || "AIBE Student",
+                amount: 499,
+                event_dates: "May 01, May 02, May 03",
+                event_date_time: "May 01 (Friday)",
+                platform: "Google Meet",
+                link_date: "Thursday Apr, 30",
+              };
+              const params = new URLSearchParams();
+              Object.keys(formData).forEach((key) => {
+                params.append(key, formData[key] || "N/A"); // Safe fallback for empty
+              });
+              resetForm();
+              if (typeof window !== "undefined") {
+                if (window.fbq) {
+                  window.fbq("track", "Purchase", { value: 499, currency: "INR" });
+                }
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: "purchase",
+                    ecommerce: {
+                      currency: "INR",
+                      value: 499,
+                      items: [{ item_name: "AIBE Batch", price: 499, quantity: 1 }]
+                    }
+                  });
+                }
+              }
+              await Promise.allSettled([
+                handleWhatsappMessage(whatsappPayload),
+                handleGoogleSheetForm(params),
+                useVlsAibeQuery(apiPayload)
+              ]);
+              
+              afterRegisterSuccessufull(formData);
+            },
+            modal: {
+              ondismiss: function () {
+                setisLoading(false);
+              },
+            },
+          };
+          const razor = new window.Razorpay(options);
+          razor.on("payment.failed", function () {
+            window.location.href = "/error";
+            setisLoading(false);
+          });
+          razor.open();
+        }
+      } catch (err) {
+        console.error("Form execution failed:", err);
+        setisLoading(false);
       }
-
-      // const ipResponse = await fetch(
-      //   "https://api.ipify.org?format=json"
-      // );
-      // const ipData = await ipResponse.json();
-
-      // const formData = {
-      //   Name: values?.name,
-      //   Email: values?.email,
-      //   Mobile: `91${values?.mobile}`,
-      //   ip_address: ipData.ip,
-      //   utm_source: localStorage.getItem("utm_source"),
-      //   utm_medium: localStorage.getItem("utm_medium"),
-      //   utm_campaign: localStorage.getItem("utm_campaign"),
-      //   utm_term: localStorage.getItem("utm_term"),
-      //   utm_content: localStorage.getItem("utm_content"),
-      // };
-      // const params = new URLSearchParams();
-      // Object.keys(formData).forEach((key) => {
-      //   params.append(key, formData[key]);
-      // });
-      // try {
-      //   const sheetRes = await fetch(
-      //     "https://script.google.com/macros/s/AKfycbxIyM62qbYBnExLbJkN-b41b47R3T4gVvpucUpGfLBF2oyl3OCW5Zb_LOl90KKCtB97/exec",
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         "Content-Type": "application/x-www-form-urlencoded",
-      //       },
-      //       body: params.toString(),
-      //     }
-      //   );
-      //   setTimeout(() => {
-      //     window.location.href = "/thank-you";
-      //     setisLoading(false);
-      //     resetForm();
-      //   }, 2000);
-      //   console.log("response", sheetRes);
-      // } catch (err) {
-      //   setError("Something went wrong. Please try again!");
-      //   console.error("Fetch error:", err);
-      //   console.log("Server error. Please try again later.");
-      // }
     },
   });
 
@@ -197,6 +181,7 @@ const Form = () => {
         "https://script.google.com/macros/s/AKfycbxIyM62qbYBnExLbJkN-b41b47R3T4gVvpucUpGfLBF2oyl3OCW5Zb_LOl90KKCtB97/exec",
         {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
@@ -204,7 +189,7 @@ const Form = () => {
         },
       );
 
-      console.log("response", sheetRes);
+      console.log("Sheet response executed automatically (no-cors)");
     } catch (err) {
       console.error("Fetch error:", err);
       console.log("Server error. Please try again later.");
@@ -213,10 +198,10 @@ const Form = () => {
 
   const afterRegisterSuccessufull = (formData) => {
     setTimeout(() => {
-      window.location.href = "/thank-you";
       localStorage.setItem("PaymentDeatls", JSON.stringify(formData));
+      window.location.href = "/thank-you";
       setisLoading(false);
-    }, 5000);
+    }, 1000);
   };
 
   return (

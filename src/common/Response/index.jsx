@@ -11,9 +11,9 @@ const Response = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      setIsSuccess(router.query.response === "thank-you");
+      setIsSuccess(router.pathname === "/thank-you" || router.query.response === "thank-you");
     }
-  }, [router.isReady, router.query.response]);
+  }, [router.isReady, router.pathname, router.query.response]);
 
   useEffect(() => {
     setuserDeatil(JSON.parse(localStorage.getItem("PaymentDeatls")));
@@ -119,17 +119,6 @@ const Response = () => {
             icon_color={"#fff"}
             href={"tel:+919500207811"}
           />
-          {!issuccess && (
-            <Button
-              name={"Call To Support"}
-              bg_color={"#b20a0a"}
-              name_color={"#ffff"}
-              icon={"phone"}
-              btn_type={"link"}
-              icon_color={"#fff"}
-              href={"tel:+919500207811"}
-            />
-          )}
         </div>
       </div>
     </section>

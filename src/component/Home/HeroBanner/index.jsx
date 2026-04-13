@@ -1,6 +1,6 @@
 import Button from "@/common/Button";
 import styles from "./styles.module.css";
-import { DynamicIcon } from "lucide-react/dynamic";
+import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 import Form from "@/common/Form";
 import { forwardRef, useEffect, useState } from "react";
 

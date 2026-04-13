@@ -1,6 +1,6 @@
 import Title from "@/common/Title";
 import styles from "./styles.module.css";
-import { DynamicIcon } from "lucide-react/dynamic";
+import { SafeDynamicIcon } from "@/common/SafeDynamicIcon";
 import Button from "@/common/Button";
 
 const Result = ({ result_constant, handleToggleToForm }) => {
@@ -13,9 +13,9 @@ const Result = ({ result_constant, handleToggleToForm }) => {
           className={`${styles.Result} d-flex flex-wrap justify-content-center gap-5`}
         >
           {result_constant?.result?.map((data, i) => (
-            <div className={styles.resultCard}>
+            <div key={`result-${data?.type?.replace(/\s+/g, '-') || i}`} className={styles.resultCard}>
               <div className={styles.cardIcon}>
-                <DynamicIcon name={data?.icon} size={40} />
+                <SafeDynamicIcon name={data?.icon} size={40} />
               </div>
               <h6>{data?.number}</h6>
               <p>{data?.type}</p>

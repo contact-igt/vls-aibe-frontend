@@ -329,22 +329,22 @@ export const HomePageConstant = {
         description: "Interactive sessions with expert instructors",
       },
       {
-        id: 1,
+        id: 2,
         title: "Bare Act Decoding Drills",
         description: "Timed practice with real question patterns",
       },
       {
-        id: 1,
+        id: 3,
         title: "Practice Tests",
         description: "Full-length mock exams with detailed feedback",
       },
       {
-        id: 1,
+        id: 4,
         title: "Doubt-Clearing Support",
         description: "Direct access to mentors for questions",
       },
       {
-        id: 1,
+        id: 5,
         title: "Revision Framework",
         description: "Structured plan for last-minute revision",
       },
