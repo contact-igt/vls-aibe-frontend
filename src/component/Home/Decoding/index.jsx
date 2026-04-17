@@ -5,16 +5,14 @@ const Decoding = ({ decoding_constant }) => {
   return (
     <section className={styles.decodingSection}>
       <Title
-        title={"The 3-Step BARE Act"}
-        highlight={"Decoding System"}
-        subTitle={
-          "If you can decode 65 questions and mark the correct section references, you clear"
-        }
+        title={decoding_constant?.title}
+        highlight={decoding_constant?.highlight}
+        subTitle={decoding_constant?.subTitle}
       />
 
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center gap-5">
-          {decoding_constant?.map((data, i) => (
+          {decoding_constant?.data?.map((data, i) => (
             <div key={`decoding-${data?.id || i}`} className={styles.stepCard}>
               <div className="d-flex justify-content-center">
                 <div className={styles.numcard}>

@@ -30,7 +30,7 @@ const Form = () => {
         const resp = await fetch("/api/create-order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: 499 }),
+          body: JSON.stringify({ amount: 99 }),
         });
 
 
@@ -66,6 +66,7 @@ const Form = () => {
               } catch (ipErr) {
                 console.warn("IP fetch failed, continuing without IP:", ipErr);
               }
+
               const formData = {
                 Name: values?.name,
                 Email: values?.email,
@@ -80,24 +81,19 @@ const Form = () => {
                 utm_term: localStorage.getItem("utm_term"),
                 utm_content: localStorage.getItem("utm_content"),
               };
+
               const apiPayload = {
-                name: values?.name ? values?.name : "",
+                name: values?.name || "",
                 email: values?.email,
                 mobile: `91${values?.mobile}`,
                 amount: order?.amount / 100,
-                programm_start_date: "2025-05-01",
-                programm_end_date: "2025-05-03",
-                razorpay_order_id: response.razorpay_order_id
-                  ? response.razorpay_order_id
-                  : "",
-                razorpay_payment_id: response.razorpay_payment_id
-                  ? response.razorpay_payment_id
-                  : "",
-                razorpay_signature: response.razorpay_signature
-                  ? response.razorpay_signature
-                  : "",
+                programm_start_date: "2026-05-02",
+                programm_end_date: "2026-05-02",
+                razorpay_order_id: response.razorpay_order_id || "",
+                razorpay_payment_id: response.razorpay_payment_id || "",
+                razorpay_signature: response.razorpay_signature || "",
                 payment_status: "paid",
-                captured: response.captured ? response.captured : "",
+                captured: response.captured || "",
                 ip_address: userIpAddress,
                 utm_source: localStorage.getItem("utm_source"),
                 utm_medium: localStorage.getItem("utm_medium"),
@@ -105,41 +101,46 @@ const Form = () => {
                 utm_term: localStorage.getItem("utm_term"),
                 utm_content: localStorage.getItem("utm_content"),
               };
+
               const whatsappPayload = {
                 phone: `91${values?.mobile}`,
                 name: values?.name || "AIBE Student",
-                amount: 499,
-                event_dates: "May 01, May 02, May 03",
-                event_date_time: "May 01 (Friday)",
+                amount: 99,
+                event_dates: "May 02",
+                event_date_time: "May 02 (Saturday)",
                 platform: "Google Meet",
-                link_date: "Thursday Apr, 30",
+                link_date: "Saturday May, 01",
               };
+
               const params = new URLSearchParams();
               Object.keys(formData).forEach((key) => {
-                params.append(key, formData[key] || "N/A"); // Safe fallback for empty
+                params.append(key, formData[key] || "N/A");
               });
+
               resetForm();
+
               if (typeof window !== "undefined") {
                 if (window.fbq) {
-                  window.fbq("track", "Purchase", { value: 499, currency: "INR" });
+                  window.fbq("track", "Purchase", { value: 99, currency: "INR" });
                 }
                 if (window.dataLayer) {
                   window.dataLayer.push({
                     event: "purchase",
                     ecommerce: {
                       currency: "INR",
-                      value: 499,
-                      items: [{ item_name: "AIBE Batch", price: 499, quantity: 1 }]
-                    }
+                      value: 99,
+                      items: [{ item_name: "AIBE Roadmap Class", price: 99, quantity: 1 }],
+                    },
                   });
                 }
               }
+
               await Promise.allSettled([
                 handleWhatsappMessage(whatsappPayload),
                 handleGoogleSheetForm(params),
-                useVlsAibeQuery(apiPayload)
+                useVlsAibeQuery(apiPayload),
               ]);
-              
+
               afterRegisterSuccessufull(formData);
             },
             modal: {
@@ -209,7 +210,7 @@ const Form = () => {
     <div>
       <div className={styles.formTopic}>
         <h3>Join the Batch</h3>
-        <p>Fill out the form, pay ₹499, and confirm your seat today!</p>
+        <p>Fill out the form, pay ₹99, and confirm your seat today!</p>
         {/* <p>Please complete the form, and confirm your seat now!</p> */}
       </div>
       <form onSubmit={formik.handleSubmit}>
@@ -279,7 +280,7 @@ const Form = () => {
         <div className={styles.inputgrp}>
           <Button
             disabled={isLoading}
-            name={isLoading ? "Booking..." : "Start Your Journey for ₹499"}
+            name={isLoading ? "Booking..." : "Start Your Journey for ₹99"}
             bg_color={"#b20a0a"}
             name_color={"#ffff"}
             btn_type={"submit"}

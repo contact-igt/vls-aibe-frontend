@@ -25,23 +25,23 @@ export const HomePageConstant = {
   homeBanner: {
     marquee: {
       title:
-        "🚀 AIBE Weekend Batch – Starting May 01 2026 (Friday) | Learn Smarter, Practice Better, Clear Faster! 🎯",
+        "🚀 AIBE Weekend Batch – Starting May 02 2026 (Saturday) | Learn Smarter, Practice Better, Clear Faster! 🎯",
       offer:
-        "🎟️ Pay Just ₹499 to Book Your Seat | Full Course ₹3,000 (Actual Value ₹7,500) – Offer Ending Soon 🔥",
+        "🎟️ Pay Just ₹99 to Book Your Seat | 3-Hour AIBE Roadmap Class | Limited Seats",
     },
     main: {
       description:
-        "Master Practical AIBE Strategies You Can Use Right Away To Decode Sections Faster, Smarter, and Better — Even If You’re New to the Bare Act ⚖️",
+        "Learn the right way to approach AIBE, decode the Bare Act, find correct answers faster, and manage time effectively — even if you are new to using the Bare Act.",
       tags: [
         {
           id: 1,
           icon: "calendar",
-          title: "May 01 - 03, 2026",
+          title: "May 02, 2026",
         },
         {
           id: 2,
           icon: "clock",
-          title: "(Theory + Test + Practice)",
+          title: "(Theory + Practice)",
         },
         {
           id: 3,
@@ -60,23 +60,24 @@ export const HomePageConstant = {
 
   attemptFails: [
     {
-      title: "Reading cover to cover:",
+      title: "Reading everything without a method",
       description:
-        "Wasting time on low-yield sections instead of focusing on frequently tested topics",
+        "Many aspirants waste time because they do not know what to focus on.",
     },
     {
-      title: "No section recall strategy:",
+      title: "Using the Bare Act without a system",
       description:
-        "Unable to quickly identify which Act and section applies under exam pressure",
+        "Knowing the Bare Act exists is not enough — you must know how to use it fast.",
     },
     {
-      title: "Skipping timed practice:",
+      title: "Poor time management during the exam",
       description:
-        "Knowing the law but running out of time during the actual exam",
+        "Students often lose marks because they spend too long on one question.",
     },
     {
-      title: "Lack of structured method:",
-      description: "Studying randomly without a clear plan or proven framework",
+      title: "No proper roadmap",
+      description:
+        "Without a clear approach, preparation becomes confusing and stressful.",
     },
   ],
   trainingSession: {
@@ -133,114 +134,117 @@ export const HomePageConstant = {
     {
       icon: "book-open",
       title: "Decode the Bare Act the exam way",
-      description:
-        "Learn to read and interpret sections quickly without getting lost in legal jargon",
+      description: "Learn how to read sections practically for AIBE.",
     },
     {
       icon: "target",
-      title: "Identify the right section under time pressure",
+      title: "Identify the right section faster",
       description:
-        "Master quick section recall techniques that work during exam stress",
+        "Understand how to connect the question to the correct provision.",
     },
     {
       icon: "check-circle-2",
-      title: "Answer confidently using elimination cues",
-      description:
-        "Use proven strategies to eliminate wrong options and choose correctly",
+      title: "Answer with more confidence",
+      description: "Use a smarter method instead of guesswork.",
     },
     {
       icon: "award",
-      title: "Follow a repeatable plan for 90+/100",
-      description:
-        "Get a clear, step-by-step framework to achieve the passing score consistently",
+      title: "Follow a practical AIBE roadmap",
+      description: "Get a simple and structured approach for the exam.",
     },
   ],
+  whatLearn_cta: "Book Your Slot @ ₹99",
 
-  whosThis: [
-    {
-      id: 1,
-      icon: "",
-      title: "LL.B. Graduates",
-      description:
-        "Fresh graduates preparing for AIBE who need structured guidance and a clear roadmap to certification.",
-      icon: "graduation-cap",
-    },
+  whosThis: {
+    subTitle:
+      "Designed for serious aspirants who want to clear AIBE with clarity and confidence",
+    cta: "Join Today – ₹99 Only",
+    data: [
+      {
+        id: 1,
+        title: "LL.B. Graduates",
+        description:
+          "Fresh graduates preparing for AIBE who need proper guidance.",
+        icon: "graduation-cap",
+      },
+      {
+        id: 2,
+        title: "Non-Bare Act Learners",
+        description:
+          "Those who studied law but never learned how to use the Bare Act practically.",
+        icon: "book-open-text",
+      },
+      {
+        id: 3,
+        title: "Repeat Takers",
+        description:
+          "Candidates who want a better strategy instead of repeating the same mistakes.",
+        icon: "refresh-cw",
+      },
+      {
+        id: 4,
+        title: "Busy Aspirants",
+        description:
+          "Those looking for a short, focused, and practical roadmap session.",
+        icon: "briefcase",
+      },
+    ],
+  },
 
-    {
-      id: 2,
-      icon: "",
-      title: "Non-Bare Act Learners",
-      description:
-        "Those who didn't study using the Bare Act in college and need to build that foundational approach.",
-      icon: "book-open-text",
-    },
-
-    {
-      id: 3,
-      icon: "",
-      title: "Repeat Takers",
-      description:
-        "Candidates who need a proven method and strategic framework, not just more study notes.",
-      icon: "refresh-cw",
-    },
-
-    {
-      id: 4,
-      icon: "",
-      title: "Working Professionals",
-      description:
-        "Busy professionals seeking a time-boxed, efficient plan that fits into their demanding schedules.",
-      icon: "briefcase",
-    },
-  ],
-
-  decode: [
-    {
-      id: 1,
-      title: "Decode",
-      description: "Break down the question to identify the core legal issue",
-    },
-    {
-      id: 2,
-      title: "Identify",
-      description:
-        "Match the issue to the correct Act and section using recall cues",
-    },
-    {
-      id: 3,
-      title: "Answer",
-      description: "Apply elimination strategies and mark with confidence",
-    },
-  ],
+  decode: {
+    title: "The 3-Step Bare Act",
+    highlight: "Decoding System",
+    subTitle:
+      "If you know how to decode the question, identify the section, and answer confidently, AIBE becomes much easier.",
+    data: [
+      {
+        id: 1,
+        title: "Decode",
+        description:
+          "Break down the question and understand what it is really asking.",
+      },
+      {
+        id: 2,
+        title: "Identify",
+        description: "Match the issue to the correct Act and section quickly.",
+      },
+      {
+        id: 3,
+        title: "Answer",
+        description: "Choose the correct option with better clarity and confidence.",
+      },
+    ],
+  },
 
   proven_result: {
     result: [
       {
         id: 1,
         number: "90+/100",
-        type: "Target Score",
-        icon: "trending-up",
+        type: "AIBE Target Score",
+        icon: "target",
       },
       {
         id: 2,
         number: "1500+",
-        type: "Student Cleared",
-        icon: "medal",
-      },
-      {
-        id: 3,
-        number: "440",
-        type: "Total Registrations",
+        type: "Students Guided",
         icon: "users",
       },
       {
+        id: 3,
+        number: "Clear",
+        type: "Exam Strategy",
+        icon: "clipboard-list",
+      },
+      {
         id: 4,
-        number: "99",
-        type: "Paid Enrollments",
-        icon: "check-circle",
+        number: "₹99",
+        type: "Roadmap Access",
+        icon: "ticket",
       },
     ],
 
+    cta: "Unlock Access — ₹99 Only!",
     proven: [
       "Faster decoding with section-first recall techniques",
       "Improved section mapping accuracy under time pressure",
@@ -261,7 +265,7 @@ export const HomePageConstant = {
 
     {
       image: "/assets/mr-shiva-kumar-backdrop.svg",
-      name: "Mr. Sivakumar Sivaprakasam",
+      name: "Dr. Sivakumar Sivaprakasam",
       Education: "B.Sc., M.L., Ph.D (Law)",
       position: "Lawyer, Chennai High Court",
       about:
@@ -271,113 +275,117 @@ export const HomePageConstant = {
 
   Faq: [
     {
-      question: "Seat Booking Amount?",
-      answer:
-        "Yes, ₹499 locks your seat. Pay the remaining balance after join the class",
+      question: "AIBE Roadmap Class Booking Amount?",
+      answer: "Yes, ₹99 confirms your seat for this 3-hour AIBE Roadmap Class.",
     },
     {
       question: "Course Language Details?",
-      answer: "Sessions will be in English and Tamil (as needed).",
-    },
-    {
-      question: "Session Recordings Access?",
-      answer: "If available, access details will be shared after enrolment.",
-    },
-    {
-      question: "Refund Policy & Conditions?",
       answer:
-        "Advance is non-refundable. The remaining amount is refundable before join class on request.",
+        "This session will be conducted in Tamil and English, making it easy for law graduates to understand and follow clearly.",
+    },
+    {
+      question: "What will be covered in this class?",
+      answer:
+        "You will learn how to approach AIBE, use the Bare Act systematically, find answers faster, and manage time better.",
+    },
+    {
+      question: "Who should join this class?",
+      answer:
+        "LL.B. graduates, repeat takers, and aspirants who are not confident in using the Bare Act.",
     },
   ],
   schedule: {
+    topLabel: "This Class Only",
     title: "Complete Schedule",
+    cta: "Reserve My Seat – ₹99",
     scheduleData: [
       {
         id: 1,
         icon: "calendar",
-        title: "Dates",
-        description: "May 01 (Fri), May 02 (Sat), May 03 (Sun)",
+        title: "Date",
+        description: "May 02, 2026",
       },
-      // {
-      //   id: 2,
-      //   icon: "clock",
-      //   title: "Time",
-      //   description: "May 01 (Fri) : Start From 10.00 AM",
-      //   // description2:
-      //   //   "Nov 15–16 (Sat–Sun) : - 09:30 AM – 01:00 PM IST (3.5 hrs/day)",
-      // },
+      {
+        id: 2,
+        icon: "clock",
+        title: "Time",
+        description: "10:30 AM – 1:30 PM",
+      },
       {
         id: 3,
         icon: "target",
         title: "Format",
-        description: "Theory + Test + Practice",
+        description: "3-Hour Roadmap Session",
       },
       {
         id: 4,
         icon: "users",
         title: "Access",
-        description: "Online Session + Practice Sets + Doubt Clearing",
+        description: "Online / Offline",
       },
     ],
   },
   included: {
-    // title: "Everything Included in 25 Hours",
+    title: "Everything Included in",
+    highlight: "3 Hours",
     includedData: [
       {
         id: 1,
-        title: "Live Classes",
-        description: "Interactive sessions with expert instructors",
+        title: "Live Class",
+        description: "Interactive roadmap session with practical guidance",
       },
       {
         id: 2,
-        title: "Bare Act Decoding Drills",
-        description: "Timed practice with real question patterns",
+        title: "Bare Act Decoding",
+        description: "Learn how to use the Bare Act the right way",
       },
       {
         id: 3,
-        title: "Practice Tests",
-        description: "Full-length mock exams with detailed feedback",
+        title: "Answer Strategy",
+        description: "Find answers faster with a systematic method",
       },
       {
         id: 4,
-        title: "Doubt-Clearing Support",
-        description: "Direct access to mentors for questions",
+        title: "Time Management Tips",
+        description: "Handle AIBE better with a smarter exam approach",
       },
       {
         id: 5,
-        title: "Revision Framework",
-        description: "Structured plan for last-minute revision",
+        title: "Preparation Roadmap",
+        description: "A clear understanding of what to do next",
       },
     ],
-    tagData: ["Beginner-friendly", "Section-first pedagogy", "Exam-oriented"],
+    tagData: ["Beginner-friendly", "Practical approach", "Exam-oriented"],
   },
   whatWeCover: {
     title: "What We Cover",
     WhatWeCoverList: [
       {
-        title: "Module 1: BARE Act mindset",
+        title: "Module 1: AIBE mindset",
         description:
-          "Shift from cover-to-cover reading to strategic section mapping",
+          "Understand how to approach AIBE as an open-book exam with the right strategy.",
       },
       {
-        title: "Module 2: Pattern recognition",
+        title: "Module 2: Bare Act decoding",
         description:
-          "Learn how AIBE questions are structured and what they test",
+          "Learn how to use the Bare Act systematically instead of searching randomly.",
       },
       {
-        title: "Module 3: Section mapping",
+        title: "Module 3: Answer-finding method",
         description:
-          "Build instant recall for high-yield sections across all Acts",
+          "Know how to identify the right section and reach the correct answer faster.",
       },
       {
-        title: "Module 4: Timed decoding drills",
+        title: "Module 4: Time management",
         description:
-          "Practice under exam conditions with real question formats",
+          "Learn how to avoid wasting time and handle the exam more confidently.",
       },
       {
-        title: "Module 5: Exam day playbook",
-        description: "Complete strategy for time management and stress control",
+        title: "Module 5: A clear roadmap",
+        description:
+          "Get a simple plan to move forward and prepare for AIBE the right way.",
       },
     ],
+    cta: "Start Learning for ₹99",
   },
 };

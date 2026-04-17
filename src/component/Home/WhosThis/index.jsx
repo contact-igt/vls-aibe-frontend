@@ -3,19 +3,17 @@ import styles from "./styles.module.css";
 import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 import Button from "@/common/Button";
 
-const WhosThis = ({ whosthis_constant , handleToggleToForm }) => {
+const WhosThis = ({ whosthis_constant, handleToggleToForm }) => {
   return (
     <section className={styles.whosthisSection}>
       <Title
         title={"Who This"}
         highlight={"Is For"}
-        subTitle={
-          "Designed for serious aspirants who want to clear AIBE with clarity and focus"
-        }
+        subTitle={whosthis_constant?.subTitle}
       />
       <div className="container">
         <div>
-          {whosthis_constant?.map((data, i) => (
+          {whosthis_constant?.data?.map((data, i) => (
             <div
               key={i}
               className={`${styles.whosthisItem} ${
@@ -34,11 +32,10 @@ const WhosThis = ({ whosthis_constant , handleToggleToForm }) => {
           ))}
         </div>
 
-        
         <div className="w-100 d-flex justify-content-center mt-md-5 mt-3">
           <Button
             onClick={handleToggleToForm}
-            name="Join Today – Limited Offer ₹499"
+            name={whosthis_constant?.cta || "Join Today – ₹99 Only"}
             icon={"circle-check"}
             icon_color={"#fff"}
             bg_color="rgb(178, 10, 10)"

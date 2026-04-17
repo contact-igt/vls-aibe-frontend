@@ -73,13 +73,13 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             className={`${styles.slogan} position-absolute `}
             onClick={handleToggleToForm}
           >
-            <p>No Stress, Only Success</p>
+            <p>No Confusion, Only Clarity</p>
           </div>
         </div>
 
         <div className=" mt-3 d-flex justify-content-center">
           <Button
-            name={"Register For AIBE Course"}
+            name={"Register For AIBE Roadmap Class"}
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             onClick={handleToggleToForm}
@@ -98,14 +98,15 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
               />
               <div className={styles.imggardient}></div>
               <div className={`${styles.imgtag} position-absolute`}>
-                <h4>Mr. Sivakumar Sivaprakasam</h4>
+                <h4>Dr. Sivakumar Sivaprakasam</h4>
                 <h6>( Lawyer, Chennai High Court )</h6>
                 <div
                   className={`${styles.tagpan} d-flex justify-content-start flex-wrap gap-2 align-items-center`}
                 >
-                  <p>Achieving Top Ranks</p>
-                  <p>1200+ Candidates</p>
-                  <p>Trained 250+ Aspirants</p>
+                  <p>Practical AIBE Strategy</p>
+                  <p>Bare Act Guidance</p>
+                  <p>Clear Exam Roadmap
+</p>
                 </div>
               </div>
               <button

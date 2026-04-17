@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { SafeDynamicIcon } from "@/common/SafeDynamicIcon";
 import Button from "@/common/Button";
 
-const WhatLearn = ({ whatlearn_constant, handleToggleToForm }) => {
+const WhatLearn = ({ whatlearn_constant, cta_text, handleToggleToForm }) => {
   return (
     <section className={styles.whatlearnSection}>
       <div className={styles.overlay}></div>
@@ -29,7 +29,7 @@ const WhatLearn = ({ whatlearn_constant, handleToggleToForm }) => {
           </div>
           <div className=" mt-4 mt-md-0 d-flex justify-content-center">
             <Button
-              name={"Book Your Batch @ ₹499"}
+              name={cta_text || "Book Your Slot @ ₹99"}
               bg_color={"#b20a0a"}
               name_color={"#fff"}
               onClick={handleToggleToForm}
