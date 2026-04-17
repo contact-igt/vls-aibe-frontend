@@ -56,7 +56,11 @@ const HomePageComponent = () => {
         attempt_constant={HomePageConstant?.attemptFails}
         handleToggleToForm={handleToggleToForm}
       />
-      <WhatLearn whatlearn_constant={HomePageConstant?.whatLearn} handleToggleToForm={handleToggleToForm}/>
+      <WhatLearn
+        whatlearn_constant={HomePageConstant?.whatLearn}
+        cta_text={HomePageConstant?.whatLearn_cta}
+        handleToggleToForm={handleToggleToForm}
+      />
       <WhosThis whosthis_constant={HomePageConstant?.whosThis}  handleToggleToForm={handleToggleToForm}/>
       <Decoding decoding_constant={HomePageConstant?.decode} />
       <Schedule schedule_constant={HomePageConstant?.schedule} handleToggleToForm={handleToggleToForm} />

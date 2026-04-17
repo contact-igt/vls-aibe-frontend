@@ -7,8 +7,8 @@ const Included = ({ included_constant, handleToggleToForm }) => {
     <section className={styles.includedSection}>
       <div className="container">
         <Title
-          title={"Everything Included in"}
-          highlight={"25 Hours"}
+          title={included_constant?.title}
+          highlight={included_constant?.highlight}
           subTitle=""
         />
 
