@@ -55,7 +55,7 @@ const Footer = () => {
                       target="_blank"
                       className="sbflex"
                     >
-                      <img src="\assets\youtube.png" className="img-fluid yt" />
+                      <img src="/assets/youtube.png" className="img-fluid yt" />
                       <p>Youtube</p>
                     </a>
                     <a
@@ -64,7 +64,7 @@ const Footer = () => {
                       className="sbflex"
                     >
                       <img
-                        src="\assets\instagram.png"
+                        src="/assets/instagram.png"
                         className="img-fluid insta"
                       />
                       <p>Instagram</p>
@@ -75,7 +75,7 @@ const Footer = () => {
                       className="sbflex"
                     >
                       <img
-                        src="\assets\linkedin.png"
+                        src="/assets/linkedin.png"
                         className="img-fluid linked"
                       />
                       <p>Linkedin</p>
@@ -86,7 +86,7 @@ const Footer = () => {
                       className="sbflex"
                     >
                       <img
-                        src="\assets\facebook.png"
+                        src="/assets/facebook.png"
                         className="img-fluid face"
                       />
                       <p>Facebook</p>
@@ -102,7 +102,7 @@ const Footer = () => {
                       href="https://maps.app.goo.gl/zwL1sgrgFjKqKJKA8"
                     >
                       <img
-                        src="\assets\pin.png"
+                        src="/assets/pin.png"
                         className="img-fluid face mt-2"
                       />
                       <p>
@@ -110,14 +110,17 @@ const Footer = () => {
                         Street, 12th Main Road, Anna Nagar West, Chennai
                       </p>
                     </a>
-                    <a
+                    <div
                       className={styles.address_box}
-                      href="tel:+919500025216"
+                      href="tel:+919500207811"
                       style={{ paddingTop: "15px" }}
                     >
-                      <img src="\assets\call.png" className="img-fluid face " />
-                      <p>+91 9500025216</p>
-                    </a>
+                      <img src="/assets/call.png" className="img-fluid face" />
+                      <p>
+                        <a href="tel:+919500207811" style={{ color: "inherit", textDecoration: "none" }}>+91 95002 07811</a>,
+                        <a href="tel:+919500025216" style={{ color: "inherit", textDecoration: "none" }}> +91 95000 25216</a>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
