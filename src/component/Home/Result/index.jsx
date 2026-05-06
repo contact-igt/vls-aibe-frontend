@@ -25,7 +25,7 @@ const Result = ({ result_constant, handleToggleToForm }) => {
 
         <div className="mt-md-5 mt-4 d-flex justify-content-center">
           <Button
-            name={"Unlock Access — ₹99 Only!"}
+            name={result_constant?.cta || "Secure My Seat — ₹499"}
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             onClick={handleToggleToForm}

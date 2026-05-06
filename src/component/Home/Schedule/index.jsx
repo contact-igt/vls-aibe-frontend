@@ -12,7 +12,7 @@ const Schedule = ({ schedule_constant, handleToggleToForm }) => {
         <div className={styles.cardWrapper}>
           <h5 className={styles.title}>{schedule_constant?.title}</h5>
           <div className={styles.cardInner}>
-            {schedule_constant?.scheduleData?.map((item) => (
+            {schedule_constant?.scheduleData?.map((item, index) => (
               <div className={styles.item} key={item.id}>
                 <div className={styles.iconWrap}>
                   <DynamicIcon name={item?.icon} color="#fff" />
@@ -20,10 +20,21 @@ const Schedule = ({ schedule_constant, handleToggleToForm }) => {
 
                 <div className={styles.textWrap}>
                   <h6 className={styles.itemLabel}>{item.title}</h6>
-                  <p className={styles.itemValue}>{item.description}</p>
-                  {item.description2 && (
+                  <p className={styles.itemValue}>
+                    {schedule_constant?.scheduleData?.length - 1 === index && item.description?.includes(" ") ? (
+                      <>
+                        <span style={{ textDecoration: "line-through", opacity: 0.7, fontSize: '0.9em', marginRight: '5px' }}>
+                          {item.description.split(" ")[0]}
+                        </span>
+                        {item.description.split(" ")[1]} - {item.description2}
+                      </>
+                    ) : (
+                      item.description
+                    )}
+                  </p>
+                  {/* {item.description2 && (
                     <p className={styles.itemValue}>{item.description2}</p>
-                  )}
+                  )} */}
                 </div>
               </div>
             ))}
@@ -34,7 +45,7 @@ const Schedule = ({ schedule_constant, handleToggleToForm }) => {
       <div className="w-100 d-flex justify-content-center mt-5">
         <Button
           onClick={handleToggleToForm}
-          name={schedule_constant?.cta || "Pay ₹99 Advance"}
+          name={schedule_constant?.cta || "Pay ₹499 Advance"}
           icon={"circle-check"}
           icon_color={"#fff"}
           bg_color="rgb(178, 10, 10)"

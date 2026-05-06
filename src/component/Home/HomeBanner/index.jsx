@@ -79,7 +79,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
 
         <div className=" mt-3 d-flex justify-content-center">
           <Button
-            name={"Register For AIBE Roadmap Class"}
+            name={"Register For AIBE Class"}
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             onClick={handleToggleToForm}
@@ -105,8 +105,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
                 >
                   <p>Practical AIBE Strategy</p>
                   <p>Bare Act Guidance</p>
-                  <p>Clear Exam Roadmap
-</p>
+                  <p>Clear Exam Strategy</p>
                 </div>
               </div>
               <button
@@ -155,11 +154,25 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
               onClick={handleToggleToForm}
             >
               <DynamicIcon name={data?.icon} size={18} />
-              <h6 className="m-0">
-                {data?.id == "4"
-                  ? `Only ${seatsLeft}${data?.title}`
-                  : data?.title}
-              </h6>
+              <div className="d-flex flex-column">
+                <h6 className="m-0">
+                  {data?.id == "4" ? (
+                    <>
+                      <span style={{ textDecoration: "line-through", opacity: 0.6, fontSize: '0.8em', marginRight: '5px' }}>
+                        {data?.title.split(" ")[0]}
+                      </span>
+                      {data?.title.split(" ")[1]}
+                    </>
+                  ) : (
+                    data?.title
+                  )}
+                </h6>
+                {data?.bookSeat && (
+                  <p className="m-0" style={{ fontSize: "10px", fontWeight: "bold", color: "#b20a0a" }}>
+                    {data?.bookSeat}
+                  </p>
+                )}
+              </div>
             </div>
           ))}
         </div>

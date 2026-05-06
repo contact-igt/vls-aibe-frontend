@@ -38,7 +38,7 @@ const HeroBanner = forwardRef(
                           className="d-none d-md-block"
                         />
 
-                        <h2>Saturday, May 02, 2026 - Saturday</h2>
+                        <h2>Friday, Saturday, Sunday May 15, 16 & 17, 2026</h2>
                       </div>
 
                       <div className="d-flex align-items-center gap-3 my-2">
@@ -57,7 +57,7 @@ const HeroBanner = forwardRef(
                       </div>
 
                       <div className={styles.dateDetails}>
-                        <span className={styles.dateItem}>May 02 (Sat)</span>
+                        <span className={styles.dateItem}>May 15, 16 & 17 (Friday, Saturday, Sunday)</span>
                         {/* <span className={styles.dateItem}>Nov 15 (Sat)</span>
                         <span className={styles.dateItem}>Nov 16 (Sun)</span> */}
                       </div>

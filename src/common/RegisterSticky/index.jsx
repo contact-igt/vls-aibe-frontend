@@ -35,8 +35,8 @@ const RegisterSticky = ({ handleToggleToForm }) => {
               <div className={styles.meuntitle}>
 
 
-                <h4>🎯 Secure Your Slot with ₹99</h4>
-                <h6>AIBE Roadmap Class | May 02, 2026</h6>
+                <h4>🎯 Secure Your Slot with ₹499</h4>
+                <h6>AIBE Weekend Batch | May 15, 16, 17, 2026</h6>
                 {/* <h6>
                   ⏰ Limited Seats! Offer ends in -
                   <span>{`${minutes}:${
@@ -50,9 +50,9 @@ const RegisterSticky = ({ handleToggleToForm }) => {
                 <div className={styles.offerInfo}>
                   <div className={`${styles.mbprice} d-block d-lg-none`}>
                     <h4>
-                      Secure Your Slot with ₹99
+                      Secure Your Slot with ₹499
                     </h4>
-                    <p style={{ fontSize: '11px', margin: 0 }}>AIBE Roadmap Class | May 02, 2026</p>
+                    <p style={{ fontSize: '11px', margin: 0 }}>AIBE Weekend Batch | May 15, 16, 17, 2026</p>
                   </div>
 
                   <div className={styles.seatDetails}>
@@ -69,8 +69,10 @@ const RegisterSticky = ({ handleToggleToForm }) => {
                 <div className={styles.pricebtn}>
 
                   <Button
+                    icon={"circle-check"}
+                    icon_color={"#fff"}
                     onClick={handleToggleToForm}
-                    name={"Book Your Slot ₹99"}
+                    name={"Book Your Slot ₹499"}
                     bg_color={"#b20a0a"}
                     name_color={"#ffff"}
                   />

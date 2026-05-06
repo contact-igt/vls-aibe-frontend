@@ -25,23 +25,23 @@ export const HomePageConstant = {
   homeBanner: {
     marquee: {
       title:
-        "🚀 AIBE Weekend Batch – Starting May 02 2026 (Saturday) | Learn Smarter, Practice Better, Clear Faster! 🎯",
+        "🚀 AIBE Weekend Batch – May 15, 16, 17 | 20 Hours Intensive Training + Test Questions | Learn Smarter, Practice Better, Clear Faster! 🎯",
       offer:
-        "🎟️ Pay Just ₹99 to Book Your Seat | 3-Hour AIBE Roadmap Class | Limited Seats",
+        "🎟️ Book Your Seat @ ₹499 | Full Fee: ₹3,000 (Was ₹5,000) | Limited Seats",
     },
     main: {
       description:
-        "Learn the right way to approach AIBE, decode the Bare Act, find correct answers faster, and manage time effectively — even if you are new to using the Bare Act.",
+        "Learn the right way to approach AIBE, decode the Bare Act, find correct answers faster, and manage time effectively — with 20 hours of intensive training and test questions.",
       tags: [
         {
           id: 1,
           icon: "calendar",
-          title: "May 02, 2026",
+          title: "May 15 2026 (Fri 6:00 PM - 8:30 PM)",
         },
         {
           id: 2,
           icon: "clock",
-          title: "(Theory + Practice)",
+          title: "May 16, 17 (Sat & Sun: 9:30 AM - 1:00 PM)",
         },
         {
           id: 3,
@@ -51,8 +51,8 @@ export const HomePageConstant = {
 
         {
           id: 4,
-          icon: "armchair",
-          title: " / 50 seats left",
+          icon: "ticket",
+          title: "₹5,000 ₹3,000",
         },
       ],
     },
@@ -75,7 +75,7 @@ export const HomePageConstant = {
         "Students often lose marks because they spend too long on one question.",
     },
     {
-      title: "No proper roadmap",
+      title: "Lack of a Clear Strategy",
       description:
         "Without a clear approach, preparation becomes confusing and stressful.",
     },
@@ -149,16 +149,16 @@ export const HomePageConstant = {
     },
     {
       icon: "award",
-      title: "Follow a practical AIBE roadmap",
+      title: "Follow a practical AIBE Strategy",
       description: "Get a simple and structured approach for the exam.",
     },
   ],
-  whatLearn_cta: "Book Your Slot @ ₹99",
+  whatLearn_cta: "Book Your Seat @ ₹499",
 
   whosThis: {
     subTitle:
       "Designed for serious aspirants who want to clear AIBE with clarity and confidence",
-    cta: "Join Today – ₹99 Only",
+    cta: "Join Today – ₹499 Only",
     data: [
       {
         id: 1,
@@ -185,7 +185,7 @@ export const HomePageConstant = {
         id: 4,
         title: "Busy Aspirants",
         description:
-          "Those looking for a short, focused, and practical roadmap session.",
+          "Those looking for a short, focused, and practical session.",
         icon: "briefcase",
       },
     ],
@@ -232,19 +232,19 @@ export const HomePageConstant = {
       },
       {
         id: 3,
+        number: "20 Hours",
+        type: "Intensive Training",
+        icon: "clock",
+      },
+      {
+        id: 4,
         number: "Clear",
         type: "Exam Strategy",
         icon: "clipboard-list",
       },
-      {
-        id: 4,
-        number: "₹99",
-        type: "Roadmap Access",
-        icon: "ticket",
-      },
     ],
 
-    cta: "Unlock Access — ₹99 Only!",
+    cta: "Secure My Seat — ₹499 Only!",
     proven: [
       "Faster decoding with section-first recall techniques",
       "Improved section mapping accuracy under time pressure",
@@ -275,8 +275,8 @@ export const HomePageConstant = {
 
   Faq: [
     {
-      question: "AIBE Roadmap Class Booking Amount?",
-      answer: "Yes, ₹99 confirms your seat for this 3-hour AIBE Roadmap Class.",
+      question: "What is the fee for the AIBE Weekend Batch?",
+      answer: "The total fee is ₹3,000 (originally ₹5,000). You need to pay ₹499 now to secure your seat. The balance of ₹2,500 must be paid 2 days prior to the start of the class.",
     },
     {
       question: "Course Language Details?",
@@ -284,38 +284,39 @@ export const HomePageConstant = {
         "This session will be conducted in Tamil and English, making it easy for law graduates to understand and follow clearly.",
     },
     {
-      question: "What will be covered in this class?",
+      question: "What will be covered in this 20-hour batch?",
       answer:
-        "You will learn how to approach AIBE, use the Bare Act systematically, find answers faster, and manage time better.",
+        "The course includes intensive training on decoding the Bare Act, finding sections faster, time management, and practicing with test questions.",
     },
     {
       question: "Who should join this class?",
       answer:
-        "LL.B. graduates, repeat takers, and aspirants who are not confident in using the Bare Act.",
+        "LL.B. graduates, repeat takers, and aspirants who want a structured and high-scoring strategy for AIBE.",
     },
   ],
   schedule: {
-    topLabel: "This Class Only",
-    title: "Complete Schedule",
-    cta: "Reserve My Seat – ₹99",
+    topLabel: "Next Batch",
+    title: "Batch Schedule",
+    cta: "Secure My Seat – ₹499",
     scheduleData: [
       {
         id: 1,
         icon: "calendar",
         title: "Date",
-        description: "May 02, 2026",
+        description: "May 15, 16 & 17, 2026",
       },
       {
         id: 2,
         icon: "clock",
         title: "Time",
-        description: "10:30 AM – 1:30 PM",
+        description: "Fri: 6:00 PM – 8:30 PM",
+        description2: "Sat & Sun: 9:30 AM – 1:00 PM",
       },
       {
         id: 3,
         icon: "target",
         title: "Format",
-        description: "3-Hour Roadmap Session",
+        description: "20-Hour Intensive Training",
       },
       {
         id: 4,
@@ -323,26 +324,33 @@ export const HomePageConstant = {
         title: "Access",
         description: "Online / Offline",
       },
+      {
+        id: 5,
+        icon: "badge-percent",
+        title: "Pricing",
+        description: "₹5,000 ₹3,000",
+        description2: "Secure Seat @ ₹499",
+      },
     ],
   },
   included: {
     title: "Everything Included in",
-    highlight: "3 Hours",
+    highlight: "20 Hours",
     includedData: [
       {
         id: 1,
-        title: "Live Class",
-        description: "Interactive roadmap session with practical guidance",
+        title: "Live Intensive Training",
+        description: "Comprehensive guidance with practical Bare Act sessions",
       },
       {
         id: 2,
         title: "Bare Act Decoding",
-        description: "Learn how to use the Bare Act the right way",
+        description: "Master the art of using the Bare Act for any question",
       },
       {
         id: 3,
-        title: "Answer Strategy",
-        description: "Find answers faster with a systematic method",
+        title: "Practice Test Questions",
+        description: "Solve real AIBE-style questions to build confidence",
       },
       {
         id: 4,
@@ -351,11 +359,11 @@ export const HomePageConstant = {
       },
       {
         id: 5,
-        title: "Preparation Roadmap",
-        description: "A clear understanding of what to do next",
+        title: "AIBE Strategy",
+        description: "Get a clear plan to clear the exam in your first attempt",
       },
     ],
-    tagData: ["Beginner-friendly", "Practical approach", "Exam-oriented"],
+    tagData: ["Expert-led", "Intensive Practice", "Test Questions Included"],
   },
   whatWeCover: {
     title: "What We Cover",
@@ -381,11 +389,11 @@ export const HomePageConstant = {
           "Learn how to avoid wasting time and handle the exam more confidently.",
       },
       {
-        title: "Module 5: A clear roadmap",
+        title: "Module 5: Test Question Practice",
         description:
-          "Get a simple plan to move forward and prepare for AIBE the right way.",
+          "Practice with real exam questions to ensure you are ready for the actual test.",
       },
     ],
-    cta: "Start Learning for ₹99",
+    cta: "Book Your Seat for ₹499",
   },
 };
