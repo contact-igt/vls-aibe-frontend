@@ -30,7 +30,7 @@ const Form = () => {
         const resp = await fetch("/api/create-order", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: 99 }),
+          body: JSON.stringify({ amount: 589 }),
         });
 
 
@@ -48,7 +48,7 @@ const Form = () => {
             currency: "INR",
             name: values?.name,
             order_id: order.id,
-            description: "Advance amount of AIBE ",
+            description: "Advance amount of AIBE ₹499 + 18% GST",
             prefill: {
               name: values?.name,
               email: values?.email,
@@ -87,8 +87,8 @@ const Form = () => {
                 email: values?.email,
                 mobile: `91${values?.mobile}`,
                 amount: order?.amount / 100,
-                programm_start_date: "2026-05-02",
-                programm_end_date: "2026-05-02",
+                programm_start_date: "2026-05-15",
+                programm_end_date: "2026-05-17",
                 razorpay_order_id: response.razorpay_order_id || "",
                 razorpay_payment_id: response.razorpay_payment_id || "",
                 razorpay_signature: response.razorpay_signature || "",
@@ -105,11 +105,11 @@ const Form = () => {
               const whatsappPayload = {
                 phone: `91${values?.mobile}`,
                 name: values?.name || "AIBE Student",
-                amount: 99,
-                event_dates: "May 02",
-                event_date_time: "May 02 (Saturday)",
+                amount: 499,
+                event_dates: "May 15, 16, 17, 2026",
+                event_date_time: "May 15 (Friday): 6:00 PM - 8:30 PM | May 16-17 (Sat & Sun): 9:30 AM - 1:00 PM",
                 platform: "Google Meet",
-                link_date: "Saturday May, 01",
+                link_date: "Thursday May, 14",
               };
 
               const params = new URLSearchParams();
@@ -121,15 +121,15 @@ const Form = () => {
 
               if (typeof window !== "undefined") {
                 if (window.fbq) {
-                  window.fbq("track", "Purchase", { value: 99, currency: "INR" });
+                  window.fbq("track", "Purchase", { value: 499, currency: "INR" });
                 }
                 if (window.dataLayer) {
                   window.dataLayer.push({
                     event: "purchase",
                     ecommerce: {
                       currency: "INR",
-                      value: 99,
-                      items: [{ item_name: "AIBE Roadmap Class", price: 99, quantity: 1 }],
+                      value: 499,
+                      items: [{ item_name: "AIBE Class", price: 499, quantity: 1 }],
                     },
                   });
                 }
@@ -210,7 +210,7 @@ const Form = () => {
     <div>
       <div className={styles.formTopic}>
         <h3>Join the Batch</h3>
-        <p>Fill out the form, pay ₹99, and confirm your seat today!</p>
+        <p>Fill out the form, pay ₹499, and confirm your seat today!</p>
         {/* <p>Please complete the form, and confirm your seat now!</p> */}
       </div>
       <form onSubmit={formik.handleSubmit}>
@@ -280,7 +280,7 @@ const Form = () => {
         <div className={styles.inputgrp}>
           <Button
             disabled={isLoading}
-            name={isLoading ? "Booking..." : "Start Your Journey for ₹99"}
+            name={isLoading ? "Booking..." : "Start Your Journey for ₹499"}
             bg_color={"#b20a0a"}
             name_color={"#ffff"}
             btn_type={"submit"}

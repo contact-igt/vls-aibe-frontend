@@ -35,7 +35,7 @@ const WhosThis = ({ whosthis_constant, handleToggleToForm }) => {
         <div className="w-100 d-flex justify-content-center mt-md-5 mt-3">
           <Button
             onClick={handleToggleToForm}
-            name={whosthis_constant?.cta || "Join Today – ₹99 Only"}
+            name={whosthis_constant?.cta || "Join Today – ₹499"}
             icon={"circle-check"}
             icon_color={"#fff"}
             bg_color="rgb(178, 10, 10)"
