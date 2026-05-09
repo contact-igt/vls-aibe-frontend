@@ -27,135 +27,142 @@ const Form = () => {
     onSubmit: async (values, { resetForm }) => {
       setisLoading(true);
       try {
-        const resp = await fetch("/api/create-order", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: 589 }),
+        // ======== COMMENTED OUT: RAZORPAY PAYMENT FLOW ========
+        // const resp = await fetch("/api/create-order", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({ amount: 589 }),
+        // });
+
+        // const order = await resp.json();
+
+        // if (!resp.ok) {
+        //   console.error("Create order failed", order);
+        //   setisLoading(false);
+        //   window.location.href = "/error";
+        //   return;
+        // } else {
+        // ======== END COMMENTED: RAZORPAY PAYMENT FLOW ========
+
+        // ======== NEW: DIRECT FORM SUBMISSION TO API, SHEET & WHATSAPP ========
+        let userIpAddress = "Unknown";
+        try {
+          const ipResponse = await fetch("https://api.ipify.org?format=json");
+          if (ipResponse.ok) {
+            const ipData = await ipResponse.json();
+            userIpAddress = ipData.ip || "Unknown";
+          }
+        } catch (ipErr) {
+          console.warn("IP fetch failed, continuing without IP:", ipErr);
+        }
+
+        const formData = {
+          Name: values?.name,
+          Email: values?.email,
+          Mobile: `91${values?.mobile}`,
+          // Amount: order?.amount / 100,  // COMMENTED OUT: No payment flow
+          // Razorpay_Transaction_Id: response?.razorpay_payment_id,  // COMMENTED OUT: No payment flow
+          // Payment_Status: "Paid",  // COMMENTED OUT: No payment flow
+          ip_address: userIpAddress,
+          utm_source: localStorage.getItem("utm_source"),
+          utm_medium: localStorage.getItem("utm_medium"),
+          utm_campaign: localStorage.getItem("utm_campaign"),
+          utm_term: localStorage.getItem("utm_term"),
+          utm_content: localStorage.getItem("utm_content"),
+        };
+
+        const apiPayload = {
+          name: values?.name || "",
+          email: values?.email,
+          mobile: `91${values?.mobile}`,
+          // amount: order?.amount / 100,  // COMMENTED OUT: No payment details
+          programm_start_date: "2026-05-15",
+          programm_end_date: "2026-05-17",
+          // razorpay_order_id: response.razorpay_order_id || "",  // COMMENTED OUT: No payment details
+          // razorpay_payment_id: response.razorpay_payment_id || "",  // COMMENTED OUT: No payment details
+          // razorpay_signature: response.razorpay_signature || "",  // COMMENTED OUT: No payment details
+          // payment_status: "paid",  // COMMENTED OUT: No payment details
+          // captured: response.captured || "",  // COMMENTED OUT: No payment details
+          ip_address: userIpAddress,
+          utm_source: localStorage.getItem("utm_source"),
+          utm_medium: localStorage.getItem("utm_medium"),
+          utm_campaign: localStorage.getItem("utm_campaign"),
+          utm_term: localStorage.getItem("utm_term"),
+          utm_content: localStorage.getItem("utm_content"),
+        };
+
+        // const whatsappPayload = {
+        //   phone: `91${values?.mobile}`,
+        //   name: values?.name || "AIBE Student",
+        //   amount: 499,
+        //   event_dates: "May 15, 16, 17, 2026",
+        //   event_date_time: "May 15 (Friday): 6:00 PM - 8:30 PM | May 16-17 (Sat & Sun): 9:30 AM - 1:00 PM",
+        //   platform: "Google Meet",
+        //   link_date: "Thursday May, 14",
+        // };
+
+        const params = new URLSearchParams();
+        Object.keys(formData).forEach((key) => {
+          params.append(key, formData[key] || "N/A");
         });
 
+        resetForm();
 
-        const order = await resp.json();
-
-        if (!resp.ok) {
-          console.error("Create order failed", order);
-          setisLoading(false);
-          window.location.href = "/error";
-          return;
-        } else {
-          const options = {
-            key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-            amount: order?.amount * 100,
-            currency: "INR",
-            name: values?.name,
-            order_id: order.id,
-            description: "Advance amount of AIBE ₹499 + 18% GST",
-            prefill: {
-              name: values?.name,
-              email: values?.email,
-              contact: values?.mobile,
-            },
-            theme: { color: "#b20a0a" },
-            handler: async function (response) {
-              let userIpAddress = "Unknown";
-              try {
-                const ipResponse = await fetch("https://api.ipify.org?format=json");
-                if (ipResponse.ok) {
-                  const ipData = await ipResponse.json();
-                  userIpAddress = ipData.ip || "Unknown";
-                }
-              } catch (ipErr) {
-                console.warn("IP fetch failed, continuing without IP:", ipErr);
-              }
-
-              const formData = {
-                Name: values?.name,
-                Email: values?.email,
-                Mobile: `91${values?.mobile}`,
-                Amount: order?.amount / 100,
-                Razorpay_Transaction_Id: response?.razorpay_payment_id,
-                Payment_Status: "Paid",
-                ip_address: userIpAddress,
-                utm_source: localStorage.getItem("utm_source"),
-                utm_medium: localStorage.getItem("utm_medium"),
-                utm_campaign: localStorage.getItem("utm_campaign"),
-                utm_term: localStorage.getItem("utm_term"),
-                utm_content: localStorage.getItem("utm_content"),
-              };
-
-              const apiPayload = {
-                name: values?.name || "",
-                email: values?.email,
-                mobile: `91${values?.mobile}`,
-                amount: order?.amount / 100,
-                programm_start_date: "2026-05-15",
-                programm_end_date: "2026-05-17",
-                razorpay_order_id: response.razorpay_order_id || "",
-                razorpay_payment_id: response.razorpay_payment_id || "",
-                razorpay_signature: response.razorpay_signature || "",
-                payment_status: "paid",
-                captured: response.captured || "",
-                ip_address: userIpAddress,
-                utm_source: localStorage.getItem("utm_source"),
-                utm_medium: localStorage.getItem("utm_medium"),
-                utm_campaign: localStorage.getItem("utm_campaign"),
-                utm_term: localStorage.getItem("utm_term"),
-                utm_content: localStorage.getItem("utm_content"),
-              };
-
-              const whatsappPayload = {
-                phone: `91${values?.mobile}`,
-                name: values?.name || "AIBE Student",
-                amount: 499,
-                event_dates: "May 15, 16, 17, 2026",
-                event_date_time: "May 15 (Friday): 6:00 PM - 8:30 PM | May 16-17 (Sat & Sun): 9:30 AM - 1:00 PM",
-                platform: "Google Meet",
-                link_date: "Thursday May, 14",
-              };
-
-              const params = new URLSearchParams();
-              Object.keys(formData).forEach((key) => {
-                params.append(key, formData[key] || "N/A");
-              });
-
-              resetForm();
-
-              if (typeof window !== "undefined") {
-                if (window.fbq) {
-                  window.fbq("track", "Purchase", { value: 499, currency: "INR" });
-                }
-                if (window.dataLayer) {
-                  window.dataLayer.push({
-                    event: "purchase",
-                    ecommerce: {
-                      currency: "INR",
-                      value: 499,
-                      items: [{ item_name: "AIBE Class", price: 499, quantity: 1 }],
-                    },
-                  });
-                }
-              }
-
-              await Promise.allSettled([
-                handleWhatsappMessage(whatsappPayload),
-                handleGoogleSheetForm(params),
-                useVlsAibeQuery(apiPayload),
-              ]);
-
-              afterRegisterSuccessufull(formData);
-            },
-            modal: {
-              ondismiss: function () {
-                setisLoading(false);
+        if (typeof window !== "undefined") {
+          if (window.fbq) {
+            window.fbq("track", "Purchase", { value: 499, currency: "INR" });
+          }
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "purchase",
+              ecommerce: {
+                currency: "INR",
+                value: 499,
+                items: [{ item_name: "AIBE Class", price: 499, quantity: 1 }],
               },
-            },
-          };
-          const razor = new window.Razorpay(options);
-          razor.on("payment.failed", function () {
-            window.location.href = "/error";
-            setisLoading(false);
-          });
-          razor.open();
+            });
+          }
         }
+        await Promise.allSettled([
+          // handleWhatsappMessage(whatsappPayload),
+          handleGoogleSheetForm(params),
+          useVlsAibeQuery(apiPayload),
+        ]);
+
+        afterRegisterSuccessufull(formData);
+
+        // ======== COMMENTED OUT: RAZORPAY MODAL & HANDLERS ========
+        // }
+        // const options = {
+        //   key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        //   amount: order?.amount * 100,
+        //   currency: "INR",
+        //   name: values?.name,
+        //   order_id: order.id,
+        //   description: "Advance amount of AIBE ₹499 + 18% GST",
+        //   prefill: {
+        //     name: values?.name,
+        //     email: values?.email,
+        //     contact: values?.mobile,
+        //   },
+        //   theme: { color: "#b20a0a" },
+        //   handler: async function (response) {
+        //     // PAYMENT SUCCESS HANDLER - NOW HANDLED ABOVE
+        //   },
+        //   modal: {
+        //     ondismiss: function () {
+        //       setisLoading(false);
+        //     },
+        //   },
+        // };
+        // const razor = new window.Razorpay(options);
+        // razor.on("payment.failed", function () {
+        //   window.location.href = "/error";
+        //   setisLoading(false);
+        // });
+        // razor.open();
+        // ======== END COMMENTED: RAZORPAY MODAL & HANDLERS ========
+
       } catch (err) {
         console.error("Form execution failed:", err);
         setisLoading(false);
@@ -210,8 +217,8 @@ const Form = () => {
     <div>
       <div className={styles.formTopic}>
         <h3>Join the Batch</h3>
-        <p>Fill out the form, pay ₹499, and confirm your seat today!</p>
-        {/* <p>Please complete the form, and confirm your seat now!</p> */}
+        {/* <p>Fill out the form, pay ₹499, and confirm your seat today!</p> */}
+        <p>Please complete the form, and confirm your seat now!</p>
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.inputgrp}>
@@ -280,7 +287,7 @@ const Form = () => {
         <div className={styles.inputgrp}>
           <Button
             disabled={isLoading}
-            name={isLoading ? "Booking..." : "Start Your Journey for ₹499"}
+            name={isLoading ? "Submitting..." : "Confirm Your Seat"}
             bg_color={"#b20a0a"}
             name_color={"#ffff"}
             btn_type={"submit"}
@@ -288,6 +295,7 @@ const Form = () => {
         </div>
       </form>
 
+      {/* ======== COMMENTED OUT: PROCESSING POPUP ========
       <Popup
         open={isLoading}
         onClose={() => {
@@ -297,12 +305,13 @@ const Form = () => {
         <div className={styles.loadingPopup}>
           <h4>⚠️ Do Not Close or Refresh</h4>
           <p>
-            Your payment has been received. We are completing your registration.
+            Your registration is being processed. We are sending you confirmation details via email and WhatsApp.
             Please stay on this page until the process is complete.
           </p>
           <h6>⏳ Processing... Please wait.</h6>
         </div>
       </Popup>
+      ======== END COMMENTED: PROCESSING POPUP ======== */}
     </div>
   );
 };

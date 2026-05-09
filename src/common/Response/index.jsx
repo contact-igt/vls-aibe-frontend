@@ -48,27 +48,27 @@ const Response = () => {
 
         <div className={`text-center ${styles.responseInfo}`}>
           <h5 className={issuccess ? styles.successText : styles.errorText}>
-            {issuccess ? "Thank You for Booking Your Slot!" : "Payment Failed"}
+            {issuccess ? "Thank You for Your Booking!" : "Booking Failed"}
           </h5>
 
           {issuccess ? (
             <>
               <p className="mt-3">
-                Your payment has been received successfully. Your slot for the
-                upcoming
+                Your booking for the
                 <strong> AIBE Weekend Batch </strong>
-                has been securely reserved .
+                has been successfully received.
               </p>
               <p className="text-muted mt-2">
-                Our team will contact you shortly to confirm your booking and
-                provide the next steps for your enrollment.
+                Our team will contact you within 24 hours via phone or WhatsApp to confirm your booking and provide the payment details to complete your enrollment.
               </p>
               <p className="fw-semibold mt-3 text-success">
-                We appreciate your trust and look forward to seeing you in the
-                session! 🎯
+                We look forward to helping you succeed in the AIBE exam! 🎯
               </p>
               {userDetail ? (
                 <div className={styles.summaryBox}>
+                  <p>
+                    <strong>Booking Details:</strong>
+                  </p>
                   <p>
                     <strong>Name:</strong> {userDetail.Name || ""}
                   </p>
@@ -78,6 +78,7 @@ const Response = () => {
                   <p>
                     <strong>Mobile:</strong> {userDetail.Mobile || "-"}
                   </p>
+                  {/* ======== COMMENTED OUT: PAYMENT DETAILS ========
                   <p>
                     <strong>Amount:</strong> ₹{userDetail.Amount || "-"}
                   </p>
@@ -85,6 +86,7 @@ const Response = () => {
                     <strong>Transaction ID:</strong>{" "}
                     {userDetail?.Razorpay_Transaction_Id || "Not Available"}
                   </p>
+                  ======== END COMMENTED: PAYMENT DETAILS ======== */}
                 </div>
               ) : (
                 ""
@@ -92,7 +94,7 @@ const Response = () => {
             </>
           ) : (
             <p>
-              Oops! We couldn’t process your payment. Please try again or call
+              Oops! We couldn't process your booking. Please try again or call
               us directly for support.
             </p>
           )}
