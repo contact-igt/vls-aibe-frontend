@@ -72,7 +72,7 @@ const RegisterSticky = ({ handleToggleToForm }) => {
                     icon={"circle-check"}
                     icon_color={"#fff"}
                     onClick={handleToggleToForm}
-                    name={"Book Your Slot"}
+                    name={"Claim Your Spot"}
                     bg_color={"#b20a0a"}
                     name_color={"#ffff"}
                   />

@@ -29,7 +29,7 @@ const WhatLearn = ({ whatlearn_constant, cta_text, handleToggleToForm }) => {
           </div>
           <div className=" mt-4 mt-md-0 d-flex justify-content-center">
             <Button
-              name={cta_text || "Book Your Seat"}
+              name={cta_text || "Explore the Strategy"}
               bg_color={"#b20a0a"}
               name_color={"#fff"}
               onClick={handleToggleToForm}

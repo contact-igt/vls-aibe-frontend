@@ -153,12 +153,12 @@ export const HomePageConstant = {
       description: "Get a simple and structured approach for the exam.",
     },
   ],
-  whatLearn_cta: "Book Your Seat",
+  whatLearn_cta: "Explore the Strategy",
 
   whosThis: {
     subTitle:
       "Designed for serious aspirants who want to clear AIBE with clarity and confidence",
-    cta: "Join Today",
+    cta: "Check Your Fit",
     data: [
       {
         id: 1,
@@ -244,7 +244,7 @@ export const HomePageConstant = {
       },
     ],
 
-    cta: "Secure My Seat",
+    cta: "View Our Success Stories",
     proven: [
       "Faster decoding with section-first recall techniques",
       "Improved section mapping accuracy under time pressure",
@@ -297,7 +297,7 @@ export const HomePageConstant = {
   schedule: {
     topLabel: "Next Batch",
     title: "Batch Schedule",
-    cta: "Secure My Seat",
+    cta: "Get the Schedule",
     scheduleData: [
       {
         id: 1,
@@ -394,6 +394,6 @@ export const HomePageConstant = {
           "Practice with real exam questions to ensure you are ready for the actual test.",
       },
     ],
-    cta: "Book Your Seat",
+    cta: "Discover What's Included",
   },
 };

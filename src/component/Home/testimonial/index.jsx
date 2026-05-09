@@ -142,7 +142,7 @@ const Testimonial = ({ handleToggleToForm }) => {
         <div className="w-100 d-flex justify-content-center mt-5">
           <Button
             onClick={handleToggleToForm}
-            name="Join Now"
+            name="Get Started Now"
             icon={"circle-check"}
             icon_color={"#fff"}
             bg_color="rgb(178, 10, 10)"
