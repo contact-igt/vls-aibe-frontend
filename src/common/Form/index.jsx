@@ -108,21 +108,21 @@ const Form = () => {
 
         resetForm();
 
-        if (typeof window !== "undefined") {
-          if (window.fbq) {
-            window.fbq("track", "Purchase", { value: 499, currency: "INR" });
-          }
-          if (window.dataLayer) {
-            window.dataLayer.push({
-              event: "purchase",
-              ecommerce: {
-                currency: "INR",
-                value: 499,
-                items: [{ item_name: "AIBE Class", price: 499, quantity: 1 }],
-              },
-            });
-          }
-        }
+        // if (typeof window !== "undefined") {
+        //   if (window.fbq) {
+        //     window.fbq("track", "Purchase", { value: 499, currency: "INR" });
+        //   }
+        //   if (window.dataLayer) {
+        //     window.dataLayer.push({
+        //       event: "purchase",
+        //       ecommerce: {
+        //         currency: "INR",
+        //         value: 499,
+        //         items: [{ item_name: "AIBE Class", price: 499, quantity: 1 }],
+        //       },
+        //     });
+        //   }
+        // }
         await Promise.allSettled([
           // handleWhatsappMessage(whatsappPayload),
           handleGoogleSheetForm(params),

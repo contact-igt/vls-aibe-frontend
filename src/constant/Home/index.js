@@ -26,8 +26,8 @@ export const HomePageConstant = {
     marquee: {
       title:
         "🚀 AIBE Weekend Batch – May 15, 16, 17 | 20 Hours Intensive Training + Test Questions | Learn Smarter, Practice Better, Clear Faster! 🎯",
-      offer:
-        "🎟️ Book Your Seat @ ₹499 | Full Fee: ₹3,000 (Was ₹5,000) | Limited Seats",
+      // offer:
+      //   "🎟️ Book Your Seat @ ₹499 | Full Fee: ₹3,000 (Was ₹5,000) | Limited Seats",
     },
     main: {
       description:
@@ -153,12 +153,12 @@ export const HomePageConstant = {
       description: "Get a simple and structured approach for the exam.",
     },
   ],
-  whatLearn_cta: "Book Your Seat @ ₹499",
+  whatLearn_cta: "Book Your Seat",
 
   whosThis: {
     subTitle:
       "Designed for serious aspirants who want to clear AIBE with clarity and confidence",
-    cta: "Join Today – ₹499 Only",
+    cta: "Join Today",
     data: [
       {
         id: 1,
@@ -244,7 +244,7 @@ export const HomePageConstant = {
       },
     ],
 
-    cta: "Secure My Seat — ₹499 Only!",
+    cta: "Secure My Seat",
     proven: [
       "Faster decoding with section-first recall techniques",
       "Improved section mapping accuracy under time pressure",
@@ -276,7 +276,7 @@ export const HomePageConstant = {
   Faq: [
     {
       question: "What is the fee for the AIBE Weekend Batch?",
-      answer: "The total fee is ₹3,000 (originally ₹5,000). You need to pay ₹499 now to secure your seat. The balance of ₹2,500 must be paid 2 days prior to the start of the class.",
+      answer: "The total fee is ₹3,000 (originally ₹5,000).",
     },
     {
       question: "Course Language Details?",
@@ -297,7 +297,7 @@ export const HomePageConstant = {
   schedule: {
     topLabel: "Next Batch",
     title: "Batch Schedule",
-    cta: "Secure My Seat – ₹499",
+    cta: "Secure My Seat",
     scheduleData: [
       {
         id: 1,
@@ -329,7 +329,7 @@ export const HomePageConstant = {
         icon: "badge-percent",
         title: "Pricing",
         description: "₹5,000 ₹3,000",
-        description2: "Secure Seat @ ₹499",
+        description2: "Secure Seat",
       },
     ],
   },
@@ -394,6 +394,6 @@ export const HomePageConstant = {
           "Practice with real exam questions to ensure you are ready for the actual test.",
       },
     ],
-    cta: "Book Your Seat for ₹499",
+    cta: "Book Your Seat",
   },
 };

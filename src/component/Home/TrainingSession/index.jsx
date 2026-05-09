@@ -14,7 +14,7 @@ export const TrainingSession = ({trainingsession_constant , handleToggleToForm})
             </div>
         <div className="mt-5 d-flex justify-content-center">
           <Button
-            name={"Book Your Seat for ₹499"}
+            name={"Book Your Seat"}
             bg_color={"#b20a0a"}
                  icon={"circle-check"}
             icon_color={"#fff"}
