@@ -98,7 +98,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
               />
               <div className={styles.imggardient}></div>
               <div className={`${styles.imgtag} position-absolute`}>
-                <h4>Dr. Sivakumar Sivaprakasam</h4>
+                <h4>Dr. Sivakumar</h4>
                 <h6>( Lawyer, Chennai High Court )</h6>
                 <div
                   className={`${styles.tagpan} d-flex justify-content-start flex-wrap gap-2 align-items-center`}
