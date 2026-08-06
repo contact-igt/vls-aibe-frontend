@@ -11,13 +11,27 @@ const Response = () => {
 
   useEffect(() => {
     if (router.isReady) {
-      setIsSuccess(router.pathname === "/thank-you" || router.query.response === "thank-you");
+      setIsSuccess(
+        router.pathname === "/thank-you" || router.query.response === "thank-you"
+      );
     }
   }, [router.isReady, router.pathname, router.query.response]);
 
   useEffect(() => {
-    setuserDeatil(JSON.parse(localStorage.getItem("PaymentDeatls")));
+    try {
+      const stored = localStorage.getItem("PaymentDeatls") || localStorage.getItem("PaymentDetails");
+      if (stored) {
+        setuserDeatil(JSON.parse(stored));
+      }
+    } catch (e) {
+      console.error("Failed to parse PaymentDeatls", e);
+    }
   }, []);
+
+  const isWaitlist =
+    userDetail?.Payment_Status === "waitlist" ||
+    userDetail?.payment_status === "waitlist";
+
   if (issuccess === null) {
     return (
       <section className={`pt-5 mt-5 ${styles.responseSection}`}>
@@ -31,6 +45,7 @@ const Response = () => {
       </section>
     );
   }
+
   return (
     <section className={`pt-5 mt-5 ${styles.responseSection}`}>
       <div className="container">
@@ -48,53 +63,89 @@ const Response = () => {
 
         <div className={`text-center ${styles.responseInfo}`}>
           <h5 className={issuccess ? styles.successText : styles.errorText}>
-            {issuccess ? "Thank You for Your Booking!" : "Booking Failed"}
+            {issuccess
+              ? isWaitlist
+                ? "Thank You - Joined Waitlist!"
+                : "Thank You for Your Booking!"
+              : "Booking Failed"}
           </h5>
 
           {issuccess ? (
-            <>
-              <p className="mt-3">
-                Your booking for the
-                <strong> AIBE Weekend Batch </strong>
-                has been successfully received.
-              </p>
-              <p className="text-muted mt-2">
-                Our team will contact you within 24 hours via phone or WhatsApp to confirm your booking and provide the payment details to complete your enrollment.
-              </p>
-              <p className="fw-semibold mt-3 text-success">
-                We look forward to helping you succeed in the AIBE exam! 🎯
-              </p>
-              {userDetail ? (
-                <div className={styles.summaryBox}>
-                  <p>
-                    <strong>Booking Details:</strong>
-                  </p>
-                  <p>
-                    <strong>Name:</strong> {userDetail.Name || ""}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {userDetail.Email || "-"}
-                  </p>
-                  <p>
-                    <strong>Mobile:</strong> {userDetail.Mobile || "-"}
-                  </p>
-                  {/* ======== COMMENTED OUT: PAYMENT DETAILS ========
-                  <p>
-                    <strong>Amount:</strong> ₹{userDetail.Amount || "-"}
-                  </p>
-                  <p>
-                    <strong>Transaction ID:</strong>{" "}
-                    {userDetail?.Razorpay_Transaction_Id || "Not Available"}
-                  </p>
-                  ======== END COMMENTED: PAYMENT DETAILS ======== */}
-                </div>
-              ) : (
-                ""
-              )}
-            </>
+            isWaitlist ? (
+              <>
+                <p className="mt-3">
+                  Your entry for the waitlist has been successfully received.
+                </p>
+                <p className="text-muted mt-2">
+                  Our team will contact you via Email or WhatsApp as soon as dates and pricing for the next batch are finalized.
+                </p>
+                <p className="fw-semibold mt-3 text-success">
+                  Thank you for your interest in VLS Law Academy! 🚀
+                </p>
+                {userDetail && (
+                  <div className={styles.summaryBox}>
+                    <p>
+                      <strong>Waitlist Entry Details:</strong>
+                    </p>
+                    <p>
+                      <strong>Name:</strong> {userDetail.Name || userDetail.name || "-"}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {userDetail.Email || userDetail.email || "-"}
+                    </p>
+                    <p>
+                      <strong>Mobile:</strong> {userDetail.Mobile || userDetail.mobile || "-"}
+                    </p>
+                    <p>
+                      <strong>Status:</strong> <span className="badge bg-warning text-dark">Waitlisted</span>
+                    </p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="mt-3">
+                  Your booking for the
+                  <strong> AIBE Weekend Batch </strong>
+                  has been successfully received.
+                </p>
+                <p className="text-muted mt-2">
+                  Our team will contact you within 24 hours via phone or WhatsApp to confirm your booking and provide the payment details to complete your enrollment.
+                </p>
+                <p className="fw-semibold mt-3 text-success">
+                  We look forward to helping you succeed in the AIBE exam! 🎯
+                </p>
+                {userDetail && (
+                  <div className={styles.summaryBox}>
+                    <p>
+                      <strong>Booking Details:</strong>
+                    </p>
+                    <p>
+                      <strong>Name:</strong> {userDetail.Name || userDetail.name || "-"}
+                    </p>
+                    <p>
+                      <strong>Email:</strong> {userDetail.Email || userDetail.email || "-"}
+                    </p>
+                    <p>
+                      <strong>Mobile:</strong> {userDetail.Mobile || userDetail.mobile || "-"}
+                    </p>
+                    {userDetail.Amount && (
+                      <p>
+                        <strong>Amount:</strong> ₹{userDetail.Amount}
+                      </p>
+                    )}
+                    {userDetail.Razorpay_Transaction_Id && userDetail.Razorpay_Transaction_Id !== "N/A" && (
+                      <p>
+                        <strong>Transaction ID:</strong> {userDetail.Razorpay_Transaction_Id}
+                      </p>
+                    )}
+                  </div>
+                )}
+              </>
+            )
           ) : (
             <p>
-              Oops! We couldn't process your booking. Please try again or call
+              Oops! We couldn't process your request. Please try again or call
               us directly for support.
             </p>
           )}

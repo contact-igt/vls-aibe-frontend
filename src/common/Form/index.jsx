@@ -5,10 +5,24 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { Popup } from "../Popup";
 import { useVlsAibeQuery } from "@/hooks/useVlsAibeQuery";
+import { programConfig as defaultProgramConfig } from "@/constant/Home";
+import {
+  isRegistrationOpen,
+  getPrimaryCtaText,
+  getProgramDate,
+  getProgramStartDate,
+  getProgramEndDate,
+} from "@/utils/programStatus";
 
-const Form = () => {
+const Form = ({ config = defaultProgramConfig }) => {
   const [error, setError] = useState(null);
   const [isLoading, setisLoading] = useState(false);
+
+  const isRegOpen = isRegistrationOpen(config);
+  const progDate = getProgramDate(config);
+  const progStartDate = getProgramStartDate(config);
+  const progEndDate = getProgramEndDate(config);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -27,24 +41,6 @@ const Form = () => {
     onSubmit: async (values, { resetForm }) => {
       setisLoading(true);
       try {
-        // ======== COMMENTED OUT: RAZORPAY PAYMENT FLOW ========
-        // const resp = await fetch("/api/create-order", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify({ amount: 589 }),
-        // });
-
-        // const order = await resp.json();
-
-        // if (!resp.ok) {
-        //   console.error("Create order failed", order);
-        //   setisLoading(false);
-        //   window.location.href = "/error";
-        //   return;
-        // } else {
-        // ======== END COMMENTED: RAZORPAY PAYMENT FLOW ========
-
-        // ======== NEW: DIRECT FORM SUBMISSION TO API, SHEET & WHATSAPP ========
         let userIpAddress = "Unknown";
         try {
           const ipResponse = await fetch("https://api.ipify.org?format=json");
@@ -56,113 +52,179 @@ const Form = () => {
           console.warn("IP fetch failed, continuing without IP:", ipErr);
         }
 
-        const formData = {
-          Name: values?.name,
-          Email: values?.email,
-          Mobile: `91${values?.mobile}`,
-          // Amount: order?.amount / 100,  // COMMENTED OUT: No payment flow
-          // Razorpay_Transaction_Id: response?.razorpay_payment_id,  // COMMENTED OUT: No payment flow
-          // Payment_Status: "Paid",  // COMMENTED OUT: No payment flow
-          ip_address: userIpAddress,
-          utm_source: localStorage.getItem("utm_source"),
-          utm_medium: localStorage.getItem("utm_medium"),
-          utm_campaign: localStorage.getItem("utm_campaign"),
-          utm_term: localStorage.getItem("utm_term"),
-          utm_content: localStorage.getItem("utm_content"),
+        const getUTM = (key) =>
+          typeof window !== "undefined" ? localStorage.getItem(key) || "" : "";
+
+        if (!isRegOpen) {
+          // ==================== WAITLIST FLOW ====================
+          const waitlistData = {
+            Name: values?.name,
+            Email: values?.email,
+            Mobile: `91${values?.mobile}`,
+            Amount: "",
+            Razorpay_Transaction_Id: "",
+            Payment_Status: "waitlist",
+            programm_date: progDate, // Strictly "TBA"
+            programm_start_date: progStartDate,
+            programm_end_date: progEndDate,
+            page_name: config?.pageName || "aibe-weekend-batch",
+            ip_address: userIpAddress,
+            utm_source: getUTM("utm_source"),
+            utm_medium: getUTM("utm_medium"),
+            utm_campaign: getUTM("utm_campaign"),
+            utm_term: getUTM("utm_term"),
+            utm_content: getUTM("utm_content"),
+          };
+
+          const apiPayload = {
+            name: values?.name || "",
+            email: values?.email,
+            mobile: `91${values?.mobile}`,
+            amount: "",
+            programm_date: progDate, // Strictly "TBA"
+            programm_start_date: progStartDate,
+            programm_end_date: progEndDate,
+            razorpay_order_id: "",
+            razorpay_payment_id: "",
+            razorpay_signature: "",
+            payment_status: "waitlist",
+            captured: "",
+            page_name: config?.pageName || "aibe-weekend-batch",
+            ip_address: userIpAddress,
+            utm_source: getUTM("utm_source"),
+            utm_medium: getUTM("utm_medium"),
+            utm_campaign: getUTM("utm_campaign"),
+            utm_term: getUTM("utm_term"),
+            utm_content: getUTM("utm_content"),
+          };
+
+          const params = new URLSearchParams();
+          Object.keys(waitlistData).forEach((key) => {
+            params.append(key, waitlistData[key] || "N/A");
+          });
+
+          resetForm();
+
+          await Promise.allSettled([
+            handleGoogleSheetForm(params),
+            useVlsAibeQuery(apiPayload),
+          ]);
+
+          afterRegisterSuccessful(waitlistData);
+          return;
+        }
+
+        // ==================== ACTIVE REGISTRATION FLOW (WITH RAZORPAY) ====================
+        let order;
+        try {
+          const resp = await fetch("/api/create-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: config?.fee || 499 }),
+          });
+          order = await resp.json();
+          if (!resp.ok) {
+            console.error("Create order failed", order);
+            setisLoading(false);
+            window.location.href = "/error";
+            return;
+          }
+        } catch (orderErr) {
+          console.error("Order creation failed:", orderErr);
+          setisLoading(false);
+          window.location.href = "/error";
+          return;
+        }
+
+        const options = {
+          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+          // key: "rzp_test_Ss2NFtpJFLRAiw",
+          amount: order.amount,
+          currency: order.currency || "INR",
+          name: values?.name || "AIBE Masterclass",
+          order_id: order.id,
+          description: `${config?.name || "AIBE Masterclass"} - ₹${config?.fee || 499}`,
+          prefill: {
+            name: values?.name,
+            email: values?.email,
+            contact: values?.mobile,
+          },
+          theme: { color: "#b20a0a" },
+          handler: async function (response) {
+            const formData = {
+              Name: values?.name,
+              Email: values?.email,
+              Mobile: `91${values?.mobile}`,
+              Amount: order.amount / 100,
+              Razorpay_Transaction_Id: response.razorpay_payment_id || "N/A",
+              Payment_Status: "paid",
+              programm_date: progDate,
+              programm_start_date: progStartDate,
+              programm_end_date: progEndDate,
+              page_name: config?.pageName || "aibe-weekend-batch",
+              ip_address: userIpAddress,
+              utm_source: getUTM("utm_source"),
+              utm_medium: getUTM("utm_medium"),
+              utm_campaign: getUTM("utm_campaign"),
+              utm_term: getUTM("utm_term"),
+              utm_content: getUTM("utm_content"),
+            };
+
+            const apiPayload = {
+              name: values?.name || "",
+              email: values?.email,
+              mobile: `91${values?.mobile}`,
+              amount: order.amount / 100,
+              programm_date: progDate,
+              programm_start_date: progStartDate,
+              programm_end_date: progEndDate,
+              razorpay_order_id: response.razorpay_order_id || order.id || "",
+              razorpay_payment_id: response.razorpay_payment_id || "",
+              razorpay_signature: response.razorpay_signature || "",
+              payment_status: "paid",
+              captured: "true",
+              page_name: config?.pageName || "aibe-weekend-batch",
+              ip_address: userIpAddress,
+              utm_source: getUTM("utm_source"),
+              utm_medium: getUTM("utm_medium"),
+              utm_campaign: getUTM("utm_campaign"),
+              utm_term: getUTM("utm_term"),
+              utm_content: getUTM("utm_content"),
+            };
+
+            const params = new URLSearchParams();
+            Object.keys(formData).forEach((key) => {
+              params.append(key, formData[key] || "N/A");
+            });
+
+            resetForm();
+
+            await Promise.allSettled([
+              handleGoogleSheetForm(params),
+              useVlsAibeQuery(apiPayload),
+            ]);
+
+            afterRegisterSuccessful(formData);
+          },
+          modal: {
+            ondismiss: function () {
+              setisLoading(false);
+            },
+          },
         };
 
-        const apiPayload = {
-          name: values?.name || "",
-          email: values?.email,
-          mobile: `91${values?.mobile}`,
-          // amount: order?.amount / 100,  // COMMENTED OUT: No payment details
-          programm_start_date: "2026-05-15",
-          programm_end_date: "2026-05-17",
-          // razorpay_order_id: response.razorpay_order_id || "",  // COMMENTED OUT: No payment details
-          // razorpay_payment_id: response.razorpay_payment_id || "",  // COMMENTED OUT: No payment details
-          // razorpay_signature: response.razorpay_signature || "",  // COMMENTED OUT: No payment details
-          // payment_status: "paid",  // COMMENTED OUT: No payment details
-          // captured: response.captured || "",  // COMMENTED OUT: No payment details
-          ip_address: userIpAddress,
-          utm_source: localStorage.getItem("utm_source"),
-          utm_medium: localStorage.getItem("utm_medium"),
-          utm_campaign: localStorage.getItem("utm_campaign"),
-          utm_term: localStorage.getItem("utm_term"),
-          utm_content: localStorage.getItem("utm_content"),
-        };
-
-        // const whatsappPayload = {
-        //   phone: `91${values?.mobile}`,
-        //   name: values?.name || "AIBE Student",
-        //   amount: 499,
-        //   event_dates: "May 15, 16, 17, 2026",
-        //   event_date_time: "May 15 (Friday): 6:00 PM - 8:30 PM | May 16-17 (Sat & Sun): 9:30 AM - 1:00 PM",
-        //   platform: "Google Meet",
-        //   link_date: "Thursday May, 14",
-        // };
-
-        const params = new URLSearchParams();
-        Object.keys(formData).forEach((key) => {
-          params.append(key, formData[key] || "N/A");
-        });
-
-        resetForm();
-
-        // if (typeof window !== "undefined") {
-        //   if (window.fbq) {
-        //     window.fbq("track", "Purchase", { value: 499, currency: "INR" });
-        //   }
-        //   if (window.dataLayer) {
-        //     window.dataLayer.push({
-        //       event: "purchase",
-        //       ecommerce: {
-        //         currency: "INR",
-        //         value: 499,
-        //         items: [{ item_name: "AIBE Class", price: 499, quantity: 1 }],
-        //       },
-        //     });
-        //   }
-        // }
-        await Promise.allSettled([
-          // handleWhatsappMessage(whatsappPayload),
-          handleGoogleSheetForm(params),
-          useVlsAibeQuery(apiPayload),
-        ]);
-
-        afterRegisterSuccessufull(formData);
-
-        // ======== COMMENTED OUT: RAZORPAY MODAL & HANDLERS ========
-        // }
-        // const options = {
-        //   key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-        //   amount: order?.amount * 100,
-        //   currency: "INR",
-        //   name: values?.name,
-        //   order_id: order.id,
-        //   description: "Advance amount of AIBE ₹499 + 18% GST",
-        //   prefill: {
-        //     name: values?.name,
-        //     email: values?.email,
-        //     contact: values?.mobile,
-        //   },
-        //   theme: { color: "#b20a0a" },
-        //   handler: async function (response) {
-        //     // PAYMENT SUCCESS HANDLER - NOW HANDLED ABOVE
-        //   },
-        //   modal: {
-        //     ondismiss: function () {
-        //       setisLoading(false);
-        //     },
-        //   },
-        // };
-        // const razor = new window.Razorpay(options);
-        // razor.on("payment.failed", function () {
-        //   window.location.href = "/error";
-        //   setisLoading(false);
-        // });
-        // razor.open();
-        // ======== END COMMENTED: RAZORPAY MODAL & HANDLERS ========
-
+        if (typeof window !== "undefined" && window.Razorpay) {
+          const razor = new window.Razorpay(options);
+          razor.on("payment.failed", function (failResp) {
+            console.error("Payment failed:", failResp);
+            setisLoading(false);
+            window.location.href = "/error";
+          });
+          razor.open();
+        } else {
+          console.error("Razorpay SDK not loaded");
+          setisLoading(false);
+        }
       } catch (err) {
         console.error("Form execution failed:", err);
         setisLoading(false);
@@ -170,23 +232,9 @@ const Form = () => {
     },
   });
 
-  const handleWhatsappMessage = async (apiPayload) => {
-    try {
-      const res = await fetch("/api/sendWhatsapp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(apiPayload),
-      });
-      console.log("response", res);
-    } catch (err) {
-      console.error("Fetch error:", err);
-      console.log("Server error. Please try again later.");
-    }
-  };
-
   const handleGoogleSheetForm = async (formData) => {
     try {
-      const sheetRes = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbxIyM62qbYBnExLbJkN-b41b47R3T4gVvpucUpGfLBF2oyl3OCW5Zb_LOl90KKCtB97/exec",
         {
           method: "POST",
@@ -195,19 +243,17 @@ const Form = () => {
             "Content-Type": "application/x-www-form-urlencoded",
           },
           body: formData.toString(),
-        },
+        }
       );
-
       console.log("Sheet response executed automatically (no-cors)");
     } catch (err) {
       console.error("Fetch error:", err);
-      console.log("Server error. Please try again later.");
     }
   };
 
-  const afterRegisterSuccessufull = (formData) => {
+  const afterRegisterSuccessful = (data) => {
     setTimeout(() => {
-      localStorage.setItem("PaymentDeatls", JSON.stringify(formData));
+      localStorage.setItem("PaymentDeatls", JSON.stringify(data));
       window.location.href = "/thank-you";
       setisLoading(false);
     }, 1000);
@@ -216,9 +262,12 @@ const Form = () => {
   return (
     <div>
       <div className={styles.formTopic}>
-        <h3>Join the Batch</h3>
-        {/* <p>Fill out the form, pay ₹499, and confirm your seat today!</p> */}
-        <p>Please complete the form, and confirm your seat now!</p>
+        <h3>{isRegOpen ? "Reserve Your Seat" : "Join Waitlist"}</h3>
+        <p>
+          {isRegOpen
+            ? `Please complete the form and confirm your seat for ${config?.name || "the session"} (₹${config?.fee || 499})!`
+            : `Enter your details to get notified when the next batch for ${config?.name || "this session"} is announced.`}
+        </p>
       </div>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.inputgrp}>
@@ -287,31 +336,19 @@ const Form = () => {
         <div className={styles.inputgrp}>
           <Button
             disabled={isLoading}
-            name={isLoading ? "Submitting..." : "Confirm Your Seat"}
+            name={
+              isLoading
+                ? "Submitting..."
+                : isRegOpen
+                ? "Confirm Your Seat"
+                : "Join Waitlist"
+            }
             bg_color={"#b20a0a"}
             name_color={"#ffff"}
             btn_type={"submit"}
           />
         </div>
       </form>
-
-      {/* ======== COMMENTED OUT: PROCESSING POPUP ========
-      <Popup
-        open={isLoading}
-        onClose={() => {
-          handleTogglecontactForm();
-        }}
-      >
-        <div className={styles.loadingPopup}>
-          <h4>⚠️ Do Not Close or Refresh</h4>
-          <p>
-            Your registration is being processed. We are sending you confirmation details via email and WhatsApp.
-            Please stay on this page until the process is complete.
-          </p>
-          <h6>⏳ Processing... Please wait.</h6>
-        </div>
-      </Popup>
-      ======== END COMMENTED: PROCESSING POPUP ======== */}
     </div>
   );
 };

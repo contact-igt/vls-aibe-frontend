@@ -5,11 +5,18 @@ import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 import { Popup } from "@/common/Popup";
 import { useEffect, useState } from "react";
 import Button from "@/common/Button";
+import { programConfig as defaultProgramConfig } from "@/constant/Home";
+import { isRegistrationOpen, getPrimaryCtaText } from "@/utils/programStatus";
 
-const HomeBanner = ({ banner, handleToggleToForm }) => {
+const HomeBanner = ({
+  banner,
+  handleToggleToForm,
+  config = defaultProgramConfig,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [seatsLeft, setSeatsLeft] = useState(12);
+  const isRegOpen = isRegistrationOpen(config);
+  const ctaText = getPrimaryCtaText(config);
 
   const openModal = (videoUrl) => {
     setSelectedVideo(videoUrl);
@@ -20,12 +27,26 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
-    }, 30000);
-    return () => clearInterval(interval);
-  }, []);
+  // Build clean tags array depending on registration mode:
+  const displayTags = isRegOpen
+    ? banner?.main?.tags || []
+    : [
+        {
+          id: 1,
+          icon: "calendar",
+          title: "Next Batch Announcement Coming Soon",
+        },
+        {
+          id: 3,
+          icon: "locate-fixed",
+          title: config?.mode || "Both Online / Offline",
+        },
+        {
+          id: 5,
+          icon: "ticket",
+          title: "Join Waitlist for Priority Access",
+        },
+      ];
 
   return (
     <section className={styles.homebanner_sec}>
@@ -79,7 +100,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
 
         <div className=" mt-3 d-flex justify-content-center">
           <Button
-            name={"Register For AIBE Class"}
+            name={ctaText}
             bg_color={"#b20a0a"}
             name_color={"#fff"}
             onClick={handleToggleToForm}
@@ -147,7 +168,7 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
         <div
           className={`${styles.tagview} d-flex justify-content-center flex-wrap gap-4 mt-5 `}
         >
-          {banner?.main?.tags?.map((data, i) => (
+          {displayTags.map((data, i) => (
             <div
               key={i}
               className={`${styles.tagbox} d-flex align-items-center gap-2`}
@@ -156,9 +177,16 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
               <DynamicIcon name={data?.icon} size={18} />
               <div className="d-flex flex-column">
                 <h6 className="m-0">
-                  {data?.id == "4" ? (
+                  {data?.id == "4" && isRegOpen ? (
                     <>
-                      <span style={{ textDecoration: "line-through", opacity: 0.6, fontSize: '0.8em', marginRight: '5px' }}>
+                      <span
+                        style={{
+                          textDecoration: "line-through",
+                          opacity: 0.6,
+                          fontSize: "0.8em",
+                          marginRight: "5px",
+                        }}
+                      >
                         {data?.title.split(" ")[0]}
                       </span>
                       {data?.title.split(" ")[1]}
@@ -167,8 +195,15 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
                     data?.title
                   )}
                 </h6>
-                {data?.bookSeat && (
-                  <p className="m-0" style={{ fontSize: "10px", fontWeight: "bold", color: "#b20a0a" }}>
+                {isRegOpen && data?.bookSeat && (
+                  <p
+                    className="m-0"
+                    style={{
+                      fontSize: "10px",
+                      fontWeight: "bold",
+                      color: "#b20a0a",
+                    }}
+                  >
                     {data?.bookSeat}
                   </p>
                 )}
@@ -176,17 +211,6 @@ const HomeBanner = ({ banner, handleToggleToForm }) => {
             </div>
           ))}
         </div>
-
-        {/* <div className="mt-5 d-flex justify-content-center">
-          <Button
-            name={"Register For AIBE Course"}
-            bg_color={"#b20a0a"}
-            name_color={"#fff"}
-            onClick={handleToggleToForm}
-            icon={"circle-check"}
-            icon_color={"#fff"}
-          />
-        </div> */}
 
         <div className="d-flex justify-content-center mt-5">
           <div

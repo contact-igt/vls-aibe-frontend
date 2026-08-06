@@ -158,20 +158,12 @@ const Footer = () => {
       </section>
 
       <div className={styles.whatsappicon}>
-        {/* <a href="http://wa.me/+919500025216" target="blank">
-          <Image
-            src={"/assets/whatsapp.png"}
-            width={60}
-            height={60}
-            alt="whtasapp-logo"
-          />
-        </a> */}
-        <Image
-          src={"/assets/whatsapp.png"}
+        <img
+          src="/assets/whatsapp.png"
           width={60}
           height={60}
-          style={{ borderRadius: "100px" }}
-          alt="whtasapp-logo"
+          style={{ borderRadius: "100px", cursor: "pointer" }}
+          alt="whatsapp-logo"
           onClick={handleClick}
         />
       </div>

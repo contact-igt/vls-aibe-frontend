@@ -1,3 +1,22 @@
+export const programConfig = {
+  name: "AIBE Intensive Masterclass",
+  descriptor: "20 Hours Intensive Training",
+  category: "AIBE Exam Preparation Masterclass",
+  sessionStatus: "announced",
+  date: "May 15, 16 & 17, 2026",
+  startDate: "15 May 2026",
+  endDate: "17 May 2026",
+  time: "Fri: 6:00 PM – 8:30 PM | Sat & Sun: 9:30 AM – 1:00 PM IST",
+  classStartAt: "2026-05-15T18:00:00+05:30",
+  duration: "20 Hours",
+  mode: "Both Online / Offline",
+  language: "English / Tamil",
+  fee: 499,
+  pageName: "aibe-weekend-batch",
+  whatsapp: "+919500025216",
+  phone1: "+919500207811",
+};
+
 export const HomePageConstant = {
   navLink: [
     {

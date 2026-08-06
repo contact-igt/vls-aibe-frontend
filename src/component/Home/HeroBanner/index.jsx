@@ -3,16 +3,34 @@ import styles from "./styles.module.css";
 import { SafeDynamicIcon as DynamicIcon } from "@/common/SafeDynamicIcon";
 import Form from "@/common/Form";
 import { forwardRef, useEffect, useState } from "react";
+import { programConfig as defaultProgramConfig } from "@/constant/Home";
+import {
+  isRegistrationOpen,
+  getPrimaryCtaText,
+  getSessionDisplay,
+} from "@/utils/programStatus";
 
 const HeroBanner = forwardRef(
-  ({ herobanner_constant, scrollToContactForm }, ref) => {
+  (
+    {
+      herobanner_constant,
+      scrollToContactForm,
+      config = defaultProgramConfig,
+    },
+    ref
+  ) => {
     const [seatsLeft, setSeatsLeft] = useState(12);
+    const isRegOpen = isRegistrationOpen(config);
+    const ctaText = getPrimaryCtaText(config);
+    const sessionDisplay = getSessionDisplay(config);
+
     useEffect(() => {
       const interval = setInterval(() => {
         setSeatsLeft((prev) => (prev > 6 ? prev - 1 : prev));
       }, 30000);
       return () => clearInterval(interval);
     }, []);
+
     return (
       <section className={styles.heroBannerSection}>
         <div className={styles.overlay}></div>
@@ -38,7 +56,7 @@ const HeroBanner = forwardRef(
                           className="d-none d-md-block"
                         />
 
-                        <h2>Friday, Saturday, Sunday May 15, 16 & 17, 2026</h2>
+                        <h2>{sessionDisplay}</h2>
                       </div>
 
                       <div className="d-flex align-items-center gap-3 my-2">
@@ -48,39 +66,49 @@ const HeroBanner = forwardRef(
                           className="d-none d-md-block"
                         />
                         <div className={styles.courseDetails}>
-                          <span className={styles.totalHours}>Total 25hr</span>
+                          <span className={styles.totalHours}>
+                            {config?.duration || "20 Hours"}
+                          </span>
                           <span className={styles.separator}>-</span>
                           <span className={styles.breakdown}>
-                            12hr Theory + 13hr Test + Practice
+                            {config?.mode || "Live Masterclass"}
                           </span>
                         </div>
                       </div>
 
                       <div className={styles.dateDetails}>
-                        <span className={styles.dateItem}>May 15, 16 & 17 (Friday, Saturday, Sunday)</span>
-                        {/* <span className={styles.dateItem}>Nov 15 (Sat)</span>
-                        <span className={styles.dateItem}>Nov 16 (Sun)</span> */}
+                        <span className={styles.dateItem}>{sessionDisplay}</span>
                       </div>
                       <div className={styles.amountDetails}>
-                        <div className={styles.limitedSeats}>
-                          <strong>Limited Seats Available</strong>
-                          <br />
-                          <small>
-                            Only{" "}
-                            <span className={styles.seatsLeft}>
-                              {seatsLeft}
-                            </span>{" "}
-                            / 50 seats left ·
-                            <br className="d-block d-md-none" />
-                            <span className={styles.timer}>
-                              {" "}
-                              ⏰ Offer ends soon
-                            </span>
-                          </small>
-                        </div>
+                        {isRegOpen ? (
+                          <div className={styles.limitedSeats}>
+                            <strong>Limited Seats Available</strong>
+                            <br />
+                            <small>
+                              Only{" "}
+                              <span className={styles.seatsLeft}>
+                                {seatsLeft}
+                              </span>{" "}
+                              / 50 seats left ·
+                              <br className="d-block d-md-none" />
+                              <span className={styles.timer}>
+                                {" "}
+                                ⏰ Offer ends soon
+                              </span>
+                            </small>
+                          </div>
+                        ) : (
+                          <div className={styles.limitedSeats}>
+                            <strong>Registration Closed</strong>
+                            <br />
+                            <small className="text-muted">
+                              Join the waitlist to be notified for the next batch.
+                            </small>
+                          </div>
+                        )}
                         <Button
                           onClick={scrollToContactForm}
-                          name="Join the Batch"
+                          name={ctaText}
                           name_color="#ffffff"
                           bg_color="#b20a0a"
                           icon="notepad-text"
@@ -108,7 +136,7 @@ const HeroBanner = forwardRef(
                   <div className={`${styles.heroBannerCta} d-flex gap-4 pt-1`}>
                     <Button
                       onClick={scrollToContactForm}
-                      name={"Book Your Slot"}
+                      name={ctaText}
                       bg_color={"#b20a0a"}
                       name_color={"#ffff"}
                       icon={"notepad-text"}
@@ -121,7 +149,7 @@ const HeroBanner = forwardRef(
                       bg_color={"#ffff"}
                       name_color={"#000"}
                       btn_type={"link"}
-                      href={"http://wa.me/+919500025216"}
+                      href={`http://wa.me/${(config?.whatsapp || "+919500025216").replace(/[^0-9]/g, "")}`}
                       img={"/assets/whatsapp-icon.png"}
                     />
                   </div>
@@ -129,7 +157,7 @@ const HeroBanner = forwardRef(
               </div>
               <div className="col-lg-5 d-flex justify-content-center d-lg-block">
                 <div ref={ref} className={styles.bannerForm}>
-                  <Form />
+                  <Form config={config} />
                 </div>
               </div>
             </div>
