@@ -10,7 +10,7 @@ import WhosThis from "@/component/Home/WhosThis";
 import Included from "@/component/Home/Included";
 import Schedule from "@/component/Home/Schedule";
 import WhatWeCover from "@/component/Home/WhatWeCover";
-import { HomePageConstant } from "@/constant/Home";
+import { HomePageConstant, programConfig } from "@/constant/Home";
 import { useEffect, useRef, useState } from "react";
 import { TrainingSession } from "@/component/Home/TrainingSession";
 import Testimonial from "@/component/Home/testimonial";
@@ -19,8 +19,6 @@ import { Popup } from "@/common/Popup";
 import Form from "@/common/Form";
 
 const HomePageComponent = () => {
-  // const contactRef = useRef(null);
-
   const [isopen, setisopen] = useState(false);
 
   const handleToggleToForm = () => {
@@ -36,6 +34,7 @@ const HomePageComponent = () => {
       <HomeBanner
         banner={HomePageConstant?.homeBanner}
         handleToggleToForm={handleToggleToForm}
+        config={programConfig}
       />
       <TrainingSession
         trainingsession_constant={HomePageConstant?.trainingSession}
@@ -61,17 +60,17 @@ const HomePageComponent = () => {
         cta_text={HomePageConstant?.whatLearn_cta}
         handleToggleToForm={handleToggleToForm}
       />
-      <WhosThis whosthis_constant={HomePageConstant?.whosThis}  handleToggleToForm={handleToggleToForm}/>
+      <WhosThis whosthis_constant={HomePageConstant?.whosThis} handleToggleToForm={handleToggleToForm}/>
       <Decoding decoding_constant={HomePageConstant?.decode} />
-      <Schedule schedule_constant={HomePageConstant?.schedule} handleToggleToForm={handleToggleToForm} />
+      <Schedule schedule_constant={HomePageConstant?.schedule} handleToggleToForm={handleToggleToForm} config={programConfig} />
       <Included
         included_constant={HomePageConstant?.included}
         handleToggleToForm={handleToggleToForm}
       />
-      <FAQ faqs={HomePageConstant?.Faq} />
-      <RegisterSticky handleToggleToForm={handleToggleToForm} />
+      <FAQ faqs={HomePageConstant?.Faq} config={programConfig} />
+      <RegisterSticky handleToggleToForm={handleToggleToForm} config={programConfig} />
       <Popup open={isopen} onClose={handleToggleToForm}>
-        <Form />
+        <Form config={programConfig} />
       </Popup>
     </>
   );

@@ -143,7 +143,19 @@
     right: 20px;
     bottom: 130px;
     z-index: 9998;
+    cursor: pointer;
+}
 
+.whatsappicon img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out;
+}
+
+.whatsappicon img:hover {
+    transform: scale(1.1);
 }
 
 .address_box p {

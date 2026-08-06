@@ -1,4 +1,4 @@
-import ResponsePageComponent from "@/pageComponent/Home/Response";
+import ResponsePageComponent from "@/common/Response";
 
 const ResponsePage = () => {
   return <ResponsePageComponent />;
