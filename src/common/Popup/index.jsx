@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 
-export const Popup = ({ children, open, onClose, variant="default" }) => {
+export const Popup = ({ children, open, onClose, variant = "default" }) => {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Popup = ({ children, open, onClose, variant="default" }) => {
   if (!open) return null;
 
   return (
-   <div
+    <div
       className={`${styles.bg} ${variant === "video" ? styles.videoBg : ""}`}
     >
       <div
@@ -30,6 +30,13 @@ export const Popup = ({ children, open, onClose, variant="default" }) => {
         }`}
         ref={wrapperRef}
       >
+        <span
+          onClick={onClose}
+          className={styles.closeBtn}
+          aria-label="Close modal"
+        >
+          &times;
+        </span>
         {children}
       </div>
     </div>

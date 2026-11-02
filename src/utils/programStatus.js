@@ -13,11 +13,11 @@ export const isWaitlistMode = (programConfig) => {
 };
 
 export const getPrimaryCtaText = (programConfig) => {
-  return isRegistrationOpen(programConfig) ? "Register Here" : "Join Waitlist";
+  return isRegistrationOpen(programConfig) ? "Register Here" : "Get Course Details";
 };
 
 export const getSectionCtaText = (programConfig, fallback = "Register Now") => {
-  return isRegistrationOpen(programConfig) ? fallback : "Join Waitlist";
+  return isRegistrationOpen(programConfig) ? fallback : "Get Course Details";
 };
 
 export const getSessionDisplay = (programConfig) => {
@@ -32,7 +32,7 @@ export const getMarqueeText = (programConfig) => {
   if (isRegistrationOpen(programConfig)) {
     return `🚀 ${programConfig?.name || "AIBE Weekend Batch"} – ${programConfig?.date || "Upcoming Batch"} | ${programConfig?.duration || "20 Hours"} Intensive Training + Test Questions | Learn Smarter, Practice Better, Clear Faster! 🎯`;
   }
-  return `🚀 ${programConfig?.name || "AIBE Masterclass"} – Next Batch Announcement Coming Soon | Join the Waitlist to Get Early Access & Notifications! 🎯`;
+  return `🚀 ${programConfig?.name || "AIBE Masterclass"} – Next Batch Announcement Coming Soon | Enquire for Course Details & Updates! 🎯`;
 };
 
 export const getProgramDate = (programConfig) => {

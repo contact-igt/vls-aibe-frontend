@@ -1,12 +1,30 @@
 "use client";
 
 // import { NavbarLink } from "@/constants/navlink";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import { HomePageConstant } from "@/constant/Home";
 
 const Footer = () => {
+  const [isEnquiryVisible, setIsEnquiryVisible] = useState(false);
+
+  useEffect(() => {
+    const enquiries = document.querySelectorAll("[data-enquiry-form]");
+    if (!enquiries.length) return;
+    const visibleEnquiries = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleEnquiries.add(entry.target);
+        else visibleEnquiries.delete(entry.target);
+      });
+      setIsEnquiryVisible(visibleEnquiries.size > 0);
+    });
+    enquiries.forEach((enquiry) => observer.observe(enquiry));
+    return () => observer.disconnect();
+  }, []);
+
   const handleClick = () => {
     const message = "AIBE";
     const encodedMsg = encodeURIComponent(message);
@@ -23,9 +41,9 @@ const Footer = () => {
               <div className="row">
                 <div className="col-lg-5 col-md-6 col-12 mb-4 mb-md-0">
                   <div className={styles.info_logo}>
-                    <a className={styles.brandlogo} href="/">
+                    <Link className={styles.brandlogo} href="/">
                       <img src={"/assets/vls_logo.png"} alt="logo" />
-                    </a>
+                    </Link>
                   </div>
                   <p>
                     VLS Law Academy is a coaching institute for law graduates,
@@ -157,7 +175,7 @@ const Footer = () => {
         </div>
       </section>
 
-      <div className={styles.whatsappicon}>
+      <div className={styles.whatsappicon} hidden={isEnquiryVisible}>
         <img
           src="/assets/whatsapp.png"
           width={60}

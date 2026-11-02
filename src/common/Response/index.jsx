@@ -19,18 +19,16 @@ const Response = () => {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem("PaymentDeatls") || localStorage.getItem("PaymentDetails");
+      const stored =
+        localStorage.getItem("PaymentDeatls") ||
+        localStorage.getItem("PaymentDetails");
       if (stored) {
         setuserDeatil(JSON.parse(stored));
       }
     } catch (e) {
-      console.error("Failed to parse PaymentDeatls", e);
+      console.error("Failed to parse stored details", e);
     }
   }, []);
-
-  const isWaitlist =
-    userDetail?.Payment_Status === "waitlist" ||
-    userDetail?.payment_status === "waitlist";
 
   if (issuccess === null) {
     return (
@@ -63,86 +61,69 @@ const Response = () => {
 
         <div className={`text-center ${styles.responseInfo}`}>
           <h5 className={issuccess ? styles.successText : styles.errorText}>
-            {issuccess
-              ? isWaitlist
-                ? "Thank You - Joined Waitlist!"
-                : "Thank You for Your Booking!"
-              : "Booking Failed"}
+            {issuccess ? "Thank You! Details Received" : "Submission Failed"}
           </h5>
 
           {issuccess ? (
-            isWaitlist ? (
-              <>
-                <p className="mt-3">
-                  Your entry for the waitlist has been successfully received.
-                </p>
-                <p className="text-muted mt-2">
-                  Our team will contact you via Email or WhatsApp as soon as dates and pricing for the next batch are finalized.
-                </p>
-                <p className="fw-semibold mt-3 text-success">
-                  Thank you for your interest in VLS Law Academy! 🚀
-                </p>
-                {userDetail && (
-                  <div className={styles.summaryBox}>
+            <>
+              <p className="mt-3">
+                Your enquiry has been successfully received.
+              </p>
+              <p className="text-muted mt-2">
+                Our academic counselor will get in touch with you via Phone or
+                WhatsApp to guide you with the right AIBE preparation strategy.
+              </p>
+              <p className="fw-semibold mt-3 text-success">
+                Thank you for connecting with VLS Law Academy! 🚀
+              </p>
+              {userDetail && (
+                <div className={styles.summaryBox}>
+                  <p>
+                    <strong>Submitted Details:</strong>
+                  </p>
+                  <p>
+                    <strong>Full Name:</strong>{" "}
+                    {userDetail["Full Name"] || userDetail.Name || userDetail.name || "-"}
+                  </p>
+                  <p>
+                    <strong>Mobile Number:</strong>{" "}
+                    {userDetail["Mobile Number"] || userDetail.Mobile || userDetail.mobile || "-"}
+                  </p>
+                  <p>
+                    <strong>Email Address:</strong>{" "}
+                    {userDetail["Email Address"] || userDetail.Email || userDetail.email || "-"}
+                  </p>
+                  {(userDetail["Have you completed your LLB?"] || userDetail.completed_llb) && (
                     <p>
-                      <strong>Waitlist Entry Details:</strong>
+                      <strong>LLB Status:</strong>{" "}
+                      {userDetail["Have you completed your LLB?"] || userDetail.completed_llb}
                     </p>
+                  )}
+                  {(userDetail["Which AIBE exam are you preparing for?"] || userDetail.aibe_exam) && (
                     <p>
-                      <strong>Name:</strong> {userDetail.Name || userDetail.name || "-"}
+                      <strong>Target Exam:</strong>{" "}
+                      {userDetail["Which AIBE exam are you preparing for?"] || userDetail.aibe_exam}
                     </p>
+                  )}
+                  {(userDetail["What type of AIBE preparation are you looking for?"] || userDetail.preparation_type) && (
                     <p>
-                      <strong>Email:</strong> {userDetail.Email || userDetail.email || "-"}
+                      <strong>Preparation Type:</strong>{" "}
+                      {userDetail["What type of AIBE preparation are you looking for?"] || userDetail.preparation_type}
                     </p>
+                  )}
+                  {(userDetail["When would you like to start your preparation?"] || userDetail.start_timeline) && (
                     <p>
-                      <strong>Mobile:</strong> {userDetail.Mobile || userDetail.mobile || "-"}
+                      <strong>Start Timeline:</strong>{" "}
+                      {userDetail["When would you like to start your preparation?"] || userDetail.start_timeline}
                     </p>
-                    <p>
-                      <strong>Status:</strong> <span className="badge bg-warning text-dark">Waitlisted</span>
-                    </p>
-                  </div>
-                )}
-              </>
-            ) : (
-              <>
-                <p className="mt-3">
-                  Your booking for the
-                  <strong> AIBE Weekend Batch </strong>
-                  has been successfully received.
-                </p>
-                <p className="text-muted mt-2">
-                  Our team will contact you within 24 hours via phone or WhatsApp to confirm your booking and provide the payment details to complete your enrollment.
-                </p>
-                <p className="fw-semibold mt-3 text-success">
-                  We look forward to helping you succeed in the AIBE exam! 🎯
-                </p>
-                {userDetail && (
-                  <div className={styles.summaryBox}>
-                    <p>
-                      <strong>Booking Details:</strong>
-                    </p>
-                    <p>
-                      <strong>Name:</strong> {userDetail.Name || userDetail.name || "-"}
-                    </p>
-                    <p>
-                      <strong>Email:</strong> {userDetail.Email || userDetail.email || "-"}
-                    </p>
-                    <p>
-                      <strong>Mobile:</strong> {userDetail.Mobile || userDetail.mobile || "-"}
-                    </p>
-                    {userDetail.Amount && (
-                      <p>
-                        <strong>Amount:</strong> ₹{userDetail.Amount}
-                      </p>
-                    )}
-                    {userDetail.Razorpay_Transaction_Id && userDetail.Razorpay_Transaction_Id !== "N/A" && (
-                      <p>
-                        <strong>Transaction ID:</strong> {userDetail.Razorpay_Transaction_Id}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </>
-            )
+                  )}
+                  <p>
+                    <strong>Status:</strong>{" "}
+                    <span className="badge bg-success text-white">Submitted</span>
+                  </p>
+                </div>
+              )}
+            </>
           ) : (
             <p>
               Oops! We couldn't process your request. Please try again or call
