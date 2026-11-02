@@ -1,0 +1,91 @@
+.enquirySection {
+  padding: 80px 24px;
+  background: #faf7f4;
+}
+
+.enquiryGrid {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: start;
+}
+
+.enquiryContent { padding-top: 12px; min-width: 0; }
+
+.enquiryContent h2 {
+  margin: 20px 0 24px;
+  color: #241c19;
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -1.2px;
+  text-wrap: balance;
+}
+
+.enquiryContent h2 span { color: #a31010; }
+
+.enquiryDescription {
+  margin: 0;
+  color: #67564d;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.enquiryBenefits {
+  display: grid;
+  gap: 14px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  color: #44372f;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.enquiryBenefits li { position: relative; padding-left: 24px; }
+.enquiryBenefits li::before { content: "✓"; position: absolute; left: 0; color: #a31010; font-weight: 700; }
+
+.enquiryContact { margin-top: 36px; padding-top: 28px; border-top: 1px solid #e5d9d0; }
+.enquiryContact p { margin: 0 0 12px; color: #67564d; font-size: 16px; }
+.phoneLinks { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.phoneLinks a { color: #a31010; font-size: 18px; font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
+.whatsappLink { display: inline-flex; gap: 12px; align-items: center; min-height: 44px; margin-top: 20px; color: #a31010; font-size: 15px; font-weight: 600; }
+.phoneLinks a:hover, .whatsappLink:hover { color: #701010; }
+.phoneLinks a:focus-visible, .whatsappLink:focus-visible { outline: 2px solid #a31010; outline-offset: 5px; }
+
+@media (max-width: 850px) {
+  .enquiryGrid { max-width: 640px; grid-template-columns: 1fr; gap: 32px; }
+  .enquirySection { padding: 56px 24px; }
+}
+
+.enquiryPanel {
+  min-width: 0;
+  padding: 32px;
+  border: 1px solid #eaded7;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 40px #5f30100a;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #9d1717;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.enquiryPanel h3 {
+  margin: 0 0 12px;
+  color: #241c19;
+  font-size: clamp(23px, 3vw, 29px);
+  line-height: 1.22;
+  letter-spacing: -.6px;
+}
+
+@media (max-width: 480px) {
+  .enquirySection { padding: 40px 16px; }
+  .enquiryPanel { padding: 22px 18px; }
+}
